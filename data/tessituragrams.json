@@ -1,0 +1,3049 @@
+{
+    "songs": [
+      {
+        "composer": "Clara Schumann",
+        "title": "6 Lieder, Op.13 — No. 1 Ich Stand In Dunklen Traumen",
+        "filename": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl",
+        "tessituragram": {
+          "65": 2.5,
+          "67": 13.5,
+          "68": 4.5,
+          "69": 4.5,
+          "72": 9.5,
+          "70": 14.25,
+          "73": 2.0,
+          "74": 3.5,
+          "77": 2.5,
+          "75": 4.25,
+          "63": 3.5,
+          "62": 1.0,
+          "66": 1.0,
+          "71": 3.0
+        },
+        "statistics": {
+          "total_duration": 111.0,
+          "pitch_range": {
+            "min": "D4",
+            "min_midi": 62,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 14
+        }
+      },
+      {
+        "composer": "Clara Schumann",
+        "title": "6 Lieder, Op.13 — No. 2 Sie Liebten Sich Beide",
+        "filename": "schumann-clara-6-lieder-op13-no2-sie-liebten-sich-beide.mxl",
+        "tessituragram": {
+          "62": 7.0,
+          "67": 11.5,
+          "70": 5.0,
+          "69": 2.5,
+          "75": 5.0,
+          "74": 19.0,
+          "72": 2.5,
+          "63": 6.0
+        },
+        "statistics": {
+          "total_duration": 102.0,
+          "pitch_range": {
+            "min": "D4",
+            "min_midi": 62,
+            "max": "E-5",
+            "max_midi": 75
+          },
+          "unique_pitches": 8
+        }
+      },
+      {
+        "composer": "Clara Schumann",
+        "title": "6 Lieder, Op.13 — No. 3 Liebeszauber",
+        "filename": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl",
+        "tessituragram": {
+          "67": 27.5,
+          "68": 19.0,
+          "70": 39.5,
+          "72": 20.0,
+          "74": 15.5,
+          "75": 22.5,
+          "65": 11.5,
+          "64": 2.0,
+          "71": 6.0,
+          "69": 1.0,
+          "79": 3.0,
+          "77": 1.0,
+          "63": 11.5
+        },
+        "statistics": {
+          "total_duration": 216.5,
+          "pitch_range": {
+            "min": "E-4",
+            "min_midi": 63,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 13
+        }
+      },
+      {
+        "composer": "Clara Schumann",
+        "title": "6 Lieder, Op.13 — No. 4 Der Mond Kommt Still Gegangen",
+        "filename": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl",
+        "tessituragram": {
+          "68": 20.5,
+          "63": 2.5,
+          "66": 4.0,
+          "65": 4.0,
+          "75": 5.0,
+          "73": 11.0,
+          "72": 8.5,
+          "70": 3.5,
+          "67": 3.0,
+          "69": 1.0,
+          "77": 2.5,
+          "62": 0.5,
+          "61": 4.0
+        },
+        "statistics": {
+          "total_duration": 99.0,
+          "pitch_range": {
+            "min": "D-4",
+            "min_midi": 61,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 13
+        }
+      },
+      {
+        "composer": "Clara Schumann",
+        "title": "6 Lieder, Op.13 — No. 5 Ich Hab In Deinem Auge",
+        "filename": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl",
+        "tessituragram": {
+          "75": 4.5,
+          "68": 15.0,
+          "70": 7.5,
+          "72": 11.0,
+          "73": 11.0,
+          "74": 4.0,
+          "77": 3.0,
+          "67": 3.5,
+          "65": 2.5,
+          "63": 2.5,
+          "71": 1.5,
+          "69": 2.0,
+          "64": 1.0
+        },
+        "statistics": {
+          "total_duration": 100.5,
+          "pitch_range": {
+            "min": "E-4",
+            "min_midi": 63,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 13
+        }
+      },
+      {
+        "composer": "Clara Schumann",
+        "title": "6 Lieder, Op.13 — No. 6 Die Stille Lotosblume",
+        "filename": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl",
+        "tessituragram": {
+          "63": 7.0,
+          "72": 16.333333333333336,
+          "70": 21.166666666666664,
+          "73": 13.0,
+          "74": 4.0,
+          "75": 7.0,
+          "77": 1.5,
+          "68": 14.0,
+          "71": 2.5,
+          "66": 7.5,
+          "65": 1.5,
+          "67": 3.5,
+          "69": 2.5
+        },
+        "statistics": {
+          "total_duration": 141.0,
+          "pitch_range": {
+            "min": "E-4",
+            "min_midi": 63,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 13
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Liederkreis, Op.39 — No. 1 In Der Fremde I",
+        "filename": "schumann-robert-liederkreis-op39-no1-in-der-fremde-i.mxl",
+        "tessituragram": {
+          "66": 15.5,
+          "68": 11.5,
+          "69": 16.5,
+          "71": 15.0,
+          "64": 1.0,
+          "73": 10.5,
+          "76": 3.0,
+          "74": 9.0,
+          "70": 2.0,
+          "67": 5.0
+        },
+        "statistics": {
+          "total_duration": 112.0,
+          "pitch_range": {
+            "min": "E4",
+            "min_midi": 64,
+            "max": "E5",
+            "max_midi": 76
+          },
+          "unique_pitches": 10
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Liederkreis — No. 10 Zwielicht",
+        "filename": "schumann-robert-liederkreis-op39-no10-zwielicht.mxl",
+        "tessituragram": {
+          "67": 27.75,
+          "73": 7.0,
+          "74": 6.0,
+          "71": 10.5,
+          "69": 10.5,
+          "68": 18.0,
+          "72": 4.0,
+          "66": 17.0,
+          "64": 11.0,
+          "63": 1.0,
+          "75": 1.5,
+          "76": 0.5,
+          "58": 2.75,
+          "59": 1.0
+        },
+        "statistics": {
+          "total_duration": 161.0,
+          "pitch_range": {
+            "min": "A#3",
+            "min_midi": 58,
+            "max": "E5",
+            "max_midi": 76
+          },
+          "unique_pitches": 14
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Liederkreis, Op.39 — No. 11 Im Walde",
+        "filename": "schumann-robert-liederkreis-op39-no11-im-walde.mxl",
+        "tessituragram": {
+          "69": 21.75,
+          "71": 16.25,
+          "73": 10.0,
+          "74": 9.0,
+          "61": 0.5,
+          "66": 5.0,
+          "70": 2.0,
+          "68": 6.5,
+          "63": 0.5,
+          "64": 12.5,
+          "72": 1.5,
+          "57": 1.5
+        },
+        "statistics": {
+          "total_duration": 151.0,
+          "pitch_range": {
+            "min": "A3",
+            "min_midi": 57,
+            "max": "D5",
+            "max_midi": 74
+          },
+          "unique_pitches": 12
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Liederkreis, Op.39 — No. 12 Fruhlingsnacht",
+        "filename": "schumann-robert-liederkreis-op39-no12-fruhlingsnacht.mxl",
+        "tessituragram": {
+          "66": 3.25,
+          "64": 0.5,
+          "63": 3.25,
+          "67": 0.25,
+          "70": 7.0,
+          "73": 7.75,
+          "71": 6.5,
+          "65": 4.0,
+          "69": 0.5,
+          "72": 0.75,
+          "75": 4.0,
+          "68": 0.75,
+          "74": 1.75,
+          "78": 0.25,
+          "77": 0.5
+        },
+        "statistics": {
+          "total_duration": 62.0,
+          "pitch_range": {
+            "min": "D#4",
+            "min_midi": 63,
+            "max": "F#5",
+            "max_midi": 78
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Liederkreis, Op.39 — No. 2 Intermezzo",
+        "filename": "schumann-robert-liederkreis-op39-no2-intermezzo.mxl",
+        "tessituragram": {
+          "76": 1.75,
+          "74": 8.0,
+          "73": 8.25,
+          "71": 9.0,
+          "70": 1.0,
+          "69": 2.0,
+          "68": 1.5,
+          "66": 1.75,
+          "78": 3.0,
+          "75": 0.75,
+          "63": 0.25,
+          "64": 2.25
+        },
+        "statistics": {
+          "total_duration": 60.0,
+          "pitch_range": {
+            "min": "D#4",
+            "min_midi": 63,
+            "max": "F#5",
+            "max_midi": 78
+          },
+          "unique_pitches": 12
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Liederkreis, Op.39 — No. 3 Waldesgesprach",
+        "filename": "schumann-robert-liederkreis-op39-no3-waldesgesprach.mxl",
+        "tessituragram": {
+          "64": 11.25,
+          "66": 17.0,
+          "68": 15.333333333333332,
+          "70": 3.5000000000000004,
+          "72": 6.416666666666666,
+          "74": 8.25,
+          "75": 9.75,
+          "73": 17.25,
+          "71": 28.25,
+          "76": 12.0,
+          "67": 9.583333333333334,
+          "69": 10.166666666666668,
+          "59": 1.0,
+          "80": 3.0,
+          "79": 2.0,
+          "78": 2.5,
+          "77": 4.5,
+          "65": 0.5
+        },
+        "statistics": {
+          "total_duration": 234.00000000000003,
+          "pitch_range": {
+            "min": "B3",
+            "min_midi": 59,
+            "max": "G#5",
+            "max_midi": 80
+          },
+          "unique_pitches": 18
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Liederkreis, Op.39 — No. 4 Die Stille",
+        "filename": "schumann-robert-liederkreis-op39-no4-die-stille.mxl",
+        "tessituragram": {
+          "71": 21.0,
+          "70": 7.0,
+          "67": 16.5,
+          "74": 10.25,
+          "76": 8.5,
+          "68": 1.5,
+          "69": 9.5,
+          "64": 1.0,
+          "62": 1.5,
+          "72": 1.75,
+          "66": 3.0,
+          "65": 2.0,
+          "75": 2.0
+        },
+        "statistics": {
+          "total_duration": 117.0,
+          "pitch_range": {
+            "min": "D4",
+            "min_midi": 62,
+            "max": "E5",
+            "max_midi": 76
+          },
+          "unique_pitches": 13
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Liederkreis, Op.39 — No. 5 Mondnacht",
+        "filename": "schumann-robert-liederkreis-op39-no5-mondnacht.mxl",
+        "tessituragram": {
+          "73": 15.0,
+          "75": 1.25,
+          "77": 1.25,
+          "78": 6.25,
+          "71": 19.25,
+          "76": 6.0,
+          "68": 5.0,
+          "66": 2.0,
+          "64": 3.5,
+          "65": 0.25,
+          "69": 1.0,
+          "72": 0.5
+        },
+        "statistics": {
+          "total_duration": 102.0,
+          "pitch_range": {
+            "min": "E4",
+            "min_midi": 64,
+            "max": "F#5",
+            "max_midi": 78
+          },
+          "unique_pitches": 12
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Liederkreis, Op.39 — No. 6 Schone Fremde",
+        "filename": "schumann-robert-liederkreis-op39-no6-schone-fremde.mxl",
+        "tessituragram": {
+          "70": 9.5,
+          "68": 10.5,
+          "73": 7.25,
+          "66": 17.75,
+          "71": 20.0,
+          "75": 3.0,
+          "76": 2.5,
+          "80": 3.0,
+          "78": 5.5,
+          "77": 0.5
+        },
+        "statistics": {
+          "total_duration": 124.0,
+          "pitch_range": {
+            "min": "F#4",
+            "min_midi": 66,
+            "max": "G#5",
+            "max_midi": 80
+          },
+          "unique_pitches": 10
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Liederkreis, Op.39 — No. 7 Auf Einer Burg",
+        "filename": "schumann-robert-liederkreis-op39-no7-auf-einer-burg.mxl",
+        "tessituragram": {
+          "71": 21.0,
+          "64": 33.0,
+          "66": 3.0,
+          "67": 21.5,
+          "72": 8.0,
+          "69": 22.0,
+          "60": 10.0,
+          "62": 9.0,
+          "68": 12.0
+        },
+        "statistics": {
+          "total_duration": 156.0,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "C5",
+            "max_midi": 72
+          },
+          "unique_pitches": 9
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Liederkreis, Op.39 — No. 8 In Der Fremde Ii",
+        "filename": "schumann-robert-liederkreis-op39-no8-in-der-fremde-ii.mxl",
+        "tessituragram": {
+          "76": 9.25,
+          "69": 4.5,
+          "71": 12.25,
+          "72": 8.5,
+          "64": 4.0,
+          "66": 1.5,
+          "67": 8.25,
+          "74": 6.0,
+          "73": 3.75,
+          "77": 0.25
+        },
+        "statistics": {
+          "total_duration": 78.0,
+          "pitch_range": {
+            "min": "E4",
+            "min_midi": 64,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 10
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Liederkreis, Op.39 — No. 9 Wehmuth",
+        "filename": "schumann-robert-liederkreis-op39-no9-wehmuth.mxl",
+        "tessituragram": {
+          "68": 16.0,
+          "69": 4.5,
+          "73": 13.0,
+          "71": 15.25,
+          "66": 7.0,
+          "67": 3.25,
+          "76": 0.75,
+          "74": 1.25,
+          "70": 0.5,
+          "64": 0.5
+        },
+        "statistics": {
+          "total_duration": 84.0,
+          "pitch_range": {
+            "min": "E4",
+            "min_midi": 64,
+            "max": "E5",
+            "max_midi": 76
+          },
+          "unique_pitches": 10
+        }
+      },
+      {
+        "composer": "Claude Debussy",
+        "title": "3 Chansons de France — No. 1 Rondel Le Temps A Laisse Son Manteau",
+        "filename": "debussy-claude-3-chansons-de-france-no1-rondel-le-temps-a-laisse-son-manteau.mxl",
+        "tessituragram": {
+          "64": 12.0,
+          "66": 8.0,
+          "68": 29.0,
+          "70": 8.0,
+          "73": 9.5,
+          "71": 10.833333333333332,
+          "75": 2.5,
+          "59": 1.0,
+          "61": 1.0,
+          "62": 1.5,
+          "69": 3.1666666666666665,
+          "63": 2.0,
+          "67": 4.333333333333333,
+          "65": 1.6666666666666665,
+          "78": 2.0
+        },
+        "statistics": {
+          "total_duration": 128.00000000000003,
+          "pitch_range": {
+            "min": "B3",
+            "min_midi": 59,
+            "max": "F#5",
+            "max_midi": 78
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Claude Debussy",
+        "title": "3 Chansons de France — No. 2 La Grotte Aupres De Cette Grotte Sombre",
+        "filename": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl",
+        "tessituragram": {
+          "63": 10.166666666666668,
+          "66": 5.833333333333332,
+          "68": 4.833333333333333,
+          "65": 7.333333333333332,
+          "59": 2.25,
+          "69": 1.1666666666666665,
+          "61": 2.1666666666666665,
+          "71": 2.5833333333333335,
+          "75": 2.5,
+          "60": 1.75,
+          "64": 2.25,
+          "73": 1.9999999999999998,
+          "70": 1.8333333333333333,
+          "62": 0.5
+        },
+        "statistics": {
+          "total_duration": 71.00000000000006,
+          "pitch_range": {
+            "min": "B3",
+            "min_midi": 59,
+            "max": "D#5",
+            "max_midi": 75
+          },
+          "unique_pitches": 14
+        }
+      },
+      {
+        "composer": "Claude Debussy",
+        "title": "3 Chansons de France — No. 3 Rondel Pour Ce Que Plaisance Est Morte",
+        "filename": "debussy-claude-3-chansons-de-france-no3-rondel-pour-ce-que-plaisance-est-morte.mxl",
+        "tessituragram": {
+          "60": 9.0,
+          "64": 11.999999999999998,
+          "62": 4.583333333333333,
+          "69": 3.25,
+          "67": 2.5,
+          "63": 1.9166666666666665,
+          "65": 5.75,
+          "66": 3.5,
+          "68": 2.833333333333333,
+          "70": 0.8333333333333333,
+          "72": 2.833333333333333,
+          "71": 2.5,
+          "61": 1.0,
+          "76": 0.5
+        },
+        "statistics": {
+          "total_duration": 92.00000000000001,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "E5",
+            "max_midi": 76
+          },
+          "unique_pitches": 14
+        }
+      },
+      {
+        "composer": "Claude Debussy",
+        "title": "Trois Chansons de Bilitis — No. 1 La Flute De Pan",
+        "filename": "debussy-claude-trois-chansons-de-bilitis-no1-la-flute-de-pan.mxl",
+        "tessituragram": {
+          "63": 6.166666666666666,
+          "66": 7.833333333333332,
+          "65": 2.4166666666666665,
+          "68": 8.5,
+          "71": 2.9166666666666665,
+          "70": 3.833333333333333,
+          "64": 12.08333333333333,
+          "61": 2.0,
+          "59": 1.0,
+          "62": 3.75,
+          "67": 2.6666666666666665,
+          "69": 0.16666666666666666
+        },
+        "statistics": {
+          "total_duration": 100.00000000000006,
+          "pitch_range": {
+            "min": "B3",
+            "min_midi": 59,
+            "max": "B4",
+            "max_midi": 71
+          },
+          "unique_pitches": 12
+        }
+      },
+      {
+        "composer": "Claude Debussy",
+        "title": "Trois Chansons de Bilitis — No. 2 La Chevelure",
+        "filename": "debussy-claude-trois-chansons-de-bilitis-no2-la-chevelure.mxl",
+        "tessituragram": {
+          "65": 11.500000000000002,
+          "64": 20.666666666666664,
+          "63": 5.999999999999999,
+          "67": 8.333333333333334,
+          "61": 5.666666666666665,
+          "68": 6.0,
+          "71": 7.0,
+          "66": 7.0,
+          "69": 3.3333333333333335,
+          "72": 8.833333333333334,
+          "70": 2.333333333333333,
+          "62": 7.5,
+          "60": 0.5,
+          "74": 2.25,
+          "76": 5.25,
+          "75": 1.0,
+          "73": 1.0,
+          "78": 1.5,
+          "59": 1.0
+        },
+        "statistics": {
+          "total_duration": 159.00000000000003,
+          "pitch_range": {
+            "min": "C-4",
+            "min_midi": 59,
+            "max": "F#5",
+            "max_midi": 78
+          },
+          "unique_pitches": 19
+        }
+      },
+      {
+        "composer": "Claude Debussy",
+        "title": "Trois Chansons de Bilitis — No. 3 Le Tombeau Des Naiades",
+        "filename": "debussy-claude-trois-chansons-de-bilitis-no3-le-tombeau-des-naiades.mxl",
+        "tessituragram": {
+          "62": 13.083333333333334,
+          "66": 7.083333333333332,
+          "65": 1.8333333333333333,
+          "69": 6.416666666666668,
+          "68": 4.25,
+          "71": 6.333333333333333,
+          "70": 6.5,
+          "74": 2.5,
+          "67": 7.666666666666666,
+          "63": 1.4999999999999998,
+          "61": 3.0,
+          "73": 2.5,
+          "72": 3.750000000000001,
+          "76": 0.5,
+          "64": 4.25,
+          "60": 3.5833333333333335,
+          "75": 8.0,
+          "78": 1.5,
+          "77": 0.5
+        },
+        "statistics": {
+          "total_duration": 121.99999999999993,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "F#5",
+            "max_midi": 78
+          },
+          "unique_pitches": 19
+        }
+      },
+      {
+        "composer": "Gabriel Fauré",
+        "title": "Cinq Mélodies Op. 58 — No. 4 A Clymene",
+        "filename": "faure-gabriel-cinq-melodies-op-58-no4-a-clymene.mxl",
+        "tessituragram": {
+          "64": 5.0,
+          "69": 25.0,
+          "71": 8.5,
+          "67": 11.75,
+          "72": 33.25,
+          "65": 7.0,
+          "75": 17.25,
+          "63": 4.5,
+          "74": 37.0,
+          "70": 16.0,
+          "73": 4.0,
+          "66": 7.5,
+          "68": 12.5,
+          "77": 3.0,
+          "76": 12.0,
+          "62": 3.0,
+          "60": 1.5,
+          "61": 3.0
+        },
+        "statistics": {
+          "total_duration": 317.0,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 18
+        }
+      },
+      {
+        "composer": "Gabriel Fauré",
+        "title": "Cinq Mélodies, Op.58 — No. 1 Mandoline",
+        "filename": "faure-gabriel-cinq-melodies-op58-no1-mandoline.mxl",
+        "tessituragram": {
+          "67": 13.583333333333334,
+          "69": 14.583333333333334,
+          "71": 32.33333333333333,
+          "72": 9.500000000000002,
+          "74": 15.916666666666668,
+          "76": 4.0,
+          "66": 13.166666666666666,
+          "68": 2.25,
+          "70": 5.833333333333334,
+          "73": 3.25,
+          "75": 0.25,
+          "64": 2.333333333333333,
+          "62": 4.0,
+          "65": 13.0,
+          "63": 1.0
+        },
+        "statistics": {
+          "total_duration": 155.99999999999994,
+          "pitch_range": {
+            "min": "D4",
+            "min_midi": 62,
+            "max": "E5",
+            "max_midi": 76
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Gabriel Fauré",
+        "title": "Cinq Mélodies, Op.58 — No. 2 En Sourdine",
+        "filename": "faure-gabriel-cinq-melodies-op58-no2-en-sourdine.mxl",
+        "tessituragram": {
+          "67": 12.25,
+          "65": 19.0,
+          "63": 16.75,
+          "68": 11.75,
+          "62": 1.75,
+          "61": 2.0,
+          "60": 6.0,
+          "69": 1.0,
+          "70": 25.5,
+          "66": 13.0,
+          "72": 15.666666666666666,
+          "73": 9.833333333333332,
+          "74": 0.5,
+          "71": 8.0,
+          "64": 5.0,
+          "75": 3.5
+        },
+        "statistics": {
+          "total_duration": 195.99999999999997,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "E-5",
+            "max_midi": 75
+          },
+          "unique_pitches": 16
+        }
+      },
+      {
+        "composer": "Fauré, Gabriel",
+        "title": "Cinq Mélodies, Op.58 — No. 3 Green",
+        "filename": "faure-gabriel-cinq-melodies-op58-no3-green.mxl",
+        "tessituragram": {
+          "70": 21.083333333333336,
+          "66": 7.583333333333333,
+          "68": 10.166666666666668,
+          "73": 14.166666666666668,
+          "72": 1.5833333333333333,
+          "65": 7.25,
+          "74": 2.3333333333333335,
+          "75": 4.25,
+          "67": 1.25,
+          "63": 0.75,
+          "62": 0.25,
+          "71": 6.083333333333333,
+          "77": 1.0,
+          "78": 0.75,
+          "69": 3.5833333333333335,
+          "76": 2.333333333333333,
+          "64": 3.333333333333333,
+          "61": 2.0
+        },
+        "statistics": {
+          "total_duration": 110.99999999999994,
+          "pitch_range": {
+            "min": "C#4",
+            "min_midi": 61,
+            "max": "G-5",
+            "max_midi": 78
+          },
+          "unique_pitches": 18
+        }
+      },
+      {
+        "composer": "Gabriel Fauré",
+        "title": "Cinq Mélodies, Op.58 — No. 5 Cest Lextase",
+        "filename": "faure-gabriel-cinq-melodies-op58-no5-cest-lextase.mxl",
+        "tessituragram": {
+          "73": 6.5,
+          "68": 23.0,
+          "70": 20.666666666666668,
+          "72": 12.25,
+          "76": 1.75,
+          "75": 3.25,
+          "71": 9.583333333333334,
+          "66": 12.0,
+          "69": 3.0,
+          "64": 3.25,
+          "61": 5.5,
+          "74": 2.0,
+          "67": 3.5,
+          "65": 5.75,
+          "62": 4.0,
+          "63": 4.25,
+          "60": 3.75
+        },
+        "statistics": {
+          "total_duration": 156.99999999999997,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "F-5",
+            "max_midi": 76
+          },
+          "unique_pitches": 17
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin (D.795) — No. 1 Das Wandern",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no1-das-wandern.mxl",
+        "tessituragram": {
+          "65": 4.5,
+          "70": 5.75,
+          "69": 3.5,
+          "75": 3.5,
+          "74": 4.0,
+          "77": 0.5,
+          "72": 5.0,
+          "67": 1.25
+        },
+        "statistics": {
+          "total_duration": 40.0,
+          "pitch_range": {
+            "min": "F4",
+            "min_midi": 65,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 8
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin, Op.25 — No. 10 Tranenregen",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no10-tranenregen.mxl",
+        "tessituragram": {
+          "73": 11.5,
+          "74": 6.5,
+          "71": 11.75,
+          "69": 13.5,
+          "68": 8.0,
+          "66": 10.0,
+          "64": 8.5,
+          "76": 2.5,
+          "63": 1.5,
+          "72": 3.25,
+          "70": 0.5
+        },
+        "statistics": {
+          "total_duration": 127.0,
+          "pitch_range": {
+            "min": "D#4",
+            "min_midi": 63,
+            "max": "E5",
+            "max_midi": 76
+          },
+          "unique_pitches": 11
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin (D.795) — No. 11 Mein",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no11-mein.mxl",
+        "tessituragram": {
+          "66": 22.0,
+          "62": 9.0,
+          "69": 58.166666666666664,
+          "67": 12.166666666666666,
+          "64": 23.666666666666668,
+          "71": 24.0,
+          "74": 63.0,
+          "72": 20.0,
+          "70": 24.0,
+          "73": 25.0,
+          "68": 2.0,
+          "76": 5.0,
+          "78": 9.0,
+          "77": 4.0,
+          "65": 1.0,
+          "75": 4.0
+        },
+        "statistics": {
+          "total_duration": 414.00000000000006,
+          "pitch_range": {
+            "min": "D4",
+            "min_midi": 62,
+            "max": "F#5",
+            "max_midi": 78
+          },
+          "unique_pitches": 16
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin (D.795) — No. 12 Pause",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no12-pause.mxl",
+        "tessituragram": {
+          "65": 13.0,
+          "74": 22.833333333333332,
+          "70": 52.0,
+          "72": 32.83333333333333,
+          "69": 24.5,
+          "67": 6.75,
+          "71": 7.5,
+          "77": 7.25,
+          "76": 7.0,
+          "64": 0.5,
+          "73": 9.0,
+          "75": 14.333333333333332,
+          "78": 0.5,
+          "63": 2.5,
+          "68": 5.0
+        },
+        "statistics": {
+          "total_duration": 324.0,
+          "pitch_range": {
+            "min": "E-4",
+            "min_midi": 63,
+            "max": "G-5",
+            "max_midi": 78
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin (D.795) — No. 13 Mit Dem Grunen Lautenbande",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no13-mit-dem-grunen-lautenbande.mxl",
+        "tessituragram": {
+          "74": 5.25,
+          "72": 6.75,
+          "69": 1.5,
+          "70": 4.75,
+          "65": 2.75,
+          "75": 1.75,
+          "77": 5.75,
+          "67": 1.25,
+          "64": 0.25
+        },
+        "statistics": {
+          "total_duration": 40.0,
+          "pitch_range": {
+            "min": "E4",
+            "min_midi": 64,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 9
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin — No. 14 Der Jager",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no14-der-jager.mxl",
+        "tessituragram": {
+          "67": 21.0,
+          "60": 2.5,
+          "63": 4.5,
+          "62": 1.0,
+          "68": 7.0,
+          "65": 7.0,
+          "72": 13.5,
+          "71": 9.0,
+          "70": 2.5,
+          "74": 4.5,
+          "75": 8.5,
+          "79": 1.0
+        },
+        "statistics": {
+          "total_duration": 107.5,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 12
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin — No. 15 Eifersucht Und Stolz",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no15-eifersucht-und-stolz.mxl",
+        "tessituragram": {
+          "62": 2.5,
+          "70": 18.0,
+          "66": 3.0,
+          "67": 21.0,
+          "69": 19.083333333333332,
+          "72": 17.083333333333332,
+          "74": 23.25,
+          "65": 7.25,
+          "77": 7.0,
+          "76": 4.5,
+          "75": 6.0,
+          "78": 2.0,
+          "79": 4.0,
+          "64": 2.75,
+          "71": 8.333333333333334,
+          "73": 3.0
+        },
+        "statistics": {
+          "total_duration": 186.00000000000003,
+          "pitch_range": {
+            "min": "D4",
+            "min_midi": 62,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 16
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin (D.795) — No. 16 Die Liebe Farbe",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no16-die-liebe-farbe.mxl",
+        "tessituragram": {
+          "66": 9.75,
+          "71": 4.75,
+          "73": 9.75,
+          "74": 1.75,
+          "78": 4.5,
+          "70": 1.5,
+          "75": 2.0,
+          "68": 2.0,
+          "69": 2.0,
+          "76": 1.5
+        },
+        "statistics": {
+          "total_duration": 62.75,
+          "pitch_range": {
+            "min": "F#4",
+            "min_midi": 66,
+            "max": "F#5",
+            "max_midi": 78
+          },
+          "unique_pitches": 10
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin (D.795) — No. 17 Die Bose Farbe",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no17-die-bose-farbe.mxl",
+        "tessituragram": {
+          "66": 13.375,
+          "71": 18.75,
+          "63": 1.0,
+          "75": 6.625,
+          "78": 11.416666666666668,
+          "76": 6.75,
+          "73": 22.208333333333336,
+          "74": 7.875,
+          "65": 0.25,
+          "70": 2.875,
+          "68": 0.25,
+          "79": 4.625,
+          "69": 1.5,
+          "67": 1.0,
+          "77": 0.625
+        },
+        "statistics": {
+          "total_duration": 128.0,
+          "pitch_range": {
+            "min": "D#4",
+            "min_midi": 63,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin (D.795) — No. 18 Trockne Blumen",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl",
+        "tessituragram": {
+          "71": 32.75,
+          "76": 18.25,
+          "67": 5.5,
+          "66": 3.0,
+          "69": 3.125,
+          "74": 4.0,
+          "72": 5.625,
+          "75": 2.0,
+          "78": 5.0,
+          "73": 8.5,
+          "68": 0.5,
+          "80": 1.5
+        },
+        "statistics": {
+          "total_duration": 114.0,
+          "pitch_range": {
+            "min": "F#4",
+            "min_midi": 66,
+            "max": "G#5",
+            "max_midi": 80
+          },
+          "unique_pitches": 12
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin (D.795) — No. 19 Der Muller Und Der Bach",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no19-der-muller-und-der-bach.mxl",
+        "tessituragram": {
+          "74": 33.125,
+          "72": 9.0625,
+          "70": 6.9375,
+          "69": 18.0,
+          "78": 2.75,
+          "68": 4.0,
+          "75": 2.5,
+          "67": 9.25,
+          "66": 1.5,
+          "77": 1.25,
+          "73": 3.75,
+          "71": 8.25,
+          "76": 8.375,
+          "79": 3.25
+        },
+        "statistics": {
+          "total_duration": 133.5,
+          "pitch_range": {
+            "min": "F#4",
+            "min_midi": 66,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 14
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin — No. 2 Wohin",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no2-wohin.mxl",
+        "tessituragram": {
+          "71": 25.25,
+          "72": 6.75,
+          "74": 27.0,
+          "67": 25.75,
+          "62": 14.25,
+          "66": 9.5,
+          "69": 13.75,
+          "68": 3.0,
+          "76": 5.75,
+          "73": 0.75,
+          "70": 3.0,
+          "64": 6.25,
+          "78": 0.5,
+          "75": 1.0,
+          "79": 0.25
+        },
+        "statistics": {
+          "total_duration": 162.0,
+          "pitch_range": {
+            "min": "D4",
+            "min_midi": 62,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin (D.795) — No. 20 Des Baches Wiegenlied",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no20-des-baches-wiegenlied.mxl",
+        "tessituragram": {
+          "68": 15.0,
+          "69": 7.5,
+          "71": 18.75,
+          "76": 14.0,
+          "75": 5.5,
+          "78": 2.0,
+          "73": 16.25,
+          "74": 4.0,
+          "80": 1.0,
+          "72": 2.0
+        },
+        "statistics": {
+          "total_duration": 167.5,
+          "pitch_range": {
+            "min": "G#4",
+            "min_midi": 68,
+            "max": "G#5",
+            "max_midi": 80
+          },
+          "unique_pitches": 10
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin — No. 3 Halt",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl",
+        "tessituragram": {
+          "67": 13.0,
+          "76": 8.0,
+          "72": 25.0,
+          "71": 15.5,
+          "69": 11.5,
+          "65": 1.5,
+          "77": 8.5,
+          "74": 26.5,
+          "79": 1.0
+        },
+        "statistics": {
+          "total_duration": 180.0,
+          "pitch_range": {
+            "min": "F4",
+            "min_midi": 65,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 9
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin (D.795)\n — No. 4 Danksagung An Den Bach",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no4-danksagung-an-den-bach.mxl",
+        "tessituragram": {
+          "71": 6.75,
+          "72": 5.75,
+          "74": 16.25,
+          "67": 3.75,
+          "66": 6.25,
+          "76": 4.75,
+          "78": 1.25,
+          "79": 1.75,
+          "73": 0.75,
+          "77": 1.75,
+          "69": 1.25,
+          "70": 2.0,
+          "75": 0.75
+        },
+        "statistics": {
+          "total_duration": 82.5,
+          "pitch_range": {
+            "min": "F#4",
+            "min_midi": 66,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 13
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin (D.795)\n — No. 5 Am Feierabend",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no5-am-feierabend.mxl",
+        "tessituragram": {
+          "64": 3.5,
+          "72": 22.0,
+          "71": 21.5,
+          "69": 24.5,
+          "68": 3.5,
+          "76": 35.25,
+          "74": 25.5,
+          "77": 10.0,
+          "75": 5.5,
+          "78": 5.75,
+          "73": 8.5,
+          "66": 0.5,
+          "67": 7.0,
+          "79": 7.5,
+          "65": 8.5,
+          "60": 1.5,
+          "70": 1.0
+        },
+        "statistics": {
+          "total_duration": 267.0,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 17
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin — No. 6 Der Neugierige",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no6-der-neugierige.mxl",
+        "tessituragram": {
+          "66": 5.0,
+          "71": 23.0,
+          "70": 7.0,
+          "75": 12.0,
+          "72": 5.5,
+          "73": 20.25,
+          "78": 6.416666666666667,
+          "76": 6.666666666666666,
+          "77": 1.25,
+          "65": 1.25,
+          "68": 0.5,
+          "74": 8.666666666666668,
+          "69": 2.0,
+          "67": 2.0,
+          "79": 0.25
+        },
+        "statistics": {
+          "total_duration": 143.0,
+          "pitch_range": {
+            "min": "E#4",
+            "min_midi": 65,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin (D.795) — No. 7 Ungeduld",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl",
+        "tessituragram": {
+          "64": 1.5,
+          "73": 6.5,
+          "71": 9.5,
+          "69": 4.75,
+          "68": 3.0,
+          "66": 1.75,
+          "74": 5.75,
+          "70": 0.25,
+          "76": 4.75,
+          "78": 4.75,
+          "79": 1.0,
+          "81": 3.5,
+          "75": 4.0
+        },
+        "statistics": {
+          "total_duration": 84.0,
+          "pitch_range": {
+            "min": "E4",
+            "min_midi": 64,
+            "max": "A5",
+            "max_midi": 81
+          },
+          "unique_pitches": 13
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin — No. 8 Morgengruss",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no8-morgengruss.mxl",
+        "tessituragram": {
+          "67": 10.75,
+          "76": 9.333333333333334,
+          "74": 9.500000000000002,
+          "72": 7.083333333333332,
+          "71": 2.625,
+          "69": 1.125,
+          "77": 5.583333333333334,
+          "73": 1.0
+        },
+        "statistics": {
+          "total_duration": 72.00000000000003,
+          "pitch_range": {
+            "min": "G4",
+            "min_midi": 67,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 8
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Die schöne Müllerin (D.795) — No. 9 Des Mullers Blumen",
+        "filename": "schubert-franz-die-schone-mullerin-d795-no9-des-mullers-blumen.mxl",
+        "tessituragram": {
+          "76": 7.5,
+          "73": 12.0,
+          "69": 4.5,
+          "64": 1.0,
+          "74": 4.0,
+          "71": 6.5,
+          "78": 2.5,
+          "75": 1.0,
+          "68": 0.5
+        },
+        "statistics": {
+          "total_duration": 66.0,
+          "pitch_range": {
+            "min": "E4",
+            "min_midi": 64,
+            "max": "F#5",
+            "max_midi": 78
+          },
+          "unique_pitches": 9
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Gretchen am Spinnrade, Op.2, D.118",
+        "filename": "schubert-franz-gretchen-am-spinnrade-d118.mxl",
+        "tessituragram": {
+          "65": 4.5,
+          "67": 11.25,
+          "69": 59.0,
+          "70": 14.0,
+          "74": 47.0,
+          "72": 36.0,
+          "71": 13.75,
+          "77": 29.5,
+          "68": 1.5,
+          "66": 3.0,
+          "64": 1.5,
+          "76": 28.5,
+          "79": 3.5,
+          "73": 5.0,
+          "75": 3.0,
+          "78": 4.0,
+          "81": 5.0
+        },
+        "statistics": {
+          "total_duration": 360.0,
+          "pitch_range": {
+            "min": "E4",
+            "min_midi": 64,
+            "max": "A5",
+            "max_midi": 81
+          },
+          "unique_pitches": 17
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 1 Gute Nacht",
+        "filename": "schubert-franz-winterreise-d911-no1-gute-nacht.mxl",
+        "tessituragram": {
+          "77": 3.5,
+          "76": 7.0,
+          "74": 27.0,
+          "69": 28.5,
+          "65": 11.0,
+          "64": 11.0,
+          "62": 8.5,
+          "60": 0.5,
+          "67": 8.0,
+          "72": 5.0,
+          "70": 11.0,
+          "75": 0.5,
+          "71": 5.75,
+          "73": 3.75,
+          "78": 2.25,
+          "66": 4.75,
+          "68": 0.5
+        },
+        "statistics": {
+          "total_duration": 210.0,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "F#5",
+            "max_midi": 78
+          },
+          "unique_pitches": 17
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 10 Rast",
+        "filename": "schubert-franz-winterreise-d911-no10-rast.mxl",
+        "tessituragram": {
+          "67": 10.75,
+          "68": 4.75,
+          "70": 6.0,
+          "71": 10.0,
+          "74": 5.25,
+          "72": 18.0,
+          "60": 5.5,
+          "62": 2.0,
+          "63": 6.5,
+          "65": 3.0,
+          "75": 5.5,
+          "64": 0.5,
+          "77": 1.5,
+          "79": 0.5,
+          "59": 0.25
+        },
+        "statistics": {
+          "total_duration": 134.0,
+          "pitch_range": {
+            "min": "B3",
+            "min_midi": 59,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 11 Fruhlingstraum",
+        "filename": "schubert-franz-winterreise-d911-no11-fruhlingstraum.mxl",
+        "tessituragram": {
+          "64": 10.25,
+          "66": 7.0,
+          "73": 21.5,
+          "71": 24.0,
+          "69": 29.5,
+          "76": 18.25,
+          "78": 0.5,
+          "68": 7.5,
+          "74": 22.5,
+          "65": 4.0,
+          "72": 3.0,
+          "75": 1.0,
+          "67": 1.5,
+          "77": 4.5,
+          "70": 4.0
+        },
+        "statistics": {
+          "total_duration": 229.5,
+          "pitch_range": {
+            "min": "E4",
+            "min_midi": 64,
+            "max": "F#5",
+            "max_midi": 78
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 12 Einsamkeit",
+        "filename": "schubert-franz-winterreise-d911-no12-einsamkeit.mxl",
+        "tessituragram": {
+          "66": 12.75,
+          "67": 5.0,
+          "71": 16.75,
+          "73": 4.25,
+          "64": 1.5,
+          "61": 0.75,
+          "70": 3.5,
+          "76": 0.5,
+          "74": 4.25,
+          "65": 1.0,
+          "69": 4.75,
+          "75": 2.0,
+          "72": 2.5,
+          "62": 0.5,
+          "78": 0.5
+        },
+        "statistics": {
+          "total_duration": 96.0,
+          "pitch_range": {
+            "min": "C#4",
+            "min_midi": 61,
+            "max": "F#5",
+            "max_midi": 78
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 13 Die Post",
+        "filename": "schubert-franz-winterreise-d911-no13-die-post.mxl",
+        "tessituragram": {
+          "70": 36.5,
+          "67": 8.0,
+          "68": 19.5,
+          "63": 3.0,
+          "72": 18.0,
+          "75": 32.5,
+          "77": 19.0,
+          "73": 9.5,
+          "74": 3.0,
+          "66": 10.0,
+          "69": 1.0,
+          "71": 3.0,
+          "80": 5.0
+        },
+        "statistics": {
+          "total_duration": 282.0,
+          "pitch_range": {
+            "min": "E-4",
+            "min_midi": 63,
+            "max": "A-5",
+            "max_midi": 80
+          },
+          "unique_pitches": 13
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 14 Der Greise Kopf",
+        "filename": "schubert-franz-winterreise-d911-no14-der-greise-kopf.mxl",
+        "tessituragram": {
+          "60": 5.5,
+          "63": 6.5,
+          "67": 19.416666666666668,
+          "68": 5.583333333333332,
+          "71": 5.333333333333333,
+          "74": 6.666666666666665,
+          "77": 4.0,
+          "65": 2.333333333333333,
+          "62": 1.5,
+          "69": 3.333333333333333,
+          "76": 2.1666666666666665,
+          "72": 9.666666666666668,
+          "70": 1.3333333333333333,
+          "75": 2.3333333333333335,
+          "73": 1.3333333333333333,
+          "66": 1.0
+        },
+        "statistics": {
+          "total_duration": 132.24999999999994,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 16
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 15 Die Krahe",
+        "filename": "schubert-franz-winterreise-d911-no15-die-krahe.mxl",
+        "tessituragram": {
+          "72": 12.125,
+          "71": 2.25,
+          "67": 8.5,
+          "70": 4.625,
+          "68": 3.0,
+          "65": 2.5,
+          "63": 1.5,
+          "62": 1.0,
+          "60": 7.25,
+          "74": 3.0,
+          "69": 0.5,
+          "73": 1.75,
+          "76": 1.0,
+          "75": 0.5,
+          "77": 0.5,
+          "79": 2.0
+        },
+        "statistics": {
+          "total_duration": 86.0,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 16
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 16 Letzte Hoffnung",
+        "filename": "schubert-franz-winterreise-d911-no16-letzte-hoffnung.mxl",
+        "tessituragram": {
+          "71": 15.333333333333334,
+          "68": 5.833333333333333,
+          "65": 5.333333333333333,
+          "69": 2.0,
+          "70": 9.833333333333332,
+          "67": 8.25,
+          "63": 4.25,
+          "72": 3.333333333333333,
+          "66": 5.75,
+          "74": 7.833333333333333,
+          "77": 3.5,
+          "75": 5.0,
+          "73": 0.5,
+          "59": 1.0,
+          "58": 0.75,
+          "78": 1.5,
+          "61": 0.5,
+          "79": 1.5
+        },
+        "statistics": {
+          "total_duration": 141.5,
+          "pitch_range": {
+            "min": "B-3",
+            "min_midi": 58,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 18
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 17 Im Dorfe",
+        "filename": "schubert-franz-winterreise-d911-no17-im-dorfe.mxl",
+        "tessituragram": {
+          "69": 38.0,
+          "66": 26.5,
+          "74": 30.0,
+          "64": 22.0,
+          "72": 9.0,
+          "71": 14.5,
+          "73": 5.5,
+          "67": 9.0,
+          "65": 14.0,
+          "62": 3.0,
+          "70": 1.0,
+          "76": 2.5,
+          "75": 0.5,
+          "68": 1.5
+        },
+        "statistics": {
+          "total_duration": 294.0,
+          "pitch_range": {
+            "min": "D4",
+            "min_midi": 62,
+            "max": "E5",
+            "max_midi": 76
+          },
+          "unique_pitches": 14
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 18 Der Sturmische Morgen",
+        "filename": "schubert-franz-winterreise-d911-no18-der-sturmische-morgen.mxl",
+        "tessituragram": {
+          "62": 5.0,
+          "64": 2.5,
+          "65": 1.25,
+          "67": 1.75,
+          "69": 8.0,
+          "74": 4.0,
+          "73": 4.0,
+          "76": 1.5,
+          "70": 13.75,
+          "61": 2.0,
+          "66": 1.5,
+          "75": 4.5,
+          "68": 1.5,
+          "72": 1.75,
+          "63": 0.5
+        },
+        "statistics": {
+          "total_duration": 76.0,
+          "pitch_range": {
+            "min": "C#4",
+            "min_midi": 61,
+            "max": "E5",
+            "max_midi": 76
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 19 Tauschung",
+        "filename": "schubert-franz-winterreise-d911-no19-tauschung.mxl",
+        "tessituragram": {
+          "73": 16.0,
+          "69": 12.0,
+          "64": 10.5,
+          "66": 12.0,
+          "63": 1.5,
+          "65": 1.5,
+          "68": 5.5,
+          "71": 7.5,
+          "76": 3.0,
+          "72": 6.0,
+          "70": 3.0
+        },
+        "statistics": {
+          "total_duration": 129.5,
+          "pitch_range": {
+            "min": "D#4",
+            "min_midi": 63,
+            "max": "E5",
+            "max_midi": 76
+          },
+          "unique_pitches": 11
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 2 Die Wetterfahne",
+        "filename": "schubert-franz-winterreise-d911-no2-die-wetterfahne.mxl",
+        "tessituragram": {
+          "64": 1.5,
+          "72": 17.25,
+          "71": 8.5,
+          "69": 12.75,
+          "68": 4.75,
+          "74": 15.25,
+          "76": 19.25,
+          "77": 4.5,
+          "75": 3.0,
+          "67": 3.75,
+          "79": 1.0,
+          "78": 1.0,
+          "66": 2.0,
+          "70": 1.25,
+          "73": 4.5
+        },
+        "statistics": {
+          "total_duration": 153.75,
+          "pitch_range": {
+            "min": "E4",
+            "min_midi": 64,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 20 Der Wegweiser",
+        "filename": "schubert-franz-winterreise-d911-no20-der-wegweiser.mxl",
+        "tessituragram": {
+          "67": 34.5,
+          "69": 12.75,
+          "70": 22.75,
+          "72": 11.25,
+          "68": 4.5,
+          "74": 7.5,
+          "66": 3.0,
+          "71": 8.5,
+          "76": 5.5,
+          "75": 1.75,
+          "78": 0.75,
+          "77": 0.25,
+          "79": 1.0,
+          "73": 4.0
+        },
+        "statistics": {
+          "total_duration": 166.5,
+          "pitch_range": {
+            "min": "F#4",
+            "min_midi": 66,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 14
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 21 Das Wirtshaus",
+        "filename": "schubert-franz-winterreise-d911-no21-das-wirtshaus.mxl",
+        "tessituragram": {
+          "67": 13.75,
+          "69": 10.25,
+          "70": 5.5,
+          "66": 1.0,
+          "65": 11.5,
+          "64": 1.75,
+          "72": 14.0,
+          "74": 1.75,
+          "77": 1.0,
+          "73": 1.25,
+          "68": 4.0,
+          "75": 0.25,
+          "71": 1.5
+        },
+        "statistics": {
+          "total_duration": 124.0,
+          "pitch_range": {
+            "min": "E4",
+            "min_midi": 64,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 13
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 22 Mut",
+        "filename": "schubert-franz-winterreise-d911-no22-mut.mxl",
+        "tessituragram": {
+          "64": 4.0,
+          "69": 10.0,
+          "71": 17.75,
+          "72": 5.75,
+          "73": 4.0,
+          "68": 2.5,
+          "66": 0.5,
+          "74": 1.5,
+          "78": 0.5,
+          "76": 1.75,
+          "75": 0.25,
+          "77": 0.25,
+          "60": 1.0,
+          "81": 0.25
+        },
+        "statistics": {
+          "total_duration": 92.0,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "A5",
+            "max_midi": 81
+          },
+          "unique_pitches": 14
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 23 Die Nebensonnen",
+        "filename": "schubert-franz-winterreise-d911-no23-die-nebensonnen.mxl",
+        "tessituragram": {
+          "73": 17.499999999999996,
+          "71": 12.333333333333334,
+          "74": 5.0,
+          "69": 8.833333333333332,
+          "72": 6.583333333333334,
+          "76": 6.0,
+          "77": 0.75
+        },
+        "statistics": {
+          "total_duration": 96.5,
+          "pitch_range": {
+            "min": "A4",
+            "min_midi": 69,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 7
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 24 Der Leiermann",
+        "filename": "schubert-franz-winterreise-d911-no24-der-leiermann.mxl",
+        "tessituragram": {
+          "69": 19.75,
+          "64": 18.5,
+          "71": 14.25,
+          "72": 7.5,
+          "68": 2.0,
+          "76": 7.5,
+          "74": 4.5,
+          "77": 1.0
+        },
+        "statistics": {
+          "total_duration": 183.0,
+          "pitch_range": {
+            "min": "E4",
+            "min_midi": 64,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 8
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 3 Gefrorne Tranen",
+        "filename": "schubert-franz-winterreise-d911-no3-gefrorne-tranen.mxl",
+        "tessituragram": {
+          "72": 24.5,
+          "70": 26.0,
+          "68": 15.5,
+          "67": 7.5,
+          "65": 2.0,
+          "73": 13.5,
+          "75": 7.5,
+          "77": 7.0,
+          "61": 2.0,
+          "60": 5.0,
+          "64": 3.0,
+          "62": 1.0,
+          "63": 4.0,
+          "71": 11.0,
+          "69": 8.0,
+          "79": 0.5,
+          "76": 2.0
+        },
+        "statistics": {
+          "total_duration": 221.0,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 17
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 4 Erstarrung",
+        "filename": "schubert-franz-winterreise-d911-no4-erstarrung.mxl",
+        "tessituragram": {
+          "67": 55.5,
+          "72": 53.0,
+          "75": 44.5,
+          "74": 53.5,
+          "71": 33.0,
+          "68": 29.0,
+          "79": 6.0,
+          "77": 26.5,
+          "70": 16.0,
+          "65": 2.0,
+          "66": 10.0,
+          "69": 1.0,
+          "80": 4.0,
+          "73": 10.0,
+          "78": 3.0
+        },
+        "statistics": {
+          "total_duration": 436.0,
+          "pitch_range": {
+            "min": "F4",
+            "min_midi": 65,
+            "max": "A-5",
+            "max_midi": 80
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 5 Der Lindenbaum",
+        "filename": "schubert-franz-winterreise-d911-no5-der-lindenbaum.mxl",
+        "tessituragram": {
+          "71": 29.583333333333332,
+          "68": 21.333333333333332,
+          "64": 31.5,
+          "66": 42.833333333333336,
+          "69": 6.583333333333333,
+          "73": 4.5,
+          "76": 4.0,
+          "67": 9.666666666666668,
+          "72": 3.0,
+          "60": 4.5,
+          "59": 2.0
+        },
+        "statistics": {
+          "total_duration": 246.00000000000009,
+          "pitch_range": {
+            "min": "B3",
+            "min_midi": 59,
+            "max": "E5",
+            "max_midi": 76
+          },
+          "unique_pitches": 11
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 6 Wasserflut",
+        "filename": "schubert-franz-winterreise-d911-no6-wasserflut.mxl",
+        "tessituragram": {
+          "66": 4.0,
+          "69": 9.749999999999998,
+          "73": 8.166666666666664,
+          "78": 8.166666666666666,
+          "68": 4.833333333333333,
+          "61": 1.9999999999999998,
+          "71": 10.583333333333336,
+          "75": 0.3333333333333333,
+          "77": 1.0,
+          "79": 0.5,
+          "76": 1.1666666666666665,
+          "74": 2.333333333333333,
+          "64": 1.0,
+          "81": 0.3333333333333333,
+          "80": 0.3333333333333333
+        },
+        "statistics": {
+          "total_duration": 95.99999999999991,
+          "pitch_range": {
+            "min": "C#4",
+            "min_midi": 61,
+            "max": "A5",
+            "max_midi": 81
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 7 Auf Dem Flusse",
+        "filename": "schubert-franz-winterreise-d911-no7-auf-dem-flusse.mxl",
+        "tessituragram": {
+          "64": 3.75,
+          "66": 5.75,
+          "67": 4.375,
+          "69": 5.625,
+          "71": 17.875,
+          "59": 1.5,
+          "70": 9.25,
+          "73": 6.75,
+          "75": 12.75,
+          "63": 2.0,
+          "72": 0.125,
+          "68": 8.25,
+          "76": 9.0,
+          "74": 5.0,
+          "78": 3.0,
+          "77": 0.25,
+          "79": 2.0,
+          "81": 0.25
+        },
+        "statistics": {
+          "total_duration": 150.0,
+          "pitch_range": {
+            "min": "B3",
+            "min_midi": 59,
+            "max": "A5",
+            "max_midi": 81
+          },
+          "unique_pitches": 18
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 8 Ruckblick",
+        "filename": "schubert-franz-winterreise-d911-no8-ruckblick.mxl",
+        "tessituragram": {
+          "62": 4.5,
+          "66": 2.0,
+          "67": 22.0,
+          "69": 18.5,
+          "70": 8.0,
+          "72": 10.25,
+          "74": 36.33333333333334,
+          "76": 15.416666666666668,
+          "77": 4.0,
+          "68": 1.0,
+          "73": 1.0,
+          "75": 5.0,
+          "79": 6.0,
+          "71": 17.0,
+          "78": 2.5
+        },
+        "statistics": {
+          "total_duration": 207.00000000000006,
+          "pitch_range": {
+            "min": "D4",
+            "min_midi": 62,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Franz Schubert",
+        "title": "Winterreise, D.911 — No. 9 Irrlicht",
+        "filename": "schubert-franz-winterreise-d911-no9-irrlicht.mxl",
+        "tessituragram": {
+          "71": 13.041666666666668,
+          "66": 4.041666666666666,
+          "64": 2.25,
+          "67": 2.125,
+          "59": 3.25,
+          "68": 0.16666666666666666,
+          "70": 3.083333333333333,
+          "74": 6.125,
+          "73": 1.5416666666666665,
+          "61": 0.25,
+          "76": 1.2083333333333335,
+          "78": 1.375,
+          "69": 0.375,
+          "72": 3.916666666666666,
+          "63": 0.125,
+          "60": 1.25,
+          "79": 0.375,
+          "77": 0.25
+        },
+        "statistics": {
+          "total_duration": 64.49999999999997,
+          "pitch_range": {
+            "min": "B3",
+            "min_midi": 59,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 18
+        }
+      },
+      {
+        "composer": "Clara Schumann",
+        "title": "Lieder, Op.12 — No. 11 Warum Willst Du Andre Fragen",
+        "filename": "schumann-clara-lieder-op12-no11-warum-willst-du-andre-fragen.mxl",
+        "tessituragram": {
+          "63": 3.0,
+          "65": 4.5,
+          "68": 13.5,
+          "73": 20.25,
+          "72": 19.25,
+          "70": 3.5,
+          "67": 7.5,
+          "69": 1.5,
+          "74": 1.0,
+          "75": 7.0,
+          "77": 3.0
+        },
+        "statistics": {
+          "total_duration": 126.0,
+          "pitch_range": {
+            "min": "E-4",
+            "min_midi": 63,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 11
+        }
+      },
+      {
+        "composer": "Clara Schumann",
+        "title": "Lieder, Op.12 — No. 2 Er Ist Gekommen In Sturm Und Regen",
+        "filename": "schumann-clara-lieder-op12-no2-er-ist-gekommen-in-sturm-und-regen.mxl",
+        "tessituragram": {
+          "72": 20.0,
+          "73": 20.5,
+          "77": 12.0,
+          "76": 4.0,
+          "80": 2.5,
+          "79": 1.0,
+          "68": 9.5,
+          "65": 8.0,
+          "63": 3.0,
+          "67": 3.5,
+          "70": 8.0,
+          "75": 8.0,
+          "66": 1.0,
+          "69": 1.0,
+          "78": 0.5,
+          "74": 3.5
+        },
+        "statistics": {
+          "total_duration": 179.5,
+          "pitch_range": {
+            "min": "E-4",
+            "min_midi": 63,
+            "max": "A-5",
+            "max_midi": 80
+          },
+          "unique_pitches": 16
+        }
+      },
+      {
+        "composer": "Clara Schumann",
+        "title": "Lieder, Op.12 — No. 4 Liebst Du Um Schonheit",
+        "filename": "schumann-clara-lieder-op12-no4-liebst-du-um-schonheit.mxl",
+        "tessituragram": {
+          "68": 35.5,
+          "73": 25.0,
+          "72": 7.0,
+          "70": 21.0,
+          "66": 9.5,
+          "65": 11.5,
+          "75": 1.5
+        },
+        "statistics": {
+          "total_duration": 164.0,
+          "pitch_range": {
+            "min": "F4",
+            "min_midi": 65,
+            "max": "E-5",
+            "max_midi": 75
+          },
+          "unique_pitches": 7
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Dichterliebe, Op.48 — No. 1 Im Wunderschonen Monat Mai",
+        "filename": "schumann-robert-dichterliebe-op48-no1-im-wunderschonen-monat-mai.mxl",
+        "tessituragram": {
+          "73": 6.0,
+          "71": 4.0,
+          "74": 4.5,
+          "66": 1.0,
+          "68": 1.0,
+          "69": 4.5,
+          "76": 3.0,
+          "79": 1.0,
+          "78": 1.0
+        },
+        "statistics": {
+          "total_duration": 52.25,
+          "pitch_range": {
+            "min": "F#4",
+            "min_midi": 66,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 9
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Dichterliebe, Op.48 — No. 10 Hor Ich Das Liedchen Klingen",
+        "filename": "schumann-robert-dichterliebe-op48-no10-hor-ich-das-liedchen-klingen.mxl",
+        "tessituragram": {
+          "70": 4.125,
+          "69": 5.125,
+          "67": 6.0,
+          "62": 1.0,
+          "66": 1.0,
+          "71": 2.0,
+          "72": 3.5,
+          "73": 0.5,
+          "65": 2.0,
+          "63": 1.75
+        },
+        "statistics": {
+          "total_duration": 60.0,
+          "pitch_range": {
+            "min": "D4",
+            "min_midi": 62,
+            "max": "D-5",
+            "max_midi": 73
+          },
+          "unique_pitches": 10
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Dichterliebe, Op.48 — No. 11 Ein Jungling Liebt Ein Madchen",
+        "filename": "schumann-robert-dichterliebe-op48-no11-ein-jungling-liebt-ein-madchen.mxl",
+        "tessituragram": {
+          "70": 14.25,
+          "67": 2.0,
+          "65": 3.75,
+          "75": 3.0,
+          "74": 7.0,
+          "72": 5.5,
+          "68": 2.0,
+          "63": 1.5,
+          "77": 1.5,
+          "58": 1.5,
+          "73": 3.0
+        },
+        "statistics": {
+          "total_duration": 92.5,
+          "pitch_range": {
+            "min": "B-3",
+            "min_midi": 58,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 11
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Dichterliebe, Op.48 — No. 12 Am Leuchtenden Sommermorgen",
+        "filename": "schumann-robert-dichterliebe-op48-no12-am-leuchtenden-sommermorgen.mxl",
+        "tessituragram": {
+          "65": 1.5,
+          "70": 13.5,
+          "74": 3.0,
+          "69": 5.0,
+          "67": 5.0,
+          "71": 3.75,
+          "73": 3.25,
+          "72": 4.5
+        },
+        "statistics": {
+          "total_duration": 88.5,
+          "pitch_range": {
+            "min": "F4",
+            "min_midi": 65,
+            "max": "D5",
+            "max_midi": 74
+          },
+          "unique_pitches": 8
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Dichterliebe, Op.48 — No. 13 Ich Hab Im Traum Geweinet",
+        "filename": "schumann-robert-dichterliebe-op48-no13-ich-hab-im-traum-geweinet.mxl",
+        "tessituragram": {
+          "70": 19.0,
+          "71": 4.5,
+          "66": 7.5,
+          "64": 1.0,
+          "63": 7.25,
+          "61": 1.0,
+          "67": 4.0,
+          "68": 3.75,
+          "62": 1.0,
+          "65": 2.0,
+          "72": 0.5,
+          "73": 10.5,
+          "76": 1.5,
+          "75": 3.0
+        },
+        "statistics": {
+          "total_duration": 114.5,
+          "pitch_range": {
+            "min": "D-4",
+            "min_midi": 61,
+            "max": "F-5",
+            "max_midi": 76
+          },
+          "unique_pitches": 14
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Dichterliebe, Op.48 — No. 14 Allnachtlich Im Traume",
+        "filename": "schumann-robert-dichterliebe-op48-no14-allnachtlich-im-traume.mxl",
+        "tessituragram": {
+          "71": 11.5,
+          "70": 9.0,
+          "66": 12.0,
+          "73": 11.75,
+          "68": 6.25,
+          "67": 0.5,
+          "63": 0.5,
+          "58": 0.5,
+          "61": 0.5,
+          "59": 0.5,
+          "75": 1.75
+        },
+        "statistics": {
+          "total_duration": 78.5,
+          "pitch_range": {
+            "min": "A#3",
+            "min_midi": 58,
+            "max": "D#5",
+            "max_midi": 75
+          },
+          "unique_pitches": 11
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Dichterliebe, Op.48 — No. 15 Aus Alten Marchen",
+        "filename": "schumann-robert-dichterliebe-op48-no15-aus-alten-marchen.mxl",
+        "tessituragram": {
+          "71": 65.5,
+          "73": 32.5,
+          "75": 12.0,
+          "76": 15.5,
+          "69": 15.0,
+          "68": 29.0,
+          "78": 17.5,
+          "66": 26.0,
+          "72": 3.0,
+          "74": 5.5,
+          "80": 3.0,
+          "64": 4.5,
+          "59": 2.0,
+          "61": 1.5,
+          "63": 1.5,
+          "77": 2.0,
+          "70": 3.0
+        },
+        "statistics": {
+          "total_duration": 340.0,
+          "pitch_range": {
+            "min": "B3",
+            "min_midi": 59,
+            "max": "G#5",
+            "max_midi": 80
+          },
+          "unique_pitches": 17
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Dichterliebe, Op.48 — No. 16 Die Alten Bosen Lieder",
+        "filename": "schumann-robert-dichterliebe-op48-no16-die-alten-bosen-lieder.mxl",
+        "tessituragram": {
+          "73": 27.5,
+          "68": 33.5,
+          "61": 22.5,
+          "66": 11.5,
+          "63": 4.0,
+          "71": 14.5,
+          "70": 6.0,
+          "67": 9.0,
+          "64": 6.0,
+          "76": 3.5,
+          "69": 8.5,
+          "65": 4.0,
+          "78": 1.5,
+          "72": 4.5,
+          "75": 8.0,
+          "80": 1.5,
+          "62": 2.0,
+          "74": 1.0
+        },
+        "statistics": {
+          "total_duration": 295.0,
+          "pitch_range": {
+            "min": "C#4",
+            "min_midi": 61,
+            "max": "G#5",
+            "max_midi": 80
+          },
+          "unique_pitches": 18
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Dichterliebe, Op.48 — No. 2 Aus Meinen Tranen Spriessen",
+        "filename": "schumann-robert-dichterliebe-op48-no2-aus-meinen-tranen-spriessen.mxl",
+        "tessituragram": {
+          "73": 12.916666666666668,
+          "74": 3.0,
+          "71": 8.583333333333332,
+          "69": 2.25,
+          "66": 1.0,
+          "68": 1.0
+        },
+        "statistics": {
+          "total_duration": 34.0,
+          "pitch_range": {
+            "min": "F#4",
+            "min_midi": 66,
+            "max": "D5",
+            "max_midi": 74
+          },
+          "unique_pitches": 6
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Dichterliebe, Op.48 — No. 3 Die Rose Die Lilie Die Taube",
+        "filename": "schumann-robert-dichterliebe-op48-no3-die-rose-die-lilie-die-taube.mxl",
+        "tessituragram": {
+          "69": 4.75,
+          "74": 4.0,
+          "73": 4.75,
+          "71": 7.75,
+          "67": 3.0,
+          "66": 3.0,
+          "64": 2.5,
+          "72": 0.75,
+          "76": 1.5,
+          "62": 0.5
+        },
+        "statistics": {
+          "total_duration": 43.25,
+          "pitch_range": {
+            "min": "D4",
+            "min_midi": 62,
+            "max": "E5",
+            "max_midi": 76
+          },
+          "unique_pitches": 10
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Dichterliebe, Op.48 — No. 4 Wenn Ich In Deine Augen Seh",
+        "filename": "schumann-robert-dichterliebe-op48-no4-wenn-ich-in-deine-augen-seh.mxl",
+        "tessituragram": {
+          "71": 9.0,
+          "74": 2.25,
+          "67": 8.5,
+          "72": 7.0,
+          "69": 5.0,
+          "76": 2.5,
+          "77": 2.25,
+          "79": 0.75,
+          "66": 1.75,
+          "68": 2.5
+        },
+        "statistics": {
+          "total_duration": 64.0,
+          "pitch_range": {
+            "min": "F#4",
+            "min_midi": 66,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 10
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Dichterliebe, Op.48 — No. 5 Ich Will Meine Seele Tauchen",
+        "filename": "schumann-robert-dichterliebe-op48-no5-ich-will-meine-seele-tauchen.mxl",
+        "tessituragram": {
+          "71": 9.25,
+          "70": 2.75,
+          "73": 3.25,
+          "74": 10.083333333333334,
+          "76": 1.6666666666666665,
+          "78": 2.0
+        },
+        "statistics": {
+          "total_duration": 44.25,
+          "pitch_range": {
+            "min": "A#4",
+            "min_midi": 70,
+            "max": "F#5",
+            "max_midi": 78
+          },
+          "unique_pitches": 6
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Dichterliebe, Op.48 — No. 6 Im Rhein Im Heiligen Strome",
+        "filename": "schumann-robert-dichterliebe-op48-no6-im-rhein-im-heiligen-strome.mxl",
+        "tessituragram": {
+          "64": 21.0,
+          "66": 12.5,
+          "67": 24.0,
+          "72": 22.5,
+          "71": 18.5,
+          "69": 14.5,
+          "65": 4.5,
+          "74": 8.75,
+          "76": 4.0,
+          "68": 2.0,
+          "77": 0.75,
+          "62": 1.0,
+          "63": 3.0
+        },
+        "statistics": {
+          "total_duration": 232.5,
+          "pitch_range": {
+            "min": "D4",
+            "min_midi": 62,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 13
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Dichterliebe, Op.48 — No. 7 Ich Grolle Nicht",
+        "filename": "schumann-robert-dichterliebe-op48-no7-ich-grolle-nicht.mxl",
+        "tessituragram": {
+          "64": 15.75,
+          "62": 1.5,
+          "60": 6.5,
+          "65": 7.5,
+          "68": 7.0,
+          "67": 14.0,
+          "71": 11.75,
+          "69": 14.75,
+          "76": 5.0,
+          "74": 18.0,
+          "72": 4.5,
+          "66": 4.25,
+          "81": 2.0,
+          "79": 2.0,
+          "77": 4.0,
+          "73": 2.0
+        },
+        "statistics": {
+          "total_duration": 155.0,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "A5",
+            "max_midi": 81
+          },
+          "unique_pitches": 16
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Dichterliebe, Op.48 — No. 8 Und Wusstens Die Blumen",
+        "filename": "schumann-robert-dichterliebe-op48-no8-und-wusstens-die-blumen.mxl",
+        "tessituragram": {
+          "76": 4.5,
+          "74": 4.25,
+          "72": 11.25,
+          "71": 6.75,
+          "69": 14.5,
+          "77": 2.75,
+          "70": 5.25,
+          "68": 7.0,
+          "73": 0.5,
+          "67": 1.0
+        },
+        "statistics": {
+          "total_duration": 74.5,
+          "pitch_range": {
+            "min": "G4",
+            "min_midi": 67,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 10
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Dichterliebe, Op.48 — No. 9 Das Ist Ein Floten Und Geigen",
+        "filename": "schumann-robert-dichterliebe-op48-no9-das-ist-ein-floten-und-geigen.mxl",
+        "tessituragram": {
+          "69": 12.5,
+          "74": 9.0,
+          "77": 3.0,
+          "76": 2.0,
+          "72": 7.0,
+          "70": 13.5,
+          "60": 3.0,
+          "62": 4.0,
+          "67": 9.0,
+          "65": 3.0
+        },
+        "statistics": {
+          "total_duration": 126.0,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 10
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Frauenliebe und Leben, Op.42 — No. 1 Seit Ich Ihn Gesehen",
+        "filename": "schumann-robert-frauenliebe-und-leben-op42-no1-seit-ich-ihn-gesehen.mxl",
+        "tessituragram": {
+          "65": 7.5,
+          "67": 9.5,
+          "70": 17.0,
+          "63": 3.5,
+          "68": 3.0,
+          "72": 12.5,
+          "69": 7.0,
+          "75": 6.0,
+          "74": 7.0,
+          "71": 3.0
+        },
+        "statistics": {
+          "total_duration": 108.0,
+          "pitch_range": {
+            "min": "E-4",
+            "min_midi": 63,
+            "max": "E-5",
+            "max_midi": 75
+          },
+          "unique_pitches": 10
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Frauenliebe und Leben, Op.42 — No. 2 Er Der Herrlichste Von Allen",
+        "filename": "schumann-robert-frauenliebe-und-leben-op42-no2-er-der-herrlichste-von-allen.mxl",
+        "tessituragram": {
+          "70": 37.5,
+          "67": 31.25,
+          "63": 9.0,
+          "75": 26.5,
+          "65": 22.25,
+          "68": 23.75,
+          "77": 4.5,
+          "72": 18.75,
+          "74": 14.0,
+          "71": 0.5,
+          "69": 6.0,
+          "73": 8.5,
+          "62": 2.5,
+          "78": 2.5,
+          "60": 1.5,
+          "64": 1.5
+        },
+        "statistics": {
+          "total_duration": 284.0,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "G-5",
+            "max_midi": 78
+          },
+          "unique_pitches": 16
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Frauenliebe und Leben — No. 3 Ich Kanns Nicht Fassen Nicht Glauben",
+        "filename": "schumann-robert-frauenliebe-und-leben-op42-no3-ich-kanns-nicht-fassen-nicht-glauben.mxl",
+        "tessituragram": {
+          "67": 19.5,
+          "72": 18.0,
+          "68": 4.5,
+          "66": 6.0,
+          "65": 8.5,
+          "74": 8.0,
+          "63": 3.0,
+          "62": 3.0,
+          "60": 3.0,
+          "70": 8.5,
+          "69": 6.5,
+          "73": 1.5,
+          "77": 5.0,
+          "75": 5.5,
+          "71": 0.5
+        },
+        "statistics": {
+          "total_duration": 129.5,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Frauenliebe und -leben, Op.42 — No. 4 Du Ring An Meinem Finger",
+        "filename": "schumann-robert-frauenliebe-und-leben-op42-no4-du-ring-an-meinem-finger.mxl",
+        "tessituragram": {
+          "67": 30.0,
+          "70": 29.5,
+          "63": 24.0,
+          "60": 9.0,
+          "62": 5.0,
+          "65": 11.0,
+          "69": 6.5,
+          "68": 15.5,
+          "74": 5.0,
+          "72": 6.75,
+          "66": 2.0,
+          "64": 0.5,
+          "75": 7.0,
+          "76": 2.0,
+          "77": 3.0
+        },
+        "statistics": {
+          "total_duration": 177.0,
+          "pitch_range": {
+            "min": "C4",
+            "min_midi": 60,
+            "max": "F5",
+            "max_midi": 77
+          },
+          "unique_pitches": 15
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Frauenliebe und Leben, Op.42 — No. 5 Helft Mir Ihr Schwestern",
+        "filename": "schumann-robert-frauenliebe-und-leben-op42-no5-helft-mir-ihr-schwestern.mxl",
+        "tessituragram": {
+          "65": 41.0,
+          "67": 23.5,
+          "74": 26.0,
+          "70": 19.5,
+          "72": 16.5,
+          "69": 13.5,
+          "75": 6.0,
+          "77": 8.5,
+          "79": 1.5,
+          "76": 1.5,
+          "68": 1.0,
+          "66": 2.5,
+          "61": 0.5,
+          "64": 1.5,
+          "62": 1.0,
+          "58": 2.0
+        },
+        "statistics": {
+          "total_duration": 208.0,
+          "pitch_range": {
+            "min": "B-3",
+            "min_midi": 58,
+            "max": "G5",
+            "max_midi": 79
+          },
+          "unique_pitches": 16
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Frauenliebe und Leben, Op.42 — No. 6 Susser Freund Du Blickest",
+        "filename": "schumann-robert-frauenliebe-und-leben-op42-no6-susser-freund-du-blickest.mxl",
+        "tessituragram": {
+          "74": 25.5,
+          "70": 4.0,
+          "71": 29.583333333333336,
+          "67": 32.25,
+          "66": 6.0,
+          "69": 31.916666666666668,
+          "72": 10.0,
+          "68": 3.0,
+          "76": 1.75,
+          "73": 0.5,
+          "65": 5.0,
+          "64": 3.0
+        },
+        "statistics": {
+          "total_duration": 232.0,
+          "pitch_range": {
+            "min": "E4",
+            "min_midi": 64,
+            "max": "E5",
+            "max_midi": 76
+          },
+          "unique_pitches": 12
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Frauenliebe und Leben — No. 7 An Meinem Herzen An Meiner Brust",
+        "filename": "schumann-robert-frauenliebe-und-leben-op42-no7-an-meinem-herzen-an-meiner-brust.mxl",
+        "tessituragram": {
+          "69": 20.0,
+          "74": 30.25,
+          "76": 8.25,
+          "73": 8.5,
+          "71": 17.5,
+          "72": 0.5,
+          "67": 4.0,
+          "66": 1.5,
+          "64": 3.0,
+          "78": 1.5,
+          "70": 0.5,
+          "62": 1.5
+        },
+        "statistics": {
+          "total_duration": 123.0,
+          "pitch_range": {
+            "min": "D4",
+            "min_midi": 62,
+            "max": "F#5",
+            "max_midi": 78
+          },
+          "unique_pitches": 12
+        }
+      },
+      {
+        "composer": "Robert Schumann",
+        "title": "Frauenliebe und Leben, Op.42 — No. 8 Nun Hast Du Mir Den Ersten Schmerz Getan",
+        "filename": "schumann-robert-frauenliebe-und-leben-op42-no8-nun-hast-du-mir-den-ersten-schmerz-getan.mxl",
+        "tessituragram": {
+          "69": 10.25,
+          "62": 14.25,
+          "64": 8.75,
+          "65": 7.5,
+          "67": 7.25,
+          "66": 2.5,
+          "70": 1.5,
+          "73": 3.5,
+          "72": 3.0,
+          "71": 2.0,
+          "74": 2.0,
+          "68": 1.5,
+          "63": 2.0,
+          "61": 8.0
+        },
+        "statistics": {
+          "total_duration": 151.0,
+          "pitch_range": {
+            "min": "C#4",
+            "min_midi": 61,
+            "max": "D5",
+            "max_midi": 74
+          },
+          "unique_pitches": 14
+        }
+      }
+    ]
+  }
