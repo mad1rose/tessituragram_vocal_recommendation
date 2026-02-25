@@ -256,6 +256,44 @@ RESEARCH QUESTION 3: Score spread and internal validity
    for many synthetic users and report averages and confidence intervals.
    No human input is used—only the numbers the system already outputs.
 
+--------------------------------------------------------------------------------
+NOTE ON BOOTSTRAPPING (applies to all three RQs)
+--------------------------------------------------------------------------------
+All three experiments report "95% bootstrap confidence intervals." Here is
+what that means in plain language:
+
+Imagine you ran the experiment and got a result — say, "the system ranked
+the correct song first 85% of the time." But if you had a slightly different
+set of songs, or different synthetic profiles, the number might come out as
+83% or 87%. How much could it reasonably vary?
+
+Bootstrapping answers this by simulating "what if we ran the experiment many
+times with slightly different data?" It works like this:
+
+  1. You have your original set of results (e.g. 101 rank values, one per
+     song).
+  2. You randomly draw 101 values from that set *with replacement* — meaning
+     the same result can be picked more than once, and some results may be
+     left out. This simulates getting a slightly different dataset.
+  3. You compute the metric (e.g. HR@1) on this resampled set.
+  4. You repeat steps 2–3 ten thousand times (10,000 resamples).
+  5. You now have 10,000 slightly different versions of the metric. You sort
+     them and take the 2.5th percentile as the lower bound and the 97.5th
+     percentile as the upper bound. This is your 95% confidence interval.
+
+The interval tells you: "we are 95% confident the true value falls somewhere
+in this range." A narrow interval means the result is stable and reliable; a
+wide interval means there is more uncertainty.
+
+Why bootstrapping instead of a formula? Traditional formulas for confidence
+intervals assume the data follows a specific mathematical shape (like a bell
+curve). Bootstrapping makes no such assumption — it lets the data speak for
+itself. This makes it a good default choice, especially for metrics like
+hit rates and rank-based scores that do not follow a bell curve.
+
+All three experiments in this repository use the same bootstrap procedure
+(10,000 resamples, random seed 42 for reproducibility).
+
 ================================================================================
 SUMMARY TABLE
 ================================================================================
