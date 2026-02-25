@@ -129,7 +129,7 @@ tessituragram_vocal_recommendation/
 
 ## Data
 
-The original MusicXML files were obtained from the [OpenScore Lieder Corpus](https://doi.org/10.17613/1my2-dm23) (Gotham and Jonas, 2022), available under CC0. Pre-extracted tessituragrams are provided in `data/tessituragrams.json`. To regenerate from source files, place `.mxl` files in `songs/mxl_songs/` and run `python -m src.main`.
+The original MusicXML files were obtained from the [OpenScore Lieder Corpus](https://doi.org/10.17613/1my2-dm23) (Gotham and Jonas, 2022), available under CC0. The spreadsheet `songs/tessitura_recommendation_songs.xlsx` lists every song in the corpus with its composer, title, and the direct MuseScore URL from which each file was downloaded, so the full dataset can be independently reconstructed. Pre-extracted tessituragrams are provided in `data/tessituragrams.json`. To regenerate from source files, place `.mxl` files in `songs/mxl_songs/` and run `python -m src.main`.
 
 ## Installation
 
