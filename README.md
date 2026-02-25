@@ -90,6 +90,18 @@ final_score = cosine_similarity(song_vec, ideal_vec)
 - **Cosine similarity** is shape-based and magnitude-insensitive. It naturally rewards songs whose pitch distribution aligns with the ideal vector.
 - **Explicit avoid penalty** (`α = 0.5` by default) further suppresses songs that spend significant time on undesired pitches. This makes the scoring transparent and easy to explain.
 
+## Beginner Guides (`how_tos/`)
+
+This project is designed for musicians, not just programmers. The `how_tos/` folder contains plain-language, step-by-step guides that assume no prior coding experience:
+
+| Guide | What it covers |
+| --- | --- |
+| `how_to_create_tessituragrams.txt` | Installing Python, installing dependencies, and generating tessituragram data from MusicXML files |
+| `how_to_get_recommendations.txt` | Running the recommender, entering your vocal range and note preferences, and reading the results |
+| `how_to_view_tessituragrams.txt` | Generating and opening the Jupyter notebook visualizations of your tessituragrams |
+
+Each guide walks through every step from scratch — including how to open a terminal, navigate to the project folder, and interpret the output — so that singers, voice teachers, and other non-technical users can run the system independently.
+
 ## Project Structure
 
 ```
@@ -117,6 +129,7 @@ tessituragram_vocal_recommendation/
 ├── songs/
 │   └── mxl_songs/                      ← Input .mxl files
 ├── experiment/
+│   ├── evaluation_plan_research_questions.txt  ← Motivation & design for each RQ
 │   ├── run_rq1_experiment.py           ← RQ1: Self-retrieval accuracy
 │   ├── run_rq2_experiment.py           ← RQ2: Ranking stability
 │   ├── run_rq3_experiment.py           ← RQ3: Score spread & internal validity
@@ -172,6 +185,30 @@ python -m src.visualize
 ```
 
 This generates `tessituragrams.ipynb` — histograms for every song in the library.
+
+## Experiments
+
+The `experiment/` directory contains three offline evaluation experiments that assess the recommendation engine without requiring human judgments. The file `experiment/evaluation_plan_research_questions.txt` explains the motivation, design, metrics, and expected outcomes for each research question in detail — readers unfamiliar with the experiments should start there.
+
+| RQ | Question | Script | Metrics |
+| --- | --- | --- | --- |
+| **RQ1** | Does the system rank a song first when the user profile is derived from that song? (Accuracy) | `run_rq1_experiment.py` | HR@1, HR@3, HR@5, MRR with 95% bootstrap CI |
+| **RQ2** | Does the ranking stay stable when one favourite or avoid note is added/removed? (Robustness) | `run_rq2_experiment.py` | Kendall's τ: mean, std, 95% bootstrap CI |
+| **RQ3** | Do scores spread out meaningfully, and do score components behave as the formula predicts? (Interpretability) | `run_rq3_experiment.py` | Variance & range of final_score; Pearson r for three pairs, all with 95% CI |
+
+All experiments use synthetic user profiles derived from the song library (top-4 pitches by duration as favourites, bottom-2 as avoids, disjoint), so they are fully reproducible from the repository alone. Each experiment script writes a JSON results file to `experiment/` and prints a summary to the terminal. Corresponding `visualize_rq*.py` scripts generate publication-ready figures.
+
+```bash
+# Run all three experiments
+python -m experiment.run_rq1_experiment
+python -m experiment.run_rq2_experiment
+python -m experiment.run_rq3_experiment
+
+# Generate figures
+python -m experiment.visualize_rq1
+python -m experiment.visualize_rq2
+python -m experiment.visualize_rq3
+```
 
 ## JSON Schemas
 

@@ -1,0 +1,336 @@
+================================================================================
+EVALUATION PLAN: Tessituragram-Based Repertoire Recommendation System
+Research Questions for Offline Evaluation (No Human Data Required)
+================================================================================
+
+All three research questions use only: the song library (tessituragrams),
+synthetic user profiles derived from that library, and the system's own
+outputs.
+
+--------------------------------------------------------------------------------
+HOW THE THREE RESEARCH QUESTIONS RELATE
+--------------------------------------------------------------------------------
+The three RQs form a single evaluation story for your recommender:
+
+  RQ1 — Does it work? When we "ask" for songs that match a given song's
+        pitch profile, does the system put that same song at the top? (Accuracy.)
+
+  RQ2 — Is it stable? When the user changes their preferences by one note,
+        does the recommendation list stay mostly the same or completely
+        reshuffle? (Robustness.)
+
+  RQ3 — Do the numbers make sense? Do the scores spread out meaningfully,
+        and do the score parts (similarity vs. avoid penalty) relate to
+        the final score the way the formula says? (Interpretability.)
+
+Same system, same data, same evaluation pipeline; three complementary
+questions that together support the claim that the system is accurate,
+stable, and interpretable.
+
+--------------------------------------------------------------------------------
+SYSTEM SUMMARY (components used in evaluation)
+--------------------------------------------------------------------------------
+- Data: data/tessituragrams.json. Each song has: composer, title, filename,
+  tessituragram (MIDI note → duration in quarter beats), statistics
+  (pitch_range.min_midi, pitch_range.max_midi). Source of MusicXML files:
+  OpenScore Lieder Corpus (Gotham & Jonas, 2022; CC0, doi: 10.17613/1my2-dm23).
+- Model: (1) Filter songs by user vocal range. (2) Build an "ideal" pitch
+  vector from favourite and avoid notes (L2-normalised). (3) Score each
+  song: cosine similarity between song's pitch distribution and ideal, minus
+  a penalty for time spent on avoid notes: final_score = cos_sim − α×avoid_penalty.
+  (4) Rank by final_score descending. Tie-break: filename (A–Z).
+- Output: Ranked list with rank, filename, final_score, cosine_similarity,
+  avoid_penalty, favorite_overlap per song.
+
+================================================================================
+RESEARCH QUESTION 1: Self-retrieval accuracy
+================================================================================
+
+1.1 Research question (specific and measurable)
+   When we build a synthetic user profile from one song (using that song's
+   most- and least-used pitches as favourites and avoids), does the system
+   rank that same song at position 1, or within the top 3 or top 5?
+
+1.2 What is being measured
+   - For each song used as a "query," the rank position of that song in the
+     system's recommendation list (1 = first, 2 = second, etc.).
+   - Across all such queries: the fraction of times the query song is at
+     rank 1 (Hit Rate @ 1), the average of 1/rank (Mean Reciprocal Rank),
+     and the fraction of times it appears in the top 3 or top 5 (Hit Rate @ 3,
+     Hit Rate @ 5).
+
+1.3 Why it is being measured
+   Your system recommends songs by similarity of pitch distribution to an
+   ideal. If the ideal comes from one song, that song is the only correct
+   "match" — no human judgment needed. Measuring how often it appears at
+   the top tests whether the scoring and ranking are internally consistent.
+   This is standard offline evaluation for content-based recommenders when
+   you do not have human labels (Herlocker et al., 2004; Urbano et al., 2013).
+
+1.4 How it will be measured
+
+   Model: The same code as your app: filter_by_range, build_ideal_vector,
+   score_songs from src/recommend.py. Use α = 0.5; tie-break by filename.
+
+   Data: data/tessituragrams.json (101 songs). Format: JSON array of song
+   objects with tessituragram and statistics.pitch_range. Query set: every
+   song in the library for which, after filtering by that song's range, at
+   least 2 songs remain (so there is a real ranking).
+
+   Procedure:
+   1. Load the library from JSON.
+   2. For each song s: set user range to s's min/max MIDI. From s's
+      tessituragram (L1-normalised), take the top 4 MIDI by duration as
+      favourites and the bottom 2 as avoids (if fewer than 4 pitches, use
+      all as favourites; if fewer than 2, use no avoids). Skip s if the
+      filtered candidate set has fewer than 2 songs.
+      In the paper, state explicitly: the synthetic profile is derived from
+      the same L1-normalised pitch-duration representation used when
+      scoring songs (internal coherence).
+   3. Run the recommender; get ranked list. Find the rank of s (by filename).
+      The query song s must remain in the candidate set (do not remove it).
+      Using s's own range for filtering ensures s is in the candidate set.
+   4. Record: hit@1 (1 if rank = 1, else 0), 1/rank, hit@3, hit@5.
+   5. After all songs: HR@1 = mean(hit@1), MRR = mean(1/rank), HR@3 = mean(hit@3),
+      HR@5 = mean(hit@5).
+
+   Evaluation: Report HR@1, MRR, HR@3, HR@5. Report 95% confidence intervals
+   (bootstrap over the query set, e.g. 10,000 samples). If the library is
+   small (< 30 valid queries), say so as a limitation.
+
+   Formulas:
+   - HR@1 = (1/N) × (number of queries where the query song was rank 1).
+   - MRR = (1/N) × sum over queries of (1 / rank of query song).
+   - HR@k = (1/N) × (number of queries where the query song was in top k).
+
+1.5 Plain-language summary (limited math/CS background)
+   Think of it like this: you pick a song and tell the system "recommend
+   songs that match this one's vocal profile." The most sensible top answer
+   is that same song. We do this for every song in the library (the computer
+   pretends each song is a user's preference). We then count: how often did
+   that song come first? How often in the top 3 or top 5? "Hit Rate @ 1"
+   is the fraction of times it came first; "Mean Reciprocal Rank" rewards
+   putting it as high as possible (first is best). We also report a range of
+   plausible values (confidence interval) so readers know how stable the
+   result is. No people are asked to judge anything—only the stored pitch
+   data and the program are used.
+
+================================================================================
+RESEARCH QUESTION 2: Ranking stability under small preference changes
+================================================================================
+
+2.1 Research question (specific and measurable)
+   When we change the user's favourite or avoid list by exactly one note
+   (add one or remove one), how similar is the new recommendation list to
+   the original? We measure similarity with Kendall's τ (tau): 1 = identical
+   order, 0 = no relationship, −1 = completely reversed.
+
+2.2 What is being measured
+   - The similarity between two rankings of the same set of songs: the
+     original ranking and the ranking after one note is added or removed
+     from favourites or avoids.
+   - We repeat this for many one-note changes and report the average and
+     spread of τ (and a 95% confidence interval for the average).
+
+2.3 Why it is being measured
+   In practice, users might add or forget one note. A stable system should
+   not completely reorder the list for such a tiny change—that supports
+   trust and interpretability. This is a standard robustness check;
+   evaluation literature stresses stability of results under small changes
+   (Herlocker et al., 2004; Urbano et al., 2013).    No human data needed—only
+   two rankings from the system.
+
+2.4 How it will be measured
+
+   Model: Same as RQ1 (filter_by_range, build_ideal_vector, score_songs;
+   α = 0.5; tie-break by filename).
+
+   Data: data/tessituragrams.json (101 songs). Use 5 baseline user profiles
+   (N_BASELINES = 5), each derived from a different song using the same
+   rule as RQ1 (top-4 fav, bottom-2 avoid, disjoint). Each baseline's
+   filtered candidate set must have at least 10 songs (MIN_CANDIDATES = 10).
+   Using multiple baselines reduces the risk that results depend on an
+   atypical baseline.
+
+   Procedure:
+   1. Compute the baseline ranking R0 for that profile over the candidate set C.
+   2. For each one-note perturbation: add one favourite (from range, not
+      already in favourites), or remove one favourite, or add one avoid, or
+      remove one avoid. Keep the same range so C does not change.
+   3. For each perturbation, compute the new ranking R_new over the same C.
+   4. For each pair (R0, R_new), compute Kendall's τ (e.g. scipy.stats.kendalltau
+      on the two rank vectors for the same set of songs).
+   5. Report mean τ, standard deviation, and 95% CI for the mean (bootstrap
+      over the perturbations).
+
+   Evaluation: Report mean τ and 95% CI. Interpret: τ > 0.7 strong agreement;
+   0.3–0.7 moderate; < 0.3 weak. You can state a hypothesis (e.g. mean τ ≥ 0.5)
+   and check whether the CI supports it.
+
+   Formula: Kendall's τ = (C − D) / (n(n−1)/2), where C = number of song
+   pairs ordered the same way in both lists, D = number ordered differently,
+   n = number of songs. τ is between −1 and 1 (Kendall, 1948).
+
+2.5 Plain-language summary (limited math/CS background)
+   We ask: "If the singer changes their list of favourite or avoid notes by
+   just one note, does the recommendation list stay roughly the same or
+   get completely shuffled?" We compare the original list order with the
+   new list order using a number τ (tau): 1 means the order is the same,
+   0 means there's no clear relationship, and negative would mean the order
+   flipped. We try many such one-note changes and report the average τ. A
+   high average means the system is stable—small input changes do not
+   cause big output changes. Everything is done by the computer; no human
+   judgments are involved.
+
+================================================================================
+RESEARCH QUESTION 3: Score spread and internal validity
+================================================================================
+
+3.1 Research question (specific and measurable)
+   (a) Do recommendation scores (final_score) spread out across songs, or do
+   many songs get almost the same score? (b) Do the parts of the score
+   (cosine similarity and avoid penalty) relate to final_score in the way
+   the formula says (higher similarity → higher score; higher avoid time →
+   lower score)?
+
+3.2 What is being measured
+   (a) Spread: variance and range of final_score over the ranked list for
+       each run; we report the average variance and range across multiple
+       runs (multiple synthetic user profiles).
+   (b) Internal validity: correlation between final_score and cosine_similarity
+       (expect positive), and between final_score and avoid_penalty (expect
+       negative); and between cosine_similarity and favorite_overlap
+       (expect positive). We report mean correlation and 95% CI across runs.
+
+3.3 Why it is being measured
+   If scores barely differ (e.g. all between 0.48 and 0.52), the ranking is
+   not very meaningful. If the components do not align with the formula
+   (final_score = cos_sim − α×avoid_penalty), the scoring may not match its
+   intended meaning. Evaluation literature emphasises that metrics should
+   both discriminate between items and reflect the intended construct
+   (Herlocker et al., 2004; Urbano et al., 2013; Castells et al., 2018).
+
+3.4 How it will be measured
+
+   Model: Same as RQ1 and RQ2 (build_ideal_vector, score_songs; tie-break
+   by filename).
+
+   Data: data/tessituragrams.json (101 songs). Use M = 25 synthetic user
+   profiles (N_PROFILES = 25), each derived from a different song with the
+   same rule as RQ1 (top-4 fav, bottom-2 avoid, disjoint). For each
+   profile, the filtered candidate set must have at least 10 songs
+   (MIN_CANDIDATES = 10).
+
+   Procedure:
+   1. For each of M profiles, run the recommender and get the full result
+      list (each row: final_score, cosine_similarity, avoid_penalty,
+      favorite_overlap).
+   2. Per run: (a) Compute variance and range of final_score over the list.
+      (b) Compute Pearson correlation (or Spearman if relationships look
+      non-linear): final_score vs cosine_similarity, final_score vs
+      avoid_penalty, cosine_similarity vs favorite_overlap.
+   3. Across M runs: report mean and std of variance and range; report mean
+      correlation and 95% CI (bootstrap over the M runs) for each pair.
+   4. State expected signs: final_score–cosine positive; final_score–avoid
+      negative; cosine–favorite_overlap positive.
+
+   Evaluation: Report mean variance, mean range, and mean correlations
+   with 95% CIs. A sanity check: avoid_penalty should equal (by design) the
+   proportion of singing time on avoid notes; you can report that
+   correlation (expected 1.0) to verify the pipeline.
+
+   Formulas:
+   - Variance = (1/(n−1)) × sum over songs of (score − mean_score)².
+   - Range = max(score) − min(score) over the list.
+   - Pearson r = standard correlation between two variables (−1 to 1).
+
+3.5 Plain-language summary (limited math/CS background)
+   We check two things. First: do the scores the system gives to different
+   songs actually differ? If every song got almost the same score, the
+   ranking would be arbitrary. We measure how spread out the scores are
+   (variance and range). Second: does the scoring formula behave as
+   intended? The system combines "how similar the song is to your ideal"
+   (cosine) and "how much the song uses notes you want to avoid" (penalty).
+   We check that higher similarity goes with higher scores and higher
+   avoid-note time goes with lower scores, using correlations. We do this
+   for many synthetic users and report averages and confidence intervals.
+   No human input is used—only the numbers the system already outputs.
+
+================================================================================
+SUMMARY TABLE
+================================================================================
+RQ  | What is measured              | Primary metrics        | Data / procedure
+----+-------------------------------+------------------------+------------------------------------------
+1   | Rank of query song in list    | HR@1, MRR, HR@3, HR@5  | One query per song; profile = top-4 fav,
+    |                               | + 95% CI               | bottom-2 avoid from that song's
+    |                               |                         | tessituragram.
+----+-------------------------------+------------------------+------------------------------------------
+2   | Similarity of ranking before | Kendall's τ (mean,     | 5 baseline profiles (≥ 10 candidates
+    | vs after one-note change     | std, 95% CI)            | each); perturb by one note (add/remove
+    |                               |                         | fav or avoid); same candidate set.
+----+-------------------------------+------------------------+------------------------------------------
+3   | (a) Spread of final_score    | (a) Variance, range     | M = 25 synthetic profiles (same rule as
+    | (b) Alignment of score parts | (b) Pearson r for three | RQ1; ≥ 10 candidates each); one ranking
+    |     with formula             |     pairs + 95% CI      | per profile; aggregate variance, range,
+    |                               |                         | and correlations.
+================================================================================
+
+--------------------------------------------------------------------------------
+SOURCES
+--------------------------------------------------------------------------------
+Cite in Method/Data: Gotham & Jonas (2022) — OpenScore Lieder Corpus (source
+of MusicXML files). Cite in methods/evaluation: Herlocker et al. (recommender
+evaluation); Urbano et al. (MIR evaluation, validity/reliability). Cite for
+RQ2: Kendall (τ). Cite for RQ3 if you mention discriminative power: Castells et al.
+
+[0] M. R. H. Gotham and P. Jonas. "The OpenScore Lieder Corpus." In Music
+    Encoding Conference Proceedings 2021, S. M{\"u}nnich and D. Rizo (Eds.),
+    pp. 131--136. Humanities Commons, 2022. DOI: 10.17613/1my2-dm23.
+    Use for: Dataset credit; source of MusicXML (CC0).
+
+[1] J. L. Herlocker, J. A. Konstan, L. G. Terveen, and J. T. Riedl.
+    "Evaluating Collaborative Filtering Recommender Systems." ACM
+    Transactions on Information Systems (TOIS), Vol. 22, No. 1, pp. 5–53,
+    January 2004.
+    Use for: Accuracy and rank-based metrics (RQ1), stability/sensitivity
+    (RQ2), and beyond-accuracy evaluation (RQ3).
+
+[2] J. Urbano, M. Schedl, and X. Serra. "Evaluation in Music Information
+    Retrieval." Journal of Intelligent Information Systems, Vol. 41, No. 2,
+    pp. 345–369, 2013. DOI: 10.1007/s10844-013-0249-4.
+    Use for: Validity, reliability, confidence intervals, and stability of
+    measures.
+
+[3] M. G. Kendall. "Rank Correlation Methods." Charles Griffin, London,
+    1948 (or later editions). Alternatively, cite a statistics textbook or
+    the scipy documentation for Kendall's τ.
+    Use for: Definition and interpretation of τ in RQ2.
+
+[4] P. Castells, F. Vargas, and J. Wang. "On the Robustness and
+    Discriminative Power of Information Retrieval Metrics for Top-N
+    Recommendation." In Proc. 12th ACM Conference on Recommender Systems
+    (RecSys), pp. 44–52, 2018. DOI: 10.1145/3240323.3240347.
+    Use for: Justification for reporting score spread and internal validity
+    (RQ3). Optional if space is tight.
+
+--------------------------------------------------------------------------------
+IMPLEMENTATION CHECKLIST
+--------------------------------------------------------------------------------
+[x] Implement tie-breaking by filename when final_score ties (src/recommend.py).
+[x] RQ1: Synthetic profile = top-4 MIDI by duration (fav), bottom-2 (avoid),
+    disjoint. Loop over valid songs; compute HR@1, MRR, HR@3, HR@5;
+    bootstrap 95% CI (10,000 samples, seed 42).
+    → experiment/run_rq1_experiment.py; output: experiment/RQ1_results.json
+[x] RQ2: 5 baseline profiles (≥ 10 candidates each); all one-note add/remove
+    perturbations; Kendall's τ for each; mean, std, 95% CI.
+    → experiment/run_rq2_experiment.py; output: experiment/RQ2_results.json
+[x] RQ3: M = 25 profiles (≥ 10 candidates each); per run: variance and range
+    of final_score, and Pearson r for the three pairs; aggregate with 95% CI.
+    → experiment/run_rq3_experiment.py; output: experiment/RQ3_results.json
+[x] Visualization scripts for all three RQs (publication-ready figures).
+    → experiment/visualize_rq1.py, visualize_rq2.py, visualize_rq3.py
+[ ] In the paper: state data path, library size (101 songs), α = 0.5, and
+    the exact profile rule. Report all confidence intervals.
+--------------------------------------------------------------------------------
+END OF EVALUATION PLAN
+================================================================================
