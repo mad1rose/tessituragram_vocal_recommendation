@@ -1,0 +1,359 @@
+================================================================================
+     HOW TO GET SONG RECOMMENDATIONS — A BEGINNER'S GUIDE
+================================================================================
+
+This guide will walk you through every step needed to get personalised song
+recommendations based on your vocal range and note preferences.  No prior
+coding experience is required.
+
+
+--------------------------------------------------------------------------------
+WHAT IS THIS?
+--------------------------------------------------------------------------------
+
+This tool looks at every song in your library and figures out which ones are
+the best fit for your voice.  You tell it three things:
+
+  1. Your vocal range  (the lowest and highest notes you can comfortably sing)
+  2. Your favorite notes  (notes you love singing — optional; can use ranges
+     like D4-E4 to mean D4, E4, and all notes in between)
+  3. Notes to avoid  (notes you'd rather not sing — optional; same range format)
+
+The tool then:
+  - Filters out any song whose range goes outside yours
+  - Builds an "ideal" pitch profile from your preferences
+  - Compares every remaining song to that ideal profile
+  - Ranks the songs from best match to worst match
+  - Explains why each song ranked where it did
+
+
+--------------------------------------------------------------------------------
+WHAT YOU WILL NEED
+--------------------------------------------------------------------------------
+
+1. A computer (Windows, Mac, or Linux)
+2. Python installed (version 3.10 or newer)
+3. The project's required libraries installed
+4. A populated song library (data/tessituragrams.json)
+
+If you have already followed "how_to_create_tessituragrams.txt", you have
+everything you need.  If not, please follow that guide first — it covers
+installing Python, the required libraries, and generating the song library.
+
+
+================================================================================
+STEP 1: OPEN A TERMINAL IN THE PROJECT FOLDER
+================================================================================
+
+You need your terminal pointed at the project's root folder — the one that
+contains the "src" folder, "data" folder, and "requirements.txt".
+
+  FOR WINDOWS:
+  1. Open File Explorer and navigate to the project folder.
+  2. Click in the address bar at the top (where it shows the folder path).
+  3. Type "cmd" or "powershell" and press Enter.
+     A terminal window will open, already pointed at the project folder.
+
+  ALTERNATIVE (any OS):
+  1. Open a terminal.
+  2. Type "cd " (with a space after it), then type or paste the path to the
+     project folder.  For example:
+
+         cd C:\Users\YourName\Desktop\tessituragram-based_rep_recs
+
+     On Mac, it might look like:
+
+         cd /Users/YourName/Desktop/tessituragram-based_rep_recs
+
+  3. Press Enter.
+
+  TO VERIFY YOU ARE IN THE RIGHT FOLDER:
+  - Windows: Type "dir" and press Enter.  You should see files like
+    "requirements.txt" and folders like "src" and "data".
+  - Mac/Linux: Type "ls" and press Enter.  You should see the same.
+
+
+================================================================================
+STEP 2: MAKE SURE YOUR SONG LIBRARY EXISTS
+================================================================================
+
+The recommender reads from "data/tessituragrams.json".  This file is created
+when you run the tessituragram generation program.
+
+  TO CHECK:
+  1. Open the project folder in File Explorer (Windows) or Finder (Mac).
+  2. Open the "data" folder inside it.
+  3. You should see a file called "tessituragrams.json".
+
+  IF YOU DO NOT SEE THIS FILE:
+  You need to generate it first.  Run:
+
+      python -m src.main
+
+  (Full instructions are in "how_to_create_tessituragrams.txt", Step 6.)
+
+
+================================================================================
+STEP 3: RUN THE RECOMMENDER
+================================================================================
+
+In your terminal (which should be in the project folder), type:
+
+    python -m src.run_recommendations
+
+and press Enter.
+
+If "python" does not work, try:
+
+    python3 -m src.run_recommendations
+
+The program will display a welcome banner and then guide you through three
+simple prompts.  Each prompt is explained below.
+
+
+================================================================================
+STEP 4: ENTER YOUR VOCAL RANGE
+================================================================================
+
+The program will ask:
+
+    Lowest note in your range:
+    Highest note in your range:
+
+Type a note name followed by an octave number.  Here are some examples:
+
+    C4   = middle C
+    D4   = D above middle C
+    Bb3  = B-flat below middle C
+    F#4  = F-sharp above middle C
+    Eb5  = E-flat an octave above middle C
+    G5   = G an octave and a half above middle C
+
+TIPS FOR CHOOSING YOUR RANGE:
+  - Think about the lowest and highest notes you can sing comfortably.
+  - If you are unsure, a good starting range for many voices is:
+      Soprano:  C4 to C6
+      Mezzo:    A3 to A5
+      Tenor:    C3 to C5
+      Baritone: A2 to A4
+      Bass:     E2 to E4
+  - You can always run the recommender again with a different range.
+
+After you type each note and press Enter, the program will confirm what it
+understood.  For example:
+
+    Lowest note in your range: C4
+      → C4 (MIDI 60)
+
+If you make a typo, the program will tell you it is invalid and let you
+try again — you cannot break anything.
+
+
+================================================================================
+STEP 5: ENTER YOUR FAVORITE NOTES (OPTIONAL)
+================================================================================
+
+The program will ask:
+
+    Favorite notes (comma-separated; use D4-E4 for ranges; Enter to skip):
+
+These are notes you especially enjoy singing.  Songs that spend a lot of
+time on these notes will rank higher.
+
+  HOW TO ENTER THEM:
+  You can enter single notes, ranges, or both — separated by commas.
+
+  Single notes:   A4, D5, F5
+
+  Ranges:  D4-E4  means D4, E4, and every pitched note in between.
+           The format is LOW-HIGH (low note, hyphen, high note).
+           Examples:  C4-G4, Bb3-D4, A4-C5
+
+  Mix both:  A4, D4-E4, F5  (A4, plus every note from D4 through E4, plus F5)
+
+  TO SKIP:
+  If you have no preference, just press Enter without typing anything.
+
+  EXAMPLES:
+    Favorite notes (...): A4, D5
+      → A4 (MIDI 69), D5 (MIDI 74)
+
+    Favorite notes (...): D4-E4
+      → D4 (MIDI 62), Eb4 (MIDI 63), E4 (MIDI 64)
+
+
+================================================================================
+STEP 6: ENTER NOTES TO AVOID (OPTIONAL)
+================================================================================
+
+The program will ask:
+
+    Notes to avoid (comma-separated; use D4-E4 for ranges; Enter to skip):
+
+Songs that spend a lot of time on these notes will be ranked lower.
+
+  HOW TO ENTER THEM:
+  Same format as favorite notes — single notes or ranges, comma-separated.
+  For example:
+
+      C4, G5           (single notes)
+      C4-D4            (range: C4, C#4, D4)
+      C4, G4-G5        (C4 plus every note from G4 through G5)
+
+  TO SKIP:
+  Just press Enter without typing anything.
+
+
+================================================================================
+STEP 7: VIEW YOUR RESULTS
+================================================================================
+
+After you enter your preferences, the program will:
+
+  1. Load the song library
+  2. Filter out songs whose range does not fit inside yours
+  3. Score and rank the remaining songs
+  4. Print the ranked results to your terminal
+
+  WHAT YOU WILL SEE:
+  Something like this:
+
+      ================================================================
+         RANKED RECOMMENDATIONS (best fit → worst fit)
+      ================================================================
+
+        #1  6 Lieder, Op.13
+            Composer: Clara Schumann
+            File:     schumann-clara-6-lieder-op13-no4-der-mond-kommt...
+            Final score: 0.82 (cosine similarity 0.85)  Strong overlap
+            with your favorite notes (A4, D5): 31% of singing time.
+            Minimal presence of avoid notes (C4): 0.0% of singing time.
+
+        #2  Liederkreis, Op.39
+            Composer: Robert Schumann
+            ...
+
+  HOW TO READ THE RESULTS:
+  - #1 is the best match, #2 is second best, and so on.
+  - "Final score" is the overall fit score (higher is better).
+  - "Cosine similarity" measures how closely the song's pitch profile
+    matches your ideal profile (1.0 = perfect match).
+  - The explanation tells you how much time the song spends on your
+    favorite notes and avoid notes.
+
+  The results are also saved to:
+
+      data/recommendations.json
+
+  You can open this file in any text editor if you want to look at the
+  raw data.
+
+
+================================================================================
+STEP 8: VISUALISE THE RECOMMENDATIONS (OPTIONAL)
+================================================================================
+
+If you want to see charts comparing each recommended song to your ideal
+pitch profile, you can generate a Jupyter notebook.
+
+  In your terminal, type:
+
+      python -m src.visualize_recommendations
+
+  and press Enter.
+
+  If "python" does not work, try:
+
+      python3 -m src.visualize_recommendations
+
+  This creates a file called "recommendations.ipynb" in your project folder.
+
+  TO OPEN THE NOTEBOOK:
+
+  OPTION A — Jupyter (in your browser):
+      jupyter notebook recommendations.ipynb
+
+  OPTION B — VS Code / Cursor:
+      Open the .ipynb file directly in the editor.
+
+  Once the notebook is open, click "Run All" (or press Ctrl+Shift+Enter)
+  to render all the charts.
+
+  WHAT THE CHARTS SHOW:
+  Each chart has:
+  - Coloured bars showing the song's normalised pitch distribution
+    (how much time the singer spends on each pitch, as a proportion)
+  - A red line showing YOUR ideal vector (what a perfect song would
+    look like based on your preferences)
+  - The song's rank, score, title, and composer
+
+  The closer the bars match the red line, the better the fit.
+
+
+================================================================================
+RUNNING THE RECOMMENDER AGAIN
+================================================================================
+
+You can run the recommender as many times as you want with different
+preferences.  Each run overwrites the previous recommendations.
+
+Just run:
+
+    python -m src.run_recommendations
+
+and enter your new range / favorite notes / avoid notes.
+
+If you add new .mxl files to "mxl_songs/" and want them included, remember
+to re-run  python -m src.main  first to update the library.
+
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+  PROBLEM: "python is not recognized" or "command not found"
+  SOLUTION: Python is not installed or not in your PATH.
+  - Reinstall Python and make sure to check "Add Python to PATH".
+  - Try using "python3" instead of "python".
+
+  PROBLEM: "No module named src" or "ModuleNotFoundError"
+  SOLUTION: Make sure your terminal is in the project's root folder (the one
+  that contains the "src" folder and "requirements.txt"), not inside the
+  "src" folder itself.
+
+  PROBLEM: "No module named numpy"
+  SOLUTION: Run:
+      pip install -r requirements.txt
+
+  PROBLEM: "Error: Library not found at data/tessituragrams.json"
+  SOLUTION: You need to generate the library first.  Run:
+      python -m src.main
+  See "how_to_create_tessituragrams.txt" for full instructions.
+
+  PROBLEM: "No songs match your range."
+  SOLUTION: Your range may be too narrow for any songs in the library.
+  Try widening it (use a lower low note or a higher high note).
+
+  PROBLEM: "Error: data/recommendations.json not found" (when visualising)
+  SOLUTION: You need to run the recommender first:
+      python -m src.run_recommendations
+
+  PROBLEM: I entered a wrong note and want to start over.
+  SOLUTION: Press Ctrl+C to cancel, then re-run the command.
+
+
+================================================================================
+SUMMARY OF COMMANDS
+================================================================================
+
+  Here is every command you need, in order:
+
+  1. cd path/to/project/folder                 (navigate to the project)
+  2. pip install -r requirements.txt           (install libraries — once only)
+  3. python -m src.main                        (generate library — if not done)
+  4. python -m src.run_recommendations         (get recommendations)
+  5. python -m src.visualize_recommendations   (optional: generate notebook)
+  6. jupyter notebook recommendations.ipynb    (optional: view the charts)
+     — OR open recommendations.ipynb in VS Code / Cursor
+
+================================================================================

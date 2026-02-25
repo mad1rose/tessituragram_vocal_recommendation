@@ -1,0 +1,319 @@
+================================================================================
+     HOW TO VIEW YOUR TESSITURAGRAM VISUALIZATIONS — A BEGINNER'S GUIDE
+================================================================================
+
+This guide will walk you through every step needed to see your tessituragrams
+displayed as visual histograms inside a Jupyter notebook. Each histogram shows
+how long the singer spends on each pitch, labeled with the song's title and
+composer.
+
+PREREQUISITE: You must have already generated your tessituragram data by
+following the steps in "how_to_create_tessituragrams.txt". That process
+creates the file "data/tessituragrams.json", which this visualization
+program reads from.
+
+
+--------------------------------------------------------------------------------
+WHAT WILL I SEE?
+--------------------------------------------------------------------------------
+
+The program generates a Jupyter notebook file called "tessituragrams.ipynb".
+When you open the notebook, each song gets its own cell with a histogram
+showing:
+
+  - The pitches the singer uses (on the horizontal axis, sorted low to high)
+  - How long the singer spends on each pitch in quarter-note beats (on the
+    vertical axis)
+  - The song's title and number (e.g., "6 Lieder, Op.7, No. 1 – Nachtwanderer")
+  - The composer's name (e.g., "Fanny (Mendelssohn) Hensel")
+
+Because each chart is in its own notebook cell, you can scroll through them
+at your own pace without anything being crowded.
+
+
+================================================================================
+STEP 1: MAKE SURE PYTHON IS INSTALLED
+================================================================================
+
+If you already followed "how_to_create_tessituragrams.txt", Python is
+installed and you can skip this step.
+
+If not, go to https://www.python.org/downloads/ and install Python 3.10 or
+newer. On Windows, make sure to check "Add Python to PATH" during installation.
+
+  TO VERIFY:
+  Open a terminal and type:
+
+      python --version
+
+  You should see something like "Python 3.12.1". If you get an error, try:
+
+      python3 --version
+
+  If "python3" works, use "python3" instead of "python" for all later steps.
+
+
+================================================================================
+STEP 2: OPEN A TERMINAL IN THE PROJECT FOLDER
+================================================================================
+
+You need your terminal pointed at the project's root folder — the one that
+contains the "src" folder, "data" folder, and "requirements.txt".
+
+  FOR WINDOWS:
+  1. Open File Explorer and navigate to the project folder.
+  2. Click in the address bar at the top (where it shows the folder path).
+  3. Type "cmd" or "powershell" and press Enter.
+     A terminal window will open, already pointed at the project folder.
+
+  ALTERNATIVE (any OS):
+  1. Open a terminal.
+  2. Type "cd " (with a space after it), then type or paste the path to the
+     project folder. For example:
+
+         cd C:\Users\YourName\Desktop\tessituragram-based_rep_recs
+
+     On Mac, it might look like:
+
+         cd /Users/YourName/Desktop/tessituragram-based_rep_recs
+
+  3. Press Enter.
+
+  TO VERIFY YOU ARE IN THE RIGHT FOLDER:
+  - Windows: Type "dir" and press Enter. You should see files like
+    "requirements.txt" and folders like "src" and "data".
+  - Mac/Linux: Type "ls" and press Enter. You should see the same.
+
+
+================================================================================
+STEP 3: INSTALL THE REQUIRED LIBRARIES
+================================================================================
+
+The visualization uses "matplotlib" for drawing charts, "nbformat" for
+creating the notebook file, and "jupyter" for opening it. If you already
+ran "pip install -r requirements.txt" before, re-run it now to pick up the
+new dependencies.
+
+Run this command in your terminal:
+
+    pip install -r requirements.txt
+
+If that gives an error, try:
+
+    pip3 install -r requirements.txt
+
+Or, if only pip itself is not recognized:
+
+    python -m pip install -r requirements.txt
+
+You will see text scrolling as the libraries download. When it finishes, you
+should see a message like "Successfully installed..." or "Requirement already
+satisfied...". Either is fine.
+
+
+================================================================================
+STEP 4: MAKE SURE YOU HAVE TESSITURAGRAM DATA
+================================================================================
+
+The visualization program reads from the file "data/tessituragrams.json".
+This file is created when you run the tessituragram generation program
+(see "how_to_create_tessituragrams.txt").
+
+  TO CHECK:
+  1. Open the project folder in File Explorer (Windows) or Finder (Mac).
+  2. Open the "data" folder inside it.
+  3. You should see a file called "tessituragrams.json".
+
+  If you do NOT see this file, you need to generate it first by running:
+
+      python -m src.main
+
+  (This is covered in "how_to_create_tessituragrams.txt", Step 6.)
+
+
+================================================================================
+STEP 5: GENERATE THE NOTEBOOK
+================================================================================
+
+With your terminal still in the project folder, type:
+
+    python -m src.visualize
+
+and press Enter.
+
+If "python" does not work, try:
+
+    python -m src.visualize
+
+  WHAT YOU WILL SEE IN THE TERMINAL:
+  The program will print something like:
+
+      Notebook written to C:\Users\...\tessituragrams.ipynb
+      Contains 24 tessituragram(s).
+
+      To view, run one of:
+          jupyter notebook tessituragrams.ipynb
+          jupyter lab tessituragrams.ipynb
+      Or open the .ipynb file directly in VS Code / Cursor.
+
+  This creates a file called "tessituragrams.ipynb" in your project folder.
+
+
+================================================================================
+STEP 6: OPEN THE NOTEBOOK
+================================================================================
+
+You have three options for opening the notebook:
+
+  OPTION A — JUPYTER NOTEBOOK (in your browser):
+
+  In the same terminal, run:
+
+      jupyter notebook tessituragrams.ipynb
+
+  This will open Jupyter Notebook in your web browser with the file loaded.
+
+
+  OPTION B — JUPYTER LAB (in your browser):
+
+  In the same terminal, run:
+
+      jupyter lab tessituragrams.ipynb
+
+  JupyterLab is a newer interface that works similarly.
+
+
+  OPTION C — VS CODE / CURSOR (recommended if you already use one of these):
+
+  1. Open VS Code or Cursor.
+  2. Go to File > Open File (or press Ctrl+O / Cmd+O).
+  3. Navigate to the project folder and open "tessituragrams.ipynb".
+  4. VS Code / Cursor will display the notebook directly in the editor.
+     (If prompted to install the Jupyter extension, click "Install".)
+
+
+================================================================================
+STEP 7: RUN ALL CELLS TO DISPLAY THE CHARTS
+================================================================================
+
+Once the notebook is open, you need to run the cells so the histograms
+render:
+
+  IN JUPYTER NOTEBOOK / LAB:
+  - Click "Cell" in the menu bar, then "Run All".
+  - Or press Ctrl+Shift+Enter (Windows) / Cmd+Shift+Enter (Mac).
+
+  IN VS CODE / CURSOR:
+  - Click "Run All" at the top of the notebook.
+  - Or press Ctrl+Shift+Enter (Windows) / Cmd+Shift+Enter (Mac).
+
+After a moment, each cell will display its histogram. Scroll down through
+the notebook to see them all.
+
+
+================================================================================
+STEP 8: UNDERSTANDING THE CHART
+================================================================================
+
+Here is how to read each tessituragram histogram:
+
+  TITLE (at the top of the chart):
+  - Line 1: The work title and individual song name.
+    Example: "6 Lieder, Op.7, No. 1 – Nachtwanderer"
+  - Line 2: The composer's name.
+    Example: "Fanny (Mendelssohn) Hensel"
+
+  HORIZONTAL AXIS (bottom — labeled with pitch names and MIDI numbers):
+  - Each column is a pitch the singer uses in the song.
+  - Pitches are sorted from lowest at the left to highest at the right.
+  - Each label shows both the standard note name and the MIDI number in
+    parentheses, for example:
+      C4 (60)  = middle C, MIDI note 60
+      F#4 (66) = F-sharp in octave 4, MIDI note 66
+      Bb4 (70) = B-flat in octave 4, MIDI note 70
+  - MIDI numbers are absolute and consistent across all songs, so you can
+    directly compare the same pitch between different songs regardless of
+    key signature. Enharmonic equivalents (like F# and Gb) share the same
+    MIDI number and are merged into one bar.
+
+  VERTICAL AXIS (left side — labeled "Duration (quarter-note beats)"):
+  - The height of each bar shows how many quarter-note beats the singer
+    spends on that pitch throughout the entire song.
+  - Taller bars mean the singer spends more time on that pitch.
+
+  COLORS:
+  - The bars are colored from dark (low pitches) to bright (high pitches)
+    to make the range easy to see at a glance.
+
+  WHAT TO LOOK FOR:
+  - The tallest bars show the "core" of the singer's tessitura — the pitches
+    where the voice sits most of the time.
+  - The overall width of the chart shows the song's total range.
+  - Short bars at the extremes indicate brief excursions to the highest or
+    lowest pitches in the range.
+
+
+================================================================================
+OPTIONAL: SAVING A CHART AS AN IMAGE
+================================================================================
+
+Each histogram is its own cell output, so you can right-click any chart
+in the notebook and choose "Save Image As..." to save it individually.
+
+Alternatively, in Jupyter Notebook / Lab you can use File > Download As >
+PDF or HTML to export the entire notebook with all charts.
+
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+  PROBLEM: "No module named matplotlib" or "ModuleNotFoundError: matplotlib"
+  SOLUTION: The matplotlib library is not installed. Run:
+      pip install -r requirements.txt
+
+  PROBLEM: "No module named nbformat"
+  SOLUTION: nbformat is not installed. Run:
+      pip install -r requirements.txt
+
+  PROBLEM: "jupyter is not recognized" or "command not found: jupyter"
+  SOLUTION: Jupyter is not installed. Run:
+      pip install -r requirements.txt
+  If it still does not work, try:
+      python -m jupyter notebook tessituragrams.ipynb
+
+  PROBLEM: "No module named src" or "ModuleNotFoundError"
+  SOLUTION: Your terminal is not in the project's root folder. Make sure you
+  are in the folder that contains the "src" folder and "requirements.txt",
+  NOT inside the "src" folder itself. See Step 2.
+
+  PROBLEM: "Error: data/tessituragrams.json not found"
+  SOLUTION: You need to generate the tessituragram data first. Run:
+      python -m src.main
+  See "how_to_create_tessituragrams.txt" for full instructions.
+
+  PROBLEM: The notebook opens but cells show no output
+  SOLUTION: You need to run the cells first. See Step 7.
+
+  PROBLEM: "python is not recognized" or "command not found"
+  SOLUTION: Python is not installed or not in your PATH.
+  - Reinstall Python and make sure to check "Add Python to PATH".
+  - Try using "python3" instead of "python".
+
+
+================================================================================
+SUMMARY OF COMMANDS
+================================================================================
+
+  Here is every command you need, in order:
+
+  1. cd path/to/project/folder            (navigate to the project)
+  2. pip install -r requirements.txt      (install libraries — once only)
+  3. python -m src.main                   (generate data — if not done yet)
+  4. python -m src.visualize              (generate the notebook)
+  5. jupyter notebook tessituragrams.ipynb (open & view the histograms)
+     — OR open tessituragrams.ipynb in VS Code / Cursor
+
+  Run all cells in the notebook, then scroll to view each histogram.
+
+================================================================================

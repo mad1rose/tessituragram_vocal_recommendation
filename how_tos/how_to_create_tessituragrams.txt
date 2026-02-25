@@ -1,0 +1,318 @@
+================================================================================
+     HOW TO CREATE YOUR TESSITURAGRAM FILES — A BEGINNER'S GUIDE
+================================================================================
+
+This guide will walk you through every step needed to run this project and
+generate tessituragram data from MusicXML (.mxl) files. No prior coding
+experience is required.
+
+
+--------------------------------------------------------------------------------
+WHAT IS THIS PROJECT?
+--------------------------------------------------------------------------------
+
+This project takes sheet music files (in MusicXML/.mxl format) and analyzes the
+vocal line to produce a "tessituragram" — a breakdown of how long the singer
+spends on each pitch. The output is saved as a JSON file you can use for
+further analysis or visualization.
+
+
+--------------------------------------------------------------------------------
+WHAT YOU WILL NEED
+--------------------------------------------------------------------------------
+
+1. A computer (Windows, Mac, or Linux)
+2. An internet connection (to download Python and the required library)
+3. MusicXML files (.mxl format) of the songs you want to analyze
+   - The project already includes 24 sample .mxl files in the "mxl_songs"
+     folder (works by Fanny Hensel, Clara Schumann, and Robert Schumann)
+
+
+================================================================================
+STEP 1: INSTALL PYTHON
+================================================================================
+
+Python is the programming language this project is written in. You need to
+install it before you can run anything.
+
+  FOR WINDOWS:
+  1. Open your web browser and go to: https://www.python.org/downloads/
+  2. Click the big yellow "Download Python" button (version 3.10 or newer).
+  3. Run the installer that downloads.
+  4. IMPORTANT: On the first screen of the installer, check the box that says
+     "Add Python to PATH" (at the bottom of the window). This is critical!
+  5. Click "Install Now" and wait for it to finish.
+  6. Click "Close" when done.
+
+  FOR MAC:
+  1. Open your web browser and go to: https://www.python.org/downloads/
+  2. Click the big yellow "Download Python" button (version 3.10 or newer).
+  3. Open the downloaded .pkg file and follow the installer prompts.
+  4. Click through each step and finish the installation.
+
+  TO VERIFY PYTHON IS INSTALLED:
+  1. Open a terminal:
+     - Windows: Press the Windows key, type "cmd", and press Enter.
+       (Or search for "PowerShell" and open it.)
+     - Mac: Press Cmd + Space, type "Terminal", and press Enter.
+  2. Type the following and press Enter:
+
+         python --version
+
+     You should see something like "Python 3.12.1" (the exact number may
+     differ). If you see an error, try:
+
+         python3 --version
+
+     If that works, use "python3" instead of "python" for all later steps.
+
+
+================================================================================
+STEP 2: DOWNLOAD OR LOCATE THE PROJECT
+================================================================================
+
+If you already have the project folder on your computer (for example, you
+downloaded it from GitHub or someone shared it with you), skip ahead.
+
+  IF YOU NEED TO DOWNLOAD IT FROM GITHUB:
+  1. Go to the GitHub page for this project in your web browser.
+  2. Click the green "Code" button.
+  3. Click "Download ZIP".
+  4. Find the downloaded ZIP file (usually in your Downloads folder).
+  5. Right-click it and choose "Extract All..." (Windows) or double-click it
+     (Mac) to unzip it.
+  6. You should now have a folder called something like
+     "tessituragram-based_rep_recs" (or similar).
+
+Remember where this folder is — you will need the path to it in the next step.
+
+
+================================================================================
+STEP 3: OPEN A TERMINAL IN THE PROJECT FOLDER
+================================================================================
+
+You need to navigate your terminal to the project folder so the commands you
+run can find the project files.
+
+  FOR WINDOWS:
+  1. Open File Explorer and navigate to the project folder.
+  2. Click in the address bar at the top (where it shows the folder path).
+  3. Type "cmd" or "powershell" and press Enter.
+     A terminal window will open, already pointed at the project folder.
+
+  ALTERNATIVE (any OS):
+  1. Open a terminal (see Step 1 for how).
+  2. Type "cd " (with a space after it), then type or paste the path to the
+     project folder. For example:
+
+         cd C:\Users\YourName\Desktop\tessituragram-based_rep_recs
+
+     On Mac, it might look like:
+
+         cd /Users/YourName/Desktop/tessituragram-based_rep_recs
+
+  3. Press Enter.
+
+  TO VERIFY YOU ARE IN THE RIGHT FOLDER:
+  - Windows: Type "dir" and press Enter. You should see files like
+    "requirements.txt", "README.md", and a "src" folder listed.
+  - Mac/Linux: Type "ls" and press Enter. You should see the same files.
+
+
+================================================================================
+STEP 4: INSTALL THE REQUIRED LIBRARY
+================================================================================
+
+This project depends on a library called "music21" which knows how to read
+sheet music files. You need to install it once.
+
+  In your terminal (which should be in the project folder), type:
+
+      pip install -r requirements.txt
+
+  and press Enter.
+
+  If that gives an error, try:
+
+      pip3 install -r requirements.txt
+
+  This will download and install "music21" and everything it needs.
+  It may take a minute or two. You will see text scrolling — that is normal.
+
+  When it is done, you should see a message like "Successfully installed...".
+
+  NOTE: You only need to do this step once. The library stays installed on
+  your computer for future use.
+
+
+================================================================================
+STEP 5: ADD YOUR MusicXML FILES (OPTIONAL)
+================================================================================
+
+The project already comes with 24 sample .mxl files in the "mxl_songs" folder.
+If you want to analyze your own songs, follow these steps. Otherwise, skip to
+Step 6.
+
+  1. Open the project folder in File Explorer (Windows) or Finder (Mac).
+  2. Open the "mxl_songs" folder inside it.
+  3. Copy or move your .mxl files into this folder.
+
+  FILE NAMING CONVENTION (RECOMMENDED):
+  For the best automatic metadata extraction (composer name and song title),
+  name your files using this pattern:
+
+      lastname-firstname-collection-op{number}-no{number}-title.mxl
+
+  Examples:
+      schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl
+      hensel-fanny-mendelssohn-6-lieder-op7-no3-fruhling.mxl
+
+  If your files do not follow this pattern, the program will still work — it
+  will try to read metadata from inside the MusicXML file itself, or fall back
+  to using the filename as the title.
+
+
+================================================================================
+STEP 6: RUN THE PROGRAM
+================================================================================
+
+Now you are ready to generate your tessituragrams!
+
+  In your terminal (still in the project folder), type:
+
+      python -m src.main
+
+  and press Enter.
+
+  If "python" does not work, try:
+
+      python3 -m src.main
+
+  WHAT YOU WILL SEE:
+  The program will print output like this:
+
+      Found 24 .mxl file(s)
+
+      Processing: hensel-fanny-mendelssohn-6-lieder-op7-no1-nachtwanderer.mxl
+      Processing: hensel-fanny-mendelssohn-6-lieder-op7-no2-erwin.mxl
+      Processing: hensel-fanny-mendelssohn-6-lieder-op7-no3-fruhling.mxl
+      ...
+      Saving 24 tessituragram(s) to data\tessituragrams.json
+      Done!
+
+  This may take a few minutes depending on how many files you have and how
+  fast your computer is. Each file takes a few seconds to process.
+
+
+================================================================================
+STEP 7: FIND YOUR OUTPUT
+================================================================================
+
+Once the program finishes, your results are saved in:
+
+    data/tessituragrams.json
+
+  (Inside the project folder, in a subfolder called "data".)
+
+  This is a JSON file. You can open it with:
+  - Any text editor (Notepad, TextEdit, VS Code, etc.)
+  - A JSON viewer website (search "JSON viewer online")
+  - Another program or script that reads JSON data
+
+  WHAT IS IN THE OUTPUT:
+  The JSON file contains an array of songs. Each song includes:
+
+    - "composer"       : The composer's name (e.g., "Fanny Mendelssohn Hensel")
+    - "title"          : The song title (e.g., "Op. 7 No. 1 Nachtwanderer")
+    - "filename"       : The original .mxl filename
+    - "tessituragram"  : A list of every pitch the singer sings and how long
+                         they spend on it (measured in quarter-note beats).
+                         Each pitch is keyed by its MIDI note number (e.g.,
+                         "60" for middle C, "66" for F#4/Gb4). Using MIDI
+                         numbers ensures that enharmonic equivalents (notes
+                         that sound the same but are spelled differently,
+                         like F# and Gb) are always treated as the same
+                         pitch, making comparisons across songs consistent.
+    - "statistics"     : Summary info including:
+        - "total_duration" : Total duration of all notes and rests
+        - "pitch_range"    : The lowest and highest notes sung, given as
+                             both a standard note name (e.g., "C4") and a
+                             MIDI number (e.g., 60)
+        - "unique_pitches" : How many different pitches appear
+
+
+================================================================================
+ADVANCED OPTIONS
+================================================================================
+
+The program accepts optional arguments if you want to customize its behavior.
+
+  PROCESS A SINGLE FILE:
+  Instead of processing all files in mxl_songs, you can process just one:
+
+      python -m src.main --file mxl_songs/schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl
+
+  USE A DIFFERENT INPUT FOLDER:
+  If your .mxl files are in a different folder:
+
+      python -m src.main --input-dir path/to/your/folder
+
+  SAVE OUTPUT TO A DIFFERENT FILE:
+  If you want the results saved somewhere else:
+
+      python -m src.main --output my_results.json
+
+  COMBINE OPTIONS:
+  You can combine any of these:
+
+      python -m src.main --input-dir my_songs --output results/output.json
+
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+  PROBLEM: "python is not recognized" or "command not found"
+  SOLUTION: Python is not installed or not in your PATH.
+  - Reinstall Python and make sure to check "Add Python to PATH".
+  - Try using "python3" instead of "python".
+
+  PROBLEM: "pip is not recognized" or "command not found"
+  SOLUTION: Try "pip3" instead of "pip", or run:
+      python -m pip install -r requirements.txt
+
+  PROBLEM: "No module named src" or "ModuleNotFoundError"
+  SOLUTION: Make sure your terminal is in the project's root folder (the one
+  that contains the "src" folder and "requirements.txt"), not inside the
+  "src" folder itself.
+
+  PROBLEM: "No .mxl files found"
+  SOLUTION: Make sure your MusicXML files have the .mxl extension and are
+  inside the "mxl_songs" folder (or whichever folder you specified with
+  --input-dir).
+
+  PROBLEM: "Error processing [filename]: ..."
+  SOLUTION: The .mxl file may be corrupted or in an unsupported format.
+  Try opening it in a music notation program (like MuseScore) and
+  re-exporting it as .mxl.
+
+  PROBLEM: The program is very slow
+  SOLUTION: This is normal for large or complex scores. Each file may take
+  several seconds. The music21 library does a lot of work behind the scenes
+  to parse the music.
+
+
+================================================================================
+SUMMARY OF COMMANDS
+================================================================================
+
+  Here is every command you need, in order:
+
+  1. python --version                     (verify Python is installed)
+  2. cd path/to/project/folder            (navigate to the project)
+  3. pip install -r requirements.txt      (install dependencies — once only)
+  4. python -m src.main                   (run the program)
+
+  Your output will be at: data/tessituragrams.json
+
+================================================================================
