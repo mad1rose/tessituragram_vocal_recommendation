@@ -60,8 +60,8 @@ def main():
     parser.add_argument(
         '--input-dir',
         type=str,
-        default='mxl_songs',
-        help='Directory containing .mxl files (default: mxl_songs)'
+        default='songs/mxl_songs',
+        help='Directory containing .mxl files (default: songs/mxl_songs)'
     )
     parser.add_argument(
         '--output',

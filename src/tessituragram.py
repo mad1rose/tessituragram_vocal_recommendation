@@ -38,7 +38,7 @@ def generate_tessituragram(notes: list[note.Note | note.Rest]) -> dict[str, floa
 def calculate_statistics(
     notes: list[note.Note | note.Rest],
     tessituragram: dict[str, float]
-) -> dict[str, any]:
+) -> dict[str, object]:
     """
     Calculate statistics about the tessituragram.
     

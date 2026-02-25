@@ -303,8 +303,8 @@ Just run:
 
 and enter your new range / favorite notes / avoid notes.
 
-If you add new .mxl files to "mxl_songs/" and want them included, remember
-to re-run  python -m src.main  first to update the library.
+If you add new .mxl files to "songs/mxl_songs/" and want them included,
+remember to re-run  python -m src.main  first to update the library.
 
 
 ================================================================================

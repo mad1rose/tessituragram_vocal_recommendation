@@ -24,8 +24,9 @@ WHAT YOU WILL NEED
 1. A computer (Windows, Mac, or Linux)
 2. An internet connection (to download Python and the required library)
 3. MusicXML files (.mxl format) of the songs you want to analyze
-   - The project already includes 24 sample .mxl files in the "mxl_songs"
-     folder (works by Fanny Hensel, Clara Schumann, and Robert Schumann)
+   - The project already includes 101 sample .mxl files in the
+     "songs/mxl_songs" folder (works by Clara Schumann, Robert Schumann,
+     Franz Schubert, Claude Debussy, and Gabriel Fauré)
 
 
 ================================================================================
@@ -149,12 +150,12 @@ sheet music files. You need to install it once.
 STEP 5: ADD YOUR MusicXML FILES (OPTIONAL)
 ================================================================================
 
-The project already comes with 24 sample .mxl files in the "mxl_songs" folder.
-If you want to analyze your own songs, follow these steps. Otherwise, skip to
-Step 6.
+The project already comes with 101 sample .mxl files in the "songs/mxl_songs"
+folder. If you want to analyze your own songs, follow these steps. Otherwise,
+skip to Step 6.
 
   1. Open the project folder in File Explorer (Windows) or Finder (Mac).
-  2. Open the "mxl_songs" folder inside it.
+  2. Open the "songs/mxl_songs" folder inside it.
   3. Copy or move your .mxl files into this folder.
 
   FILE NAMING CONVENTION (RECOMMENDED):
@@ -191,13 +192,13 @@ Now you are ready to generate your tessituragrams!
   WHAT YOU WILL SEE:
   The program will print output like this:
 
-      Found 24 .mxl file(s)
+      Found 101 .mxl file(s)
 
-      Processing: hensel-fanny-mendelssohn-6-lieder-op7-no1-nachtwanderer.mxl
-      Processing: hensel-fanny-mendelssohn-6-lieder-op7-no2-erwin.mxl
-      Processing: hensel-fanny-mendelssohn-6-lieder-op7-no3-fruhling.mxl
+      Processing: debussy-claude-3-chansons-de-france-no1-rondel-le-temps-a-laisse-son-manteau.mxl
+      Processing: faure-gabriel-cinq-melodies-op58-no1-mandoline.mxl
+      Processing: schubert-franz-die-schone-mullerin-d795-no1-das-wandern.mxl
       ...
-      Saving 24 tessituragram(s) to data\tessituragrams.json
+      Saving 101 tessituragram(s) to data\tessituragrams.json
       Done!
 
   This may take a few minutes depending on how many files you have and how
@@ -248,9 +249,9 @@ ADVANCED OPTIONS
 The program accepts optional arguments if you want to customize its behavior.
 
   PROCESS A SINGLE FILE:
-  Instead of processing all files in mxl_songs, you can process just one:
+  Instead of processing all files in songs/mxl_songs, you can process just one:
 
-      python -m src.main --file mxl_songs/schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl
+      python -m src.main --file songs/mxl_songs/schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl
 
   USE A DIFFERENT INPUT FOLDER:
   If your .mxl files are in a different folder:
@@ -288,8 +289,8 @@ TROUBLESHOOTING
 
   PROBLEM: "No .mxl files found"
   SOLUTION: Make sure your MusicXML files have the .mxl extension and are
-  inside the "mxl_songs" folder (or whichever folder you specified with
-  --input-dir).
+  inside the "songs/mxl_songs" folder (or whichever folder you specified
+  with --input-dir).
 
   PROBLEM: "Error processing [filename]: ..."
   SOLUTION: The .mxl file may be corrupted or in an unsupported format.

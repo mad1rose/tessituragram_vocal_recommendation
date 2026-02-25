@@ -143,13 +143,13 @@ and press Enter.
 
 If "python" does not work, try:
 
-    python -m src.visualize
+    python3 -m src.visualize
 
   WHAT YOU WILL SEE IN THE TERMINAL:
   The program will print something like:
 
       Notebook written to C:\Users\...\tessituragrams.ipynb
-      Contains 24 tessituragram(s).
+      Contains 101 tessituragram(s).
 
       To view, run one of:
           jupyter notebook tessituragrams.ipynb

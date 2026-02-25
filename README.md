@@ -93,12 +93,13 @@ final_score = cosine_similarity(song_vec, ideal_vec)
 ## Project Structure
 
 ```
-tessituragram-based_rep_recs/
+tessituragram_vocal_recommendation/
 ├── README.md                           ← You are here
 ├── requirements.txt                    ← Python dependencies
-├── how_to_create_tessituragrams.txt    ← Beginner guide: generating tessituragrams
-├── how_to_view_tessituragrams.txt      ← Beginner guide: viewing histograms
-├── how_to_get_recommendations.txt      ← Beginner guide: running the recommender
+├── how_tos/
+│   ├── how_to_create_tessituragrams.txt  ← Beginner guide: generating tessituragrams
+│   ├── how_to_view_tessituragrams.txt    ← Beginner guide: viewing histograms
+│   └── how_to_get_recommendations.txt    ← Beginner guide: running the recommender
 ├── src/
 │   ├── __init__.py
 │   ├── parser.py                       ← MusicXML parsing, vocal-line extraction
@@ -113,14 +114,22 @@ tessituragram-based_rep_recs/
 ├── data/
 │   ├── tessituragrams.json             ← Main song library (generated)
 │   └── recommendations.json            ← Ranked recommendations (generated)
-├── mxl_songs/                          ← Input .mxl files
+├── songs/
+│   └── mxl_songs/                      ← Input .mxl files
+├── experiment/
+│   ├── run_rq1_experiment.py           ← RQ1: Self-retrieval accuracy
+│   ├── run_rq2_experiment.py           ← RQ2: Ranking stability
+│   ├── run_rq3_experiment.py           ← RQ3: Score spread & internal validity
+│   ├── visualize_rq1.py               ← RQ1 visualizations
+│   ├── visualize_rq2.py               ← RQ2 visualizations
+│   └── visualize_rq3.py               ← RQ3 visualizations
 ├── tessituragrams.ipynb                ← Visualisations of all songs (generated)
 └── recommendations.ipynb               ← Visualisations of recommendations (generated)
 ```
 
 ## Data
 
-The original MusicXML files were obtained from the [OpenScore Lieder Corpus](https://doi.org/10.17613/1my2-dm23) (Gotham and Jonas, 2022), available under CC0. Pre-extracted tessituragrams are provided in `data/tessituragrams.json`. To regenerate from source files, place `.mxl` files in a directory and run `python -m src.main`.
+The original MusicXML files were obtained from the [OpenScore Lieder Corpus](https://doi.org/10.17613/1my2-dm23) (Gotham and Jonas, 2022), available under CC0. Pre-extracted tessituragrams are provided in `data/tessituragrams.json`. To regenerate from source files, place `.mxl` files in `songs/mxl_songs/` and run `python -m src.main`.
 
 ## Installation
 
@@ -128,7 +137,7 @@ The original MusicXML files were obtained from the [OpenScore Lieder Corpus](htt
 pip install -r requirements.txt
 ```
 
-Dependencies: `music21`, `numpy`, `matplotlib`, `nbformat`, `jupyter`.
+Dependencies: `music21`, `numpy`, `matplotlib`, `nbformat`, `jupyter`, `scipy`.
 
 ## Quick Start
 
@@ -138,7 +147,7 @@ Dependencies: `music21`, `numpy`, `matplotlib`, `nbformat`, `jupyter`.
 python -m src.main
 ```
 
-This processes all `.mxl` files in `mxl_songs/` and writes `data/tessituragrams.json`. Duplicate filenames are automatically skipped.
+This processes all `.mxl` files in `songs/mxl_songs/` and writes `data/tessituragrams.json`. Duplicate filenames are automatically skipped.
 
 ### 2. Get personalised song recommendations
 
@@ -225,3 +234,4 @@ This generates `tessituragrams.ipynb` — histograms for every song in the libra
 | `matplotlib>=3.8` | Histogram visualisation |
 | `nbformat>=5.9` | Jupyter notebook generation |
 | `jupyter` | Notebook viewer |
+| `scipy>=1.10` | Kendall's tau for RQ2 experiment |
