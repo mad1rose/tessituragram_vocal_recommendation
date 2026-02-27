@@ -365,7 +365,7 @@ IMPLEMENTATION CHECKLIST
 [x] RQ3: M = 25 profiles (≥ 10 candidates each); per run: variance and range
     of final_score, and Pearson r for the three pairs; aggregate with 95% CI.
     → experiment/run_rq3_experiment.py; output: experiment/RQ3_results.json
-[x] Visualization scripts for all three RQs (publication-ready figures).
+[x] Visualization scripts for all three RQs.
     → experiment/visualize_rq1.py, visualize_rq2.py, visualize_rq3.py
 [ ] In the paper: state data path, library size (101 songs), α = 0.5, and
     the exact profile rule. Report all confidence intervals.
