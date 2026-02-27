@@ -181,7 +181,8 @@ def run_rq1_experiment(library_path: Path) -> dict:
 
 def main() -> None:
     library_path = ROOT / 'data' / 'tessituragrams.json'
-    out_dir = Path(__file__).resolve().parent
+    out_dir = ROOT / 'experiment_results'
+    out_dir.mkdir(exist_ok=True)
 
     print("Running RQ1 Self-Retrieval Accuracy Experiment...")
     print(f"Library: {library_path}")

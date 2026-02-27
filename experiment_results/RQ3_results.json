@@ -1,0 +1,318 @@
+{
+  "experiment": "RQ3_score_spread_internal_validity",
+  "description": "(a) Spread of final_score (variance, range). (b) Internal validity: correlations between score parts and final_score.",
+  "parameters": {
+    "alpha": 0.5,
+    "top_n_favorite": 4,
+    "bottom_n_avoid": 2,
+    "min_candidates": 10,
+    "n_profiles": 25,
+    "bootstrap_samples": 10000,
+    "random_seed": 42,
+    "library_path": "data\\tessituragrams.json"
+  },
+  "data_summary": {
+    "total_songs_in_library": 101,
+    "n_profiles": 25,
+    "profiles_used": 25
+  },
+  "metrics": {
+    "spread": {
+      "mean_variance_final_score": 0.042703,
+      "std_variance_final_score": 0.017288,
+      "ci_95_variance": [
+        0.03625,
+        0.0497
+      ],
+      "mean_range_final_score": 0.7874,
+      "std_range_final_score": 0.0952,
+      "ci_95_range": [
+        0.7512,
+        0.8245
+      ]
+    },
+    "correlations": {
+      "r_final_score_cosine_similarity": {
+        "mean": 0.9859,
+        "ci_95": [
+          0.9818,
+          0.9892
+        ],
+        "expected_sign": "positive"
+      },
+      "r_final_score_avoid_penalty": {
+        "mean": -0.4516,
+        "ci_95": [
+          -0.5527,
+          -0.3436
+        ],
+        "expected_sign": "negative"
+      },
+      "r_cosine_similarity_favorite_overlap": {
+        "mean": 0.9378,
+        "ci_95": [
+          0.9205,
+          0.9519
+        ],
+        "expected_sign": "positive"
+      }
+    }
+  },
+  "expected_signs": {
+    "final_score–cosine": "positive (higher similarity → higher score)",
+    "final_score–avoid_penalty": "negative (higher avoid time → lower score)",
+    "cosine–favorite_overlap": "positive (both reflect similarity to ideal)"
+  },
+  "per_run": [
+    {
+      "source_song": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl",
+      "composer": "Clara Schumann",
+      "n_songs": 28,
+      "variance_final_score": 0.045296,
+      "range_final_score": 0.7577,
+      "r_final_score_cosine": 0.9921,
+      "r_final_score_avoid": -0.5389,
+      "r_cosine_favorite_overlap": 0.9687
+    },
+    {
+      "source_song": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl",
+      "composer": "Clara Schumann",
+      "n_songs": 38,
+      "variance_final_score": 0.050083,
+      "range_final_score": 0.8186,
+      "r_final_score_cosine": 0.9848,
+      "r_final_score_avoid": -0.2514,
+      "r_cosine_favorite_overlap": 0.9819
+    },
+    {
+      "source_song": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl",
+      "composer": "Clara Schumann",
+      "n_songs": 32,
+      "variance_final_score": 0.047959,
+      "range_final_score": 0.788,
+      "r_final_score_cosine": 0.9891,
+      "r_final_score_avoid": -0.7613,
+      "r_cosine_favorite_overlap": 0.9525
+    },
+    {
+      "source_song": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl",
+      "composer": "Clara Schumann",
+      "n_songs": 20,
+      "variance_final_score": 0.066632,
+      "range_final_score": 0.9372,
+      "r_final_score_cosine": 0.9846,
+      "r_final_score_avoid": -0.8193,
+      "r_cosine_favorite_overlap": 0.9214
+    },
+    {
+      "source_song": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl",
+      "composer": "Clara Schumann",
+      "n_songs": 20,
+      "variance_final_score": 0.037085,
+      "range_final_score": 0.6583,
+      "r_final_score_cosine": 0.9799,
+      "r_final_score_avoid": -0.1392,
+      "r_cosine_favorite_overlap": 0.9218
+    },
+    {
+      "source_song": "schumann-robert-liederkreis-op39-no10-zwielicht.mxl",
+      "composer": "Robert Schumann",
+      "n_songs": 27,
+      "variance_final_score": 0.027102,
+      "range_final_score": 0.7049,
+      "r_final_score_cosine": 0.9881,
+      "r_final_score_avoid": -0.1735,
+      "r_cosine_favorite_overlap": 0.9432
+    },
+    {
+      "source_song": "schumann-robert-liederkreis-op39-no12-fruhlingsnacht.mxl",
+      "composer": "Robert Schumann",
+      "n_songs": 28,
+      "variance_final_score": 0.022084,
+      "range_final_score": 0.8129,
+      "r_final_score_cosine": 0.98,
+      "r_final_score_avoid": -0.6384,
+      "r_cosine_favorite_overlap": 0.8392
+    },
+    {
+      "source_song": "schumann-robert-liederkreis-op39-no2-intermezzo.mxl",
+      "composer": "Robert Schumann",
+      "n_songs": 28,
+      "variance_final_score": 0.035823,
+      "range_final_score": 0.6561,
+      "r_final_score_cosine": 0.991,
+      "r_final_score_avoid": -0.4481,
+      "r_cosine_favorite_overlap": 0.9339
+    },
+    {
+      "source_song": "schumann-robert-liederkreis-op39-no3-waldesgesprach.mxl",
+      "composer": "Robert Schumann",
+      "n_songs": 89,
+      "variance_final_score": 0.039403,
+      "range_final_score": 0.8361,
+      "r_final_score_cosine": 0.9943,
+      "r_final_score_avoid": -0.4317,
+      "r_cosine_favorite_overlap": 0.9412
+    },
+    {
+      "source_song": "schumann-robert-liederkreis-op39-no4-die-stille.mxl",
+      "composer": "Robert Schumann",
+      "n_songs": 15,
+      "variance_final_score": 0.065755,
+      "range_final_score": 0.9969,
+      "r_final_score_cosine": 0.9879,
+      "r_final_score_avoid": -0.7595,
+      "r_cosine_favorite_overlap": 0.9412
+    },
+    {
+      "source_song": "schumann-robert-liederkreis-op39-no5-mondnacht.mxl",
+      "composer": "Robert Schumann",
+      "n_songs": 19,
+      "variance_final_score": 0.081933,
+      "range_final_score": 0.9124,
+      "r_final_score_cosine": 0.9938,
+      "r_final_score_avoid": -0.9064,
+      "r_cosine_favorite_overlap": 0.9534
+    },
+    {
+      "source_song": "schumann-robert-liederkreis-op39-no6-schone-fremde.mxl",
+      "composer": "Robert Schumann",
+      "n_songs": 14,
+      "variance_final_score": 0.03604,
+      "range_final_score": 0.8764,
+      "r_final_score_cosine": 0.9836,
+      "r_final_score_avoid": -0.6726,
+      "r_cosine_favorite_overlap": 0.9472
+    },
+    {
+      "source_song": "schumann-robert-liederkreis-op39-no8-in-der-fremde-ii.mxl",
+      "composer": "Robert Schumann",
+      "n_songs": 14,
+      "variance_final_score": 0.036592,
+      "range_final_score": 0.743,
+      "r_final_score_cosine": 0.9875,
+      "r_final_score_avoid": -0.3687,
+      "r_cosine_favorite_overlap": 0.9653
+    },
+    {
+      "source_song": "debussy-claude-3-chansons-de-france-no1-rondel-le-temps-a-laisse-son-manteau.mxl",
+      "composer": "Claude Debussy",
+      "n_songs": 61,
+      "variance_final_score": 0.028782,
+      "range_final_score": 0.6678,
+      "r_final_score_cosine": 0.9978,
+      "r_final_score_avoid": 0.0531,
+      "r_cosine_favorite_overlap": 0.9268
+    },
+    {
+      "source_song": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl",
+      "composer": "Claude Debussy",
+      "n_songs": 11,
+      "variance_final_score": 0.08358,
+      "range_final_score": 0.7855,
+      "r_final_score_cosine": 0.9892,
+      "r_final_score_avoid": -0.6765,
+      "r_cosine_favorite_overlap": 0.9636
+    },
+    {
+      "source_song": "debussy-claude-3-chansons-de-france-no3-rondel-pour-ce-que-plaisance-est-morte.mxl",
+      "composer": "Claude Debussy",
+      "n_songs": 22,
+      "variance_final_score": 0.046281,
+      "range_final_score": 0.9126,
+      "r_final_score_cosine": 0.9737,
+      "r_final_score_avoid": -0.5714,
+      "r_cosine_favorite_overlap": 0.9842
+    },
+    {
+      "source_song": "debussy-claude-trois-chansons-de-bilitis-no2-la-chevelure.mxl",
+      "composer": "Claude Debussy",
+      "n_songs": 61,
+      "variance_final_score": 0.02662,
+      "range_final_score": 0.7266,
+      "r_final_score_cosine": 0.9916,
+      "r_final_score_avoid": 0.1302,
+      "r_cosine_favorite_overlap": 0.9581
+    },
+    {
+      "source_song": "debussy-claude-trois-chansons-de-bilitis-no3-le-tombeau-des-naiades.mxl",
+      "composer": "Claude Debussy",
+      "n_songs": 56,
+      "variance_final_score": 0.02459,
+      "range_final_score": 0.8011,
+      "r_final_score_cosine": 0.9848,
+      "r_final_score_avoid": -0.5815,
+      "r_cosine_favorite_overlap": 0.9448
+    },
+    {
+      "source_song": "faure-gabriel-cinq-melodies-op-58-no4-a-clymene.mxl",
+      "composer": "Gabriel Fauré",
+      "n_songs": 41,
+      "variance_final_score": 0.021307,
+      "range_final_score": 0.6827,
+      "r_final_score_cosine": 0.9865,
+      "r_final_score_avoid": -0.1388,
+      "r_cosine_favorite_overlap": 0.9221
+    },
+    {
+      "source_song": "faure-gabriel-cinq-melodies-op58-no1-mandoline.mxl",
+      "composer": "Gabriel Fauré",
+      "n_songs": 15,
+      "variance_final_score": 0.045081,
+      "range_final_score": 0.8173,
+      "r_final_score_cosine": 0.9916,
+      "r_final_score_avoid": -0.2006,
+      "r_cosine_favorite_overlap": 0.9274
+    },
+    {
+      "source_song": "faure-gabriel-cinq-melodies-op58-no3-green.mxl",
+      "composer": "Fauré, Gabriel",
+      "n_songs": 44,
+      "variance_final_score": 0.038876,
+      "range_final_score": 0.727,
+      "r_final_score_cosine": 0.9943,
+      "r_final_score_avoid": -0.2867,
+      "r_cosine_favorite_overlap": 0.9454
+    },
+    {
+      "source_song": "faure-gabriel-cinq-melodies-op58-no5-cest-lextase.mxl",
+      "composer": "Gabriel Fauré",
+      "n_songs": 22,
+      "variance_final_score": 0.048029,
+      "range_final_score": 0.8426,
+      "r_final_score_cosine": 0.9871,
+      "r_final_score_avoid": -0.7091,
+      "r_cosine_favorite_overlap": 0.9235
+    },
+    {
+      "source_song": "schubert-franz-die-schone-mullerin-d795-no11-mein.mxl",
+      "composer": "Franz Schubert",
+      "n_songs": 38,
+      "variance_final_score": 0.0185,
+      "range_final_score": 0.6295,
+      "r_final_score_cosine": 0.9492,
+      "r_final_score_avoid": -0.6151,
+      "r_cosine_favorite_overlap": 0.7962
+    },
+    {
+      "source_song": "schubert-franz-die-schone-mullerin-d795-no12-pause.mxl",
+      "composer": "Franz Schubert",
+      "n_songs": 28,
+      "variance_final_score": 0.045251,
+      "range_final_score": 0.8319,
+      "r_final_score_cosine": 0.9907,
+      "r_final_score_avoid": -0.5383,
+      "r_cosine_favorite_overlap": 0.9556
+    },
+    {
+      "source_song": "schubert-franz-die-schone-mullerin-d795-no13-mit-dem-grunen-lautenbande.mxl",
+      "composer": "Franz Schubert",
+      "n_songs": 14,
+      "variance_final_score": 0.048879,
+      "range_final_score": 0.761,
+      "r_final_score_cosine": 0.9743,
+      "r_final_score_avoid": -0.2454,
+      "r_cosine_favorite_overlap": 0.9874
+    }
+  ]
+}

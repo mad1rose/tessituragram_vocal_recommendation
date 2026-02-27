@@ -12,7 +12,8 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
-EXP_DIR = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
+EXP_DIR = ROOT / 'experiment_results'
 RESULTS_PATH = EXP_DIR / 'RQ1_results.json'
 
 

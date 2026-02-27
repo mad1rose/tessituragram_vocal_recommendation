@@ -12,7 +12,8 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
-EXP_DIR = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
+EXP_DIR = ROOT / 'experiment_results'
 RESULTS_PATH = EXP_DIR / 'RQ2_results.json'
 
 

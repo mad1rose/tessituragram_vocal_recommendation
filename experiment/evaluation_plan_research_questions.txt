@@ -137,8 +137,7 @@ RESEARCH QUESTION 2: Ranking stability under small preference changes
    not completely reorder the list for such a tiny change—that supports
    trust and interpretability. This is a standard robustness check;
    evaluation literature stresses stability of results under small changes
-   (Herlocker et al., 2004; Urbano et al., 2013).    No human data needed—only
-   two rankings from the system.
+   (Herlocker et al., 2004; Urbano et al., 2013).
 
 2.4 How it will be measured
 
@@ -179,9 +178,7 @@ RESEARCH QUESTION 2: Ranking stability under small preference changes
    0 means there's no clear relationship, and negative would mean the order
    flipped. We try many such one-note changes and report the average τ. A
    high average means the system is stable—small input changes do not
-   cause big output changes. Everything is done by the computer; no human
-   judgments are involved.
-
+   cause big output changes.
 ================================================================================
 RESEARCH QUESTION 3: Score spread and internal validity
 ================================================================================

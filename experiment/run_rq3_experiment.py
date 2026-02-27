@@ -223,7 +223,8 @@ def run_rq3_experiment(library_path: Path) -> dict:
 
 def main() -> None:
     library_path = ROOT / 'data' / 'tessituragrams.json'
-    out_dir = Path(__file__).resolve().parent
+    out_dir = ROOT / 'experiment_results'
+    out_dir.mkdir(exist_ok=True)
 
     print("Running RQ3 Score Spread and Internal Validity Experiment...")
     print(f"Library: {library_path}")

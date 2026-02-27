@@ -1,0 +1,1048 @@
+{
+  "experiment": "RQ2_ranking_stability",
+  "description": "When we change favourites or avoids by one note, how similar is the new ranking to the original? (Kendall's τ)",
+  "parameters": {
+    "alpha": 0.5,
+    "top_n_favorite": 4,
+    "bottom_n_avoid": 2,
+    "min_candidates": 10,
+    "n_baselines": 5,
+    "bootstrap_samples": 10000,
+    "random_seed": 42,
+    "library_path": "data\\tessituragrams.json"
+  },
+  "baseline_profiles": [
+    {
+      "source_song": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl",
+      "composer": "Clara Schumann",
+      "n_perturbations": 28,
+      "mean_tau": 0.8776
+    },
+    {
+      "source_song": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl",
+      "composer": "Clara Schumann",
+      "n_perturbations": 30,
+      "mean_tau": 0.8875
+    },
+    {
+      "source_song": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl",
+      "composer": "Clara Schumann",
+      "n_perturbations": 30,
+      "mean_tau": 0.8542
+    },
+    {
+      "source_song": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl",
+      "composer": "Clara Schumann",
+      "n_perturbations": 26,
+      "mean_tau": 0.8935
+    },
+    {
+      "source_song": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl",
+      "composer": "Clara Schumann",
+      "n_perturbations": 26,
+      "mean_tau": 0.8494
+    }
+  ],
+  "data_summary": {
+    "total_songs_in_library": 101,
+    "n_baselines": 5,
+    "total_perturbations": 140
+  },
+  "metrics": {
+    "mean_tau": 0.8724,
+    "std_tau": 0.0874,
+    "ci_95": [
+      0.8579,
+      0.8865
+    ],
+    "mean_tau_per_baseline": 0.8724,
+    "std_tau_across_baselines": 0.0177
+  },
+  "interpretation": {
+    "tau_gt_0.7": "strong agreement (rankings very similar)",
+    "tau_0.3_to_0.7": "moderate agreement",
+    "tau_lt_0.3": "weak agreement"
+  },
+  "per_perturbation": [
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 64,
+      "note_changed": "E4",
+      "tau": 0.836,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 65,
+      "note_changed": "F4",
+      "tau": 0.8783,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 66,
+      "note_changed": "F#4",
+      "tau": 0.9788,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 69,
+      "note_changed": "A4",
+      "tau": 0.7619,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 71,
+      "note_changed": "B4",
+      "tau": 0.7196,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 73,
+      "note_changed": "C#5",
+      "tau": 0.7196,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 74,
+      "note_changed": "D5",
+      "tau": 0.7725,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 75,
+      "note_changed": "Eb5",
+      "tau": 0.963,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 76,
+      "note_changed": "E5",
+      "tau": 0.8836,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 77,
+      "note_changed": "F5",
+      "tau": 0.9153,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 62,
+      "note_changed": "D4",
+      "tau": 1.0,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 63,
+      "note_changed": "Eb4",
+      "tau": 0.9735,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 70,
+      "note_changed": "Bb4",
+      "tau": 0.7407,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 67,
+      "note_changed": "G4",
+      "tau": 0.746,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 72,
+      "note_changed": "C5",
+      "tau": 0.8254,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 68,
+      "note_changed": "Ab4",
+      "tau": 0.7672,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 64,
+      "note_changed": "E4",
+      "tau": 0.9206,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 65,
+      "note_changed": "F4",
+      "tau": 0.9259,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 69,
+      "note_changed": "A4",
+      "tau": 0.8942,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 71,
+      "note_changed": "B4",
+      "tau": 0.9206,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 73,
+      "note_changed": "C#5",
+      "tau": 0.8677,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 74,
+      "note_changed": "D5",
+      "tau": 0.873,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 75,
+      "note_changed": "Eb5",
+      "tau": 0.9365,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 76,
+      "note_changed": "E5",
+      "tau": 0.9365,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 77,
+      "note_changed": "F5",
+      "tau": 0.9524,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 63,
+      "note_changed": "Eb4",
+      "tau": 0.9683,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "remove_avoid",
+      "midi_changed": 62,
+      "note_changed": "D4",
+      "tau": 0.9894,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "remove_avoid",
+      "midi_changed": 66,
+      "note_changed": "F#4",
+      "tau": 0.9048,
+      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 64,
+      "note_changed": "E4",
+      "tau": 0.889,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 65,
+      "note_changed": "F4",
+      "tau": 0.9403,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 66,
+      "note_changed": "F#4",
+      "tau": 0.8521,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 68,
+      "note_changed": "Ab4",
+      "tau": 0.8435,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 69,
+      "note_changed": "A4",
+      "tau": 0.9545,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 71,
+      "note_changed": "B4",
+      "tau": 0.7952,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 73,
+      "note_changed": "C#5",
+      "tau": 0.6871,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 74,
+      "note_changed": "D5",
+      "tau": 0.744,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 76,
+      "note_changed": "E5",
+      "tau": 0.8293,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 77,
+      "note_changed": "F5",
+      "tau": 0.9886,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 78,
+      "note_changed": "F#5",
+      "tau": 0.9289,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 79,
+      "note_changed": "G5",
+      "tau": 0.9801,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 63,
+      "note_changed": "Eb4",
+      "tau": 0.9744,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 70,
+      "note_changed": "Bb4",
+      "tau": 0.8151,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 67,
+      "note_changed": "G4",
+      "tau": 0.8208,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 75,
+      "note_changed": "Eb5",
+      "tau": 0.9175,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 72,
+      "note_changed": "C5",
+      "tau": 0.8037,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 64,
+      "note_changed": "E4",
+      "tau": 0.9516,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 65,
+      "note_changed": "F4",
+      "tau": 0.9545,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 66,
+      "note_changed": "F#4",
+      "tau": 0.872,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 68,
+      "note_changed": "Ab4",
+      "tau": 0.8777,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 71,
+      "note_changed": "B4",
+      "tau": 0.8834,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 73,
+      "note_changed": "C#5",
+      "tau": 0.8378,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 74,
+      "note_changed": "D5",
+      "tau": 0.8521,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 76,
+      "note_changed": "E5",
+      "tau": 0.9459,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 78,
+      "note_changed": "F#5",
+      "tau": 0.9516,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 79,
+      "note_changed": "G5",
+      "tau": 0.9886,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 63,
+      "note_changed": "Eb4",
+      "tau": 0.9772,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "remove_avoid",
+      "midi_changed": 69,
+      "note_changed": "A4",
+      "tau": 0.8208,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "remove_avoid",
+      "midi_changed": 77,
+      "note_changed": "F5",
+      "tau": 0.9488,
+      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 64,
+      "note_changed": "E4",
+      "tau": 0.7984,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 65,
+      "note_changed": "F4",
+      "tau": 0.8266,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 66,
+      "note_changed": "F#4",
+      "tau": 0.8427,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 67,
+      "note_changed": "G4",
+      "tau": 0.7379,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 69,
+      "note_changed": "A4",
+      "tau": 0.9597,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 70,
+      "note_changed": "Bb4",
+      "tau": 0.7782,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 71,
+      "note_changed": "B4",
+      "tau": 0.6976,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 74,
+      "note_changed": "D5",
+      "tau": 0.7621,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 76,
+      "note_changed": "E5",
+      "tau": 0.8347,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 77,
+      "note_changed": "F5",
+      "tau": 0.9234,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 61,
+      "note_changed": "C#4",
+      "tau": 0.9637,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 62,
+      "note_changed": "D4",
+      "tau": 0.9839,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 63,
+      "note_changed": "Eb4",
+      "tau": 0.9435,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 68,
+      "note_changed": "Ab4",
+      "tau": 0.7984,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 73,
+      "note_changed": "C#5",
+      "tau": 0.6774,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 72,
+      "note_changed": "C5",
+      "tau": 0.7621,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 75,
+      "note_changed": "Eb5",
+      "tau": 0.871,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 64,
+      "note_changed": "E4",
+      "tau": 0.9153,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 65,
+      "note_changed": "F4",
+      "tau": 0.8911,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 66,
+      "note_changed": "F#4",
+      "tau": 0.8669,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 67,
+      "note_changed": "G4",
+      "tau": 0.8266,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 70,
+      "note_changed": "Bb4",
+      "tau": 0.7097,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 71,
+      "note_changed": "B4",
+      "tau": 0.8185,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 74,
+      "note_changed": "D5",
+      "tau": 0.8992,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 76,
+      "note_changed": "E5",
+      "tau": 0.9032,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 77,
+      "note_changed": "F5",
+      "tau": 0.9395,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 61,
+      "note_changed": "C#4",
+      "tau": 0.9839,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 63,
+      "note_changed": "Eb4",
+      "tau": 0.9315,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "remove_avoid",
+      "midi_changed": 69,
+      "note_changed": "A4",
+      "tau": 0.8226,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "remove_avoid",
+      "midi_changed": 62,
+      "note_changed": "D4",
+      "tau": 0.9556,
+      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 64,
+      "note_changed": "E4",
+      "tau": 1.0,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 65,
+      "note_changed": "F4",
+      "tau": 0.9158,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 66,
+      "note_changed": "F#4",
+      "tau": 0.8737,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 67,
+      "note_changed": "G4",
+      "tau": 0.8421,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 69,
+      "note_changed": "A4",
+      "tau": 0.8211,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 71,
+      "note_changed": "B4",
+      "tau": 0.9684,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 74,
+      "note_changed": "D5",
+      "tau": 0.8421,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 75,
+      "note_changed": "Eb5",
+      "tau": 0.9684,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 76,
+      "note_changed": "E5",
+      "tau": 0.8737,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 77,
+      "note_changed": "F5",
+      "tau": 0.9053,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 63,
+      "note_changed": "Eb4",
+      "tau": 1.0,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 68,
+      "note_changed": "Ab4",
+      "tau": 0.8211,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 72,
+      "note_changed": "C5",
+      "tau": 0.7474,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 73,
+      "note_changed": "C#5",
+      "tau": 0.8105,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 70,
+      "note_changed": "Bb4",
+      "tau": 0.6632,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 65,
+      "note_changed": "F4",
+      "tau": 0.9263,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 66,
+      "note_changed": "F#4",
+      "tau": 0.9263,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 67,
+      "note_changed": "G4",
+      "tau": 0.9053,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 69,
+      "note_changed": "A4",
+      "tau": 0.9053,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 74,
+      "note_changed": "D5",
+      "tau": 0.9263,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 75,
+      "note_changed": "Eb5",
+      "tau": 0.9158,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 76,
+      "note_changed": "E5",
+      "tau": 0.9579,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 77,
+      "note_changed": "F5",
+      "tau": 0.9368,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 63,
+      "note_changed": "Eb4",
+      "tau": 0.9684,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "remove_avoid",
+      "midi_changed": 71,
+      "note_changed": "B4",
+      "tau": 0.8737,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "remove_avoid",
+      "midi_changed": 64,
+      "note_changed": "E4",
+      "tau": 0.9368,
+      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 64,
+      "note_changed": "E4",
+      "tau": 0.8421,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 65,
+      "note_changed": "F4",
+      "tau": 0.9579,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 66,
+      "note_changed": "F#4",
+      "tau": 0.8316,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 67,
+      "note_changed": "G4",
+      "tau": 0.7789,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 69,
+      "note_changed": "A4",
+      "tau": 0.8,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 71,
+      "note_changed": "B4",
+      "tau": 0.7368,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 74,
+      "note_changed": "D5",
+      "tau": 0.8842,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 75,
+      "note_changed": "Eb5",
+      "tau": 0.9368,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 76,
+      "note_changed": "E5",
+      "tau": 0.8105,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 77,
+      "note_changed": "F5",
+      "tau": 0.9789,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 63,
+      "note_changed": "Eb4",
+      "tau": 0.9684,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 70,
+      "note_changed": "Bb4",
+      "tau": 0.6421,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 72,
+      "note_changed": "C5",
+      "tau": 0.7789,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 68,
+      "note_changed": "Ab4",
+      "tau": 0.6737,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 73,
+      "note_changed": "C#5",
+      "tau": 0.6211,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 64,
+      "note_changed": "E4",
+      "tau": 0.9053,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 66,
+      "note_changed": "F#4",
+      "tau": 0.8421,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 67,
+      "note_changed": "G4",
+      "tau": 0.8632,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 69,
+      "note_changed": "A4",
+      "tau": 0.8211,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 71,
+      "note_changed": "B4",
+      "tau": 0.8316,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 74,
+      "note_changed": "D5",
+      "tau": 0.9474,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 75,
+      "note_changed": "Eb5",
+      "tau": 0.9474,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 76,
+      "note_changed": "E5",
+      "tau": 0.9474,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 63,
+      "note_changed": "Eb4",
+      "tau": 0.9684,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "remove_avoid",
+      "midi_changed": 65,
+      "note_changed": "F4",
+      "tau": 0.8632,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    },
+    {
+      "perturbation_type": "remove_avoid",
+      "midi_changed": 77,
+      "note_changed": "F5",
+      "tau": 0.9053,
+      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+    }
+  ]
+}
