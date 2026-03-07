@@ -73,17 +73,20 @@ RESEARCH QUESTION 1: Self-retrieval accuracy
    score_songs from src/recommend.py. Use α = 0.5; tie-break by filename.
 
    Data: data/tessituragrams.json (101 songs). Format: JSON array of song
-   objects with tessituragram and statistics.pitch_range. Query set: every
-   song in the library for which, after filtering by that song's range, at
-   least 2 songs remain (so there is a real ranking).
+   objects with tessituragram and statistics.pitch_range. Define the **valid
+   query pool** as every song in the library for which, after filtering by
+   that song's range, at least 2 songs remain (so there is a real ranking).
+   For the experiment, draw up to N_QUERIES songs at random from this pool
+   (with a fixed random seed for reproducibility).
 
    Procedure:
    1. Load the library from JSON.
-   2. For each song s: set user range to s's min/max MIDI. From s's
-      tessituragram (L1-normalised), take the top 4 MIDI by duration as
-      favourites and the bottom 2 as avoids (if fewer than 4 pitches, use
-      all as favourites; if fewer than 2, use no avoids). Skip s if the
-      filtered candidate set has fewer than 2 songs.
+   2. For each randomly sampled song s in the valid query pool: set user
+      range to s's min/max MIDI. From s's tessituragram (L1-normalised),
+      take the top 4 MIDI by duration as favourites and the bottom 2 as
+      avoids (if fewer than 4 pitches, use all as favourites; if fewer than
+      2, use no avoids). The sampled pool is drawn from songs whose filtered
+      candidate set has at least 2 songs.
       In the paper, state explicitly: the synthetic profile is derived from
       the same L1-normalised pitch-duration representation used when
       scoring songs (internal coherence).
@@ -91,8 +94,8 @@ RESEARCH QUESTION 1: Self-retrieval accuracy
       The query song s must remain in the candidate set (do not remove it).
       Using s's own range for filtering ensures s is in the candidate set.
    4. Record: hit@1 (1 if rank = 1, else 0), 1/rank, hit@3, hit@5.
-   5. After all songs: HR@1 = mean(hit@1), MRR = mean(1/rank), HR@3 = mean(hit@3),
-      HR@5 = mean(hit@5).
+   5. After all sampled songs: HR@1 = mean(hit@1), MRR = mean(1/rank),
+      HR@3 = mean(hit@3), HR@5 = mean(hit@5).
 
    Evaluation: Report HR@1, MRR, HR@3, HR@5. Report 95% confidence intervals
    (bootstrap over the query set, e.g. 10,000 samples). If the library is
@@ -106,14 +109,17 @@ RESEARCH QUESTION 1: Self-retrieval accuracy
 1.5 Plain-language summary (limited math/CS background)
    Think of it like this: you pick a song and tell the system "recommend
    songs that match this one's vocal profile." The most sensible top answer
-   is that same song. We do this for every song in the library (the computer
-   pretends each song is a user's preference). We then count: how often did
-   that song come first? How often in the top 3 or top 5? "Hit Rate @ 1"
-   is the fraction of times it came first; "Mean Reciprocal Rank" rewards
-   putting it as high as possible (first is best). We also report a range of
-   plausible values (confidence interval) so readers know how stable the
-   result is. No people are asked to judge anything—only the stored pitch
-   data and the program are used.
+   is that same song. For the experiment, the computer pretends that a
+   **random sample** of songs from the library are different users' favourite
+   songs (drawn from all songs where the system can produce a real ranking).
+   For each of these sampled songs, we see where it appears in its own
+   recommendation list. We then count: how often did that song come first?
+   How often in the top 3 or top 5? "Hit Rate @ 1" is the fraction of times
+   it came first; "Mean Reciprocal Rank" rewards putting it as high as
+   possible (first is best). We also report a range of plausible values
+   (confidence interval) so readers know how stable the result is. No people
+   are asked to judge anything—only the stored pitch data and the program
+   are used.
 
 ================================================================================
 RESEARCH QUESTION 2: Ranking stability under small preference changes
@@ -413,14 +419,15 @@ IMPLEMENTATION CHECKLIST
 --------------------------------------------------------------------------------
 [x] Implement tie-breaking by filename when final_score ties (src/recommend.py).
 [x] RQ1: Synthetic profile = top-4 MIDI by duration (fav), bottom-2 (avoid),
-    disjoint. Loop over valid songs; compute HR@1, MRR, HR@3, HR@5;
-    bootstrap 95% CI (10,000 samples, seed 42).
-    → experiment/run_rq1_experiment.py; output: experiment/RQ1_results.json
+    disjoint. Build pool of valid songs (candidate set ≥ 2), then randomly
+    sample up to N_QUERIES; compute HR@1, MRR, HR@3, HR@5; bootstrap 95% CI
+    (10,000 samples, seed 42).
+    → experiment/run_rq1_experiment.py; output: experiment_results/RQ1_results.json
 [x] RQ2: Up to 5 randomly sampled baseline profiles (≥ 10 candidates each);
     all one-note add/remove perturbations on pitches present in the candidate
     set; Kendall's τ for each; overall mean/std and baseline-level mean with
     95% CI (bootstrap over baselines).
-    → experiment/run_rq2_experiment_attempt3.py; output: experiment_results/RQ2_results.json
+    → experiment/run_rq2_experiment.py; output: experiment_results/RQ2_results.json
 [x] RQ3: M = 25 randomly sampled profiles (≥ 10 candidates each);
     unrounded scores; per run: variance, range, identity residual, regression
     (final ~ cos + avoid), Pearson r (final–cos, final–avoid), Spearman rho

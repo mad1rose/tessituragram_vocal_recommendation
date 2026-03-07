@@ -50,17 +50,21 @@ For each of the *M* = 25 runs, two spread statistics are computed over the ranke
 
 The mean and standard deviation of each statistic are reported across the 25 runs, along with 95% bootstrap CIs (10,000 resamples, seed 42).
 
-### Part (b): Internal Validity
+### Part (b): Correlation sanity checks
 
-For each run, three Pearson correlation coefficients are computed:
+For each run, three correlations are computed on the **unrounded** values:
 
-| Pair | Expected Sign | Rationale |
-|------|:-------------:|-----------|
-| final\_score vs. cosine\_similarity | **Positive** | Higher similarity to the ideal should produce higher scores |
-| final\_score vs. avoid\_penalty | **Negative** | More time on avoid notes should lower the score |
-| cosine\_similarity vs. favorite\_overlap | **Positive** | Songs similar to the ideal should emphasise the user's favourite notes |
+| Pair | Type | Expected Sign | Rationale |
+|------|------|:-------------:|-----------|
+| final\_score vs. cosine\_similarity | Pearson | **Positive** | Higher similarity to the ideal should produce higher scores |
+| final\_score vs. avoid\_penalty | Pearson | **Negative** | More time on avoid notes should lower the score |
+| cosine\_similarity vs. favorite\_overlap | Spearman | **Positive** | Songs similar to the ideal should emphasise the user's favourite notes |
 
-The mean correlation and 95% bootstrap CI are reported across the 25 runs.
+At the per-run level we obtain one correlation per pair. These are then
+aggregated across runs using a Fisher z-transform (z = atanh r, with r
+clamped away from ±1), optionally weighted by n−3, and 95% bootstrap
+confidence intervals are reported over runs. Runs with undefined
+correlation (e.g. zero variance) are excluded for that pair.
 
 ### Parameters
 
@@ -97,21 +101,21 @@ The mean range of **0.787** indicates that, on average, the best-scoring song sc
 
 *Figure 2. Histogram of per-run variance values. The red line marks the mean. Variance is consistently above zero across all 25 runs, confirming that the scoring function discriminates between songs.*
 
-### Part (b): Internal Validity
+### Part (b): Correlation sanity checks
 
-| Correlation Pair | Mean *r* | 95% CI | Expected | Confirmed? |
-|------------------|:--------:|--------|:--------:|:----------:|
-| final\_score vs. cosine\_similarity | **0.9859** | [0.9818, 0.9892] | Positive | Yes |
-| final\_score vs. avoid\_penalty | **−0.4516** | [−0.5527, −0.3436] | Negative | Yes |
-| cosine\_similarity vs. favorite\_overlap | **0.9378** | [0.9205, 0.9519] | Positive | Yes |
+| Correlation Pair | Mean *r* (Fisher) | 95% CI | Expected | Confirmed? |
+|------------------|:-----------------:|--------|:--------:|:----------:|
+| final\_score vs. cosine\_similarity (Pearson) | **0.9879** | [0.9839, 0.9915] | Positive | Yes |
+| final\_score vs. avoid\_penalty (Pearson) | **−0.4662** | [−0.6125, −0.2845] | Negative | Yes |
+| cosine\_similarity vs. favorite\_overlap (Spearman) | **0.9353** | [0.9199, 0.9463] | Positive | Yes |
 
 All three correlations match their expected signs, and all confidence intervals exclude zero.
 
-**final\_score vs. cosine\_similarity** (*r* = 0.986): The near-perfect positive correlation confirms that cosine similarity is the dominant driver of the final score. This is expected given the formula structure — the avoid penalty is a secondary adjustment.
+**final\_score vs. cosine\_similarity** (*r* ≈ 0.988): The near-perfect positive correlation confirms that cosine similarity is the dominant driver of the final score. This is expected given the formula structure — the avoid penalty is a secondary adjustment.
 
-**final\_score vs. avoid\_penalty** (*r* = −0.452): The moderate negative correlation confirms that songs spending more time on avoid notes receive lower scores. The magnitude is moderate rather than strong because the avoid penalty (weighted by α = 0.5) is a smaller component than cosine similarity in the scoring formula.
+**final\_score vs. avoid\_penalty** (*r* ≈ −0.47): The moderate negative correlation confirms that songs spending more time on avoid notes receive lower scores. The magnitude is moderate rather than strong because the avoid penalty (weighted by α = 0.5) is a smaller component than cosine similarity in the scoring formula.
 
-**cosine\_similarity vs. favorite\_overlap** (*r* = 0.938): The strong positive correlation confirms that songs whose pitch distributions align with the ideal vector also tend to emphasise the user's favourite notes. This is a consistency check: the ideal vector is constructed with boosts at favourite-note positions, so songs that match the ideal should naturally have higher favourite overlap.
+**cosine\_similarity vs. favorite\_overlap** (*r* ≈ 0.94): The strong positive correlation confirms that songs whose pitch distributions align with the ideal vector also tend to emphasise the user's favourite notes. This is a consistency check: the ideal vector is constructed with boosts at favourite-note positions, so songs that match the ideal should naturally have higher favourite overlap.
 
 #### Correlation Visualizations
 
@@ -131,15 +135,18 @@ The results provide strong evidence for both discriminative power and internal v
 
 **Discriminative power**: With a mean score range of 0.787 and mean variance of 0.043, the system produces meaningfully different scores for different songs. The ranking is not arbitrary — there are clear winners and losers for any given user profile.
 
-**Internal validity**: The scoring formula behaves exactly as designed. Cosine similarity is the primary determinant of the final score (*r* = 0.986), the avoid penalty acts as a meaningful secondary adjustment (*r* = −0.452), and favourite-note overlap aligns strongly with cosine similarity (*r* = 0.938). The fact that all three correlations match their expected signs — with confidence intervals that exclude zero — confirms that the scoring mechanism is internally coherent and interpretable.
+**Internal behaviour and sanity checks**: The scoring formula behaves exactly as designed. Cosine similarity is the primary determinant of the final score (*r* ≈ 0.988), the avoid penalty acts as a meaningful secondary adjustment (*r* ≈ −0.47), and favourite-note overlap aligns strongly with cosine similarity (*r* ≈ 0.94). The fact that all three correlations match their expected signs — with confidence intervals that exclude zero — confirms that the scoring mechanism behaves in line with its intended components.
 
 The moderate (rather than extreme) negative correlation between final\_score and avoid\_penalty is noteworthy: it means the avoid penalty influences the ranking without overwhelming the similarity signal. This is a desirable property — it allows the system to penalise songs with undesirable pitches without completely discarding songs that are otherwise excellent matches.
 
 ## Limitations
 
-- Pearson's *r* assumes linear relationships. While the scoring formula is linear by construction, non-linear effects could emerge from the L1/L2 normalisation steps. Spearman's ρ could be reported as a robustness check.
-- The 25 profiles are drawn sequentially from the library (first 25 valid songs). Random sampling would reduce potential ordering bias.
-- Internal validity does not guarantee external validity — the scores may behave as designed but still fail to match real singers' preferences.
+- Correlation-based summaries, even when aggregated with Fisher z, are still
+  descriptive sanity checks rather than a full causal explanation of system
+  behaviour.
+- Profiles and songs are all derived from the same library and synthetic
+  profile rule; a future extension could combine these internal checks with
+  user studies (external validity).
 
 ## References
 
