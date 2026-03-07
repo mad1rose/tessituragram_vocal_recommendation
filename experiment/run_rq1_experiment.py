@@ -5,6 +5,8 @@ When we build a synthetic user profile from one song (using that song's
 most- and least-used pitches as favourites and avoids), does the system
 rank that same song at position 1, or within the top 3 or top 5?
 
+Queries are randomly sampled from all valid songs (candidate set >= 2);
+up to N_QUERIES are used (seeded for reproducibility).
 Metrics: HR@1, MRR, HR@3, HR@5 with 95% bootstrap confidence intervals.
 """
 
@@ -33,7 +35,9 @@ ALPHA = 0.5
 TOP_N_FAV = 4
 BOTTOM_N_AVOID = 2
 BOOTSTRAP_SAMPLES = 10_000
-RANDOM_SEED = 42  # For reproducible bootstrap; Urbano et al. (2013) stress reproducibility
+RANDOM_SEED = 42  # For reproducible sampling and bootstrap; Urbano et al. (2013) stress reproducibility
+MIN_CANDIDATES = 2  # At least 2 songs in candidate set (so there is a real ranking)
+N_QUERIES = 50  # Max number of queries to sample at random; use all valid if fewer
 
 
 def _derive_synthetic_profile(song: dict) -> tuple[int, int, list[int], list[int]]:
@@ -79,24 +83,42 @@ def _derive_synthetic_profile(song: dict) -> tuple[int, int, list[int], list[int
     return user_min, user_max, favorite_midis, avoid_midis
 
 
-def run_rq1_experiment(library_path: Path) -> dict:
-    """Run the RQ1 self-retrieval experiment. Returns full results dict."""
-    random.seed(RANDOM_SEED)
-    all_songs = load_tessituragrams(library_path)
-
-    records: list[dict] = []
-
+def _select_queries(
+    all_songs: list[dict],
+) -> tuple[list[tuple[dict, int, int, list[int], list[int]]], int]:
+    """
+    Collect all songs that are valid queries (candidate set >= MIN_CANDIDATES),
+    then sample up to N_QUERIES at random (RANDOM_SEED ensures reproducibility).
+    Returns (sampled_query_list, total_valid_pool_size).
+    """
+    candidates: list[tuple[dict, int, int, list[int], list[int]]] = []
     for song in all_songs:
-        filename = song.get('filename', '')
         try:
             user_min, user_max, fav_midis, avoid_midis = _derive_synthetic_profile(song)
         except ValueError:
             continue
-
         filtered = filter_by_range(all_songs, user_min, user_max)
-        if len(filtered) < 2:
+        if len(filtered) < MIN_CANDIDATES:
             continue
+        candidates.append((song, user_min, user_max, fav_midis, avoid_midis))
+    pool_size = len(candidates)
+    if not candidates:
+        return [], 0
+    n_select = min(N_QUERIES, pool_size)
+    return random.sample(candidates, n_select), pool_size
 
+
+def run_rq1_experiment(library_path: Path) -> dict:
+    """Run the RQ1 self-retrieval experiment. Uses random sampling of queries (seeded). Returns full results dict."""
+    random.seed(RANDOM_SEED)
+    all_songs = load_tessituragrams(library_path)
+
+    query_list, valid_pool_size = _select_queries(all_songs)
+    records: list[dict] = []
+
+    for song, user_min, user_max, fav_midis, avoid_midis in query_list:
+        filename = song.get('filename', '')
+        filtered = filter_by_range(all_songs, user_min, user_max)
         ideal_vec = build_ideal_vector(user_min, user_max, fav_midis, avoid_midis)
         results = score_songs(
             filtered, ideal_vec, user_min, user_max,
@@ -154,14 +176,17 @@ def run_rq1_experiment(library_path: Path) -> dict:
             'alpha': ALPHA,
             'top_n_favorite': TOP_N_FAV,
             'bottom_n_avoid': BOTTOM_N_AVOID,
+            'min_candidates': MIN_CANDIDATES,
+            'n_queries_max': N_QUERIES,
             'bootstrap_samples': BOOTSTRAP_SAMPLES,
             'random_seed': RANDOM_SEED,
             'library_path': str(Path('data/tessituragrams.json')),
         },
         'data_summary': {
             'total_songs_in_library': len(all_songs),
-            'valid_queries': n,
-            'songs_skipped': len(all_songs) - n,
+            'valid_query_pool_size': valid_pool_size,
+            'queries_sampled': n,
+            'random_sampling': True,
         },
         'metrics': {
             'HR@1': {'value': round(hr1, 4), 'ci_95': [round(hr1_ci[0], 4), round(hr1_ci[1], 4)]},
@@ -201,7 +226,8 @@ def main() -> None:
     print(f"HR@3: {m['HR@3']['value']}  [95% CI: {m['HR@3']['ci_95']}]")
     print(f"HR@5: {m['HR@5']['value']}  [95% CI: {m['HR@5']['ci_95']}]")
     print(f"MRR:  {m['MRR']['value']}  [95% CI: {m['MRR']['ci_95']}]")
-    print(f"\nValid queries: {results['data_summary']['valid_queries']} / {results['data_summary']['total_songs_in_library']}")
+    ds = results['data_summary']
+    print(f"\nValid query pool: {ds['valid_query_pool_size']}; sampled: {ds['queries_sampled']} (random, seed={RANDOM_SEED})")
 
 
 if __name__ == '__main__':
