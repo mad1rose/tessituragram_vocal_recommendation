@@ -240,7 +240,7 @@ def _bootstrap_mean_over_baselines(baseline_means: list[float]) -> tuple[float, 
 
 def run_rq2_experiment_attempt3(library_path: Path) -> dict:
     """
-    Run the RQ2 ranking stability experiment (attempt 2).
+    Run the RQ2 ranking stability experiment (attempt 3).
 
     - Uses random baseline selection among all valid songs (seeded).
     - Enforces disjoint favourites/avoids for all perturbations.
@@ -307,12 +307,12 @@ def run_rq2_experiment_attempt3(library_path: Path) -> dict:
     ci_lo, ci_hi = _bootstrap_mean_over_baselines(baseline_means)
 
     return {
-        "experiment": "RQ2_ranking_stability_attempt2",
-            "description": (
-                "When we change favourites or avoids by one note, how similar is the "
-                "new ranking to the original? (Kendall's τ; attempt 3, random "
-                "baselines, baseline-level bootstrap, song-aware perturbations)"
-            ),
+        "experiment": "RQ2_ranking_stability_attempt3",
+        "description": (
+            "When we change favourites or avoids by one note, how similar is the "
+            "new ranking to the original? (Kendall's τ; attempt 3, random "
+            "baselines, baseline-level bootstrap, song-aware perturbations)"
+        ),
         "parameters": {
             "alpha": ALPHA,
             "top_n_favorite": TOP_N_FAV,

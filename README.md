@@ -201,7 +201,7 @@ The `experiment/` directory contains three evaluation experiments that assess th
 | RQ | Question | Script | Metrics |
 | --- | --- | --- | --- |
 | **RQ1** | Does the system rank a song first when the user profile is derived from that song? (Accuracy) | `run_rq1_experiment.py` | HR@1, HR@3, HR@5, MRR with 95% bootstrap CI |
-| **RQ2** | Does the ranking stay stable when one favourite or avoid note is added/removed? (Robustness) | `run_rq2_experiment.py` | Kendall's τ: mean, std, 95% bootstrap CI |
+| **RQ2** | Does the ranking stay stable when one favourite or avoid note is added/removed? (Robustness) | `run_rq2_experiment.py` | Kendall's τ: overall mean/std across perturbations; baseline-level mean with 95% bootstrap CI |
 | **RQ3** | Do scores spread out meaningfully, and do score components behave as the formula predicts? (Interpretability) | `run_rq3_experiment.py` | Variance & range of final_score; Pearson r for three pairs, all with 95% CI |
 
 All experiments use synthetic user profiles derived from the song library (top-4 pitches by duration as favourites, bottom-2 as avoids, disjoint), so they are fully reproducible from the repository alone. Each experiment script writes a JSON results file to `experiment_results/` and prints a summary to the terminal. Corresponding `visualize_rq*.py` scripts generate publication-ready figures in the same folder. The `experiment_results/` directory also contains a detailed methodology and results write-up for each RQ (as markdown files with embedded figures), written in the style of a research paper's methodology section.

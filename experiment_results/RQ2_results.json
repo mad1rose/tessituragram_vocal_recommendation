@@ -1,5 +1,5 @@
 {
-  "experiment": "RQ2_ranking_stability_attempt2",
+  "experiment": "RQ2_ranking_stability_attempt3",
   "description": "When we change favourites or avoids by one note, how similar is the new ranking to the original? (Kendall's τ; attempt 3, random baselines, baseline-level bootstrap, song-aware perturbations)",
   "parameters": {
     "alpha": 0.5,

@@ -29,8 +29,9 @@ def _get_n_perturbations(results: dict) -> int:
 def fig_tau_bar(results: dict) -> None:
     """Bar chart of mean tau with 95% CI. Primary visual for RQ2."""
     m = results['metrics']
-    mean_tau = m['mean_tau']
-    ci_lo, ci_hi = m['ci_95']
+    # Use baseline-level mean and CI as the primary summary
+    mean_tau = m['mean_tau_per_baseline']
+    ci_lo, ci_hi = m['ci_95_baseline_mean']
     yerr = [[mean_tau - ci_lo], [ci_hi - mean_tau]]
     n = _get_n_perturbations(results)
 
@@ -59,7 +60,8 @@ def fig_tau_distribution(results: dict) -> None:
 
     fig, ax = plt.subplots(figsize=(8, 5))
     ax.hist(taus, bins=15, color='#2e86ab', edgecolor='#1a5276', alpha=0.85)
-    ax.axvline(x=results['metrics']['mean_tau'], color='#c0392b', linestyle='-', linewidth=2, label=f"Mean = {results['metrics']['mean_tau']:.3f}")
+    overall_mean = results['metrics']['mean_tau_overall']
+    ax.axvline(x=overall_mean, color='#c0392b', linestyle='-', linewidth=2, label=f"Mean = {overall_mean:.3f}")
     ax.axvline(x=0.7, color='#888', linestyle='--', alpha=0.8, label=r'$\tau = 0.7$ (strong)')
     ax.set_xlabel(r"Kendall's $\tau$", fontsize=12)
     ax.set_ylabel('Number of perturbations', fontsize=12)
@@ -110,8 +112,9 @@ def fig_combined(results: dict) -> None:
 
     # Left: mean tau bar
     m = results['metrics']
-    mean_tau = m['mean_tau']
-    ci_lo, ci_hi = m['ci_95']
+    # Baseline-level mean and CI for the bar
+    mean_tau = m['mean_tau_per_baseline']
+    ci_lo, ci_hi = m['ci_95_baseline_mean']
     ax1.bar([0], [mean_tau], color='#2e86ab', edgecolor='#1a5276')
     ax1.errorbar([0], [mean_tau], yerr=[[mean_tau - ci_lo], [ci_hi - mean_tau]], fmt='none', color='#333', capsize=10)
     ax1.set_xticks([0])
@@ -125,7 +128,8 @@ def fig_combined(results: dict) -> None:
     # Right: histogram
     taus = [p['tau'] for p in results['per_perturbation']]
     ax2.hist(taus, bins=12, color='#2e86ab', edgecolor='#1a5276', alpha=0.85)
-    ax2.axvline(x=mean_tau, color='#c0392b', linestyle='-', linewidth=2, label=f'Mean = {mean_tau:.3f}')
+    overall_mean = m.get('mean_tau_overall', mean_tau)
+    ax2.axvline(x=overall_mean, color='#c0392b', linestyle='-', linewidth=2, label=f'Mean = {overall_mean:.3f}')
     ax2.axvline(x=0.7, color='#888', linestyle='--', alpha=0.7)
     ax2.set_xlabel(r"Kendall's $\tau$")
     ax2.set_ylabel('Count')

@@ -130,7 +130,7 @@ RESEARCH QUESTION 2: Ranking stability under small preference changes
      original ranking and the ranking after one note is added or removed
      from favourites or avoids.
    - We repeat this for many one-note changes and report the average and
-     spread of τ (and a 95% confidence interval for the average).
+   spread of τ (and a 95% confidence interval for the baseline-level mean τ).
 
 2.3 Why it is being measured
    In practice, users might add or forget one note. A stable system should
