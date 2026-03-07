@@ -2,7 +2,7 @@
 Visualizations for Research Question 2: Ranking Stability (Kendall's tau).
 
 Generates publication-ready figures for the methodology/results section.
-"""
+""" 
 
 from __future__ import annotations
 

@@ -1,10 +1,10 @@
 """
-Visualizations for Research Question 3: Score Spread and Internal Validity.
+Visualizations for Research Question 3: Score Spread and Formula Checks.
 
 Generates publication-ready figures for the methodology/results section.
 Best choices for RQ3: (a) spread bar (variance and range with 95% CI) to show
-scores discriminate; (b) correlations bar (Pearson r with 95% CI) to show
-internal validity.
+scores discriminate; (b) correlations bar (Pearson/Spearman with 95% CI) as
+sanity checks on the score components (final vs cosine/avoid; cosine vs fav).
 """
 
 from __future__ import annotations
@@ -65,19 +65,19 @@ def fig_spread(results: dict) -> None:
 
 
 def fig_correlations(results: dict) -> None:
-    """Bar chart of Pearson r for the three pairs with 95% CI. Primary visual for RQ3b."""
-    corr = results['metrics']['correlations']
+    """Bar chart of mean correlations (Fisher-aggregated) with 95% CI. Primary visual for RQ3 sanity checks."""
+    corr = results['metrics']['correlations_sanity_check']
     labels = [
         r'final_score vs cosine',
         r'final_score vs avoid_pen',
         r'cosine vs fav_overlap',
     ]
     keys = [
-        'r_final_score_cosine_similarity',
-        'r_final_score_avoid_penalty',
-        'r_cosine_similarity_favorite_overlap',
+        'r_final_score_cosine_similarity',                 # Pearson
+        'r_final_score_avoid_penalty',                     # Pearson
+        'r_cosine_similarity_favorite_overlap_spearman',   # Spearman
     ]
-    means = [corr[k]['mean'] for k in keys]
+    means = [corr[k]['mean_fisher'] for k in keys]
     cis = [corr[k]['ci_95'] for k in keys]
     yerr_lo = [means[i] - cis[i][0] for i in range(3)]
     yerr_hi = [cis[i][1] - means[i] for i in range(3)]
@@ -92,9 +92,9 @@ def fig_correlations(results: dict) -> None:
     ax.axhline(y=0, color='#333', linewidth=0.8)
     ax.set_xticks(x)
     ax.set_xticklabels(labels, fontsize=10)
-    ax.set_ylabel("Pearson r", fontsize=12)
+    ax.set_ylabel("Correlation (mean r, Fisher-aggregated)", fontsize=12)
     ax.set_ylim(-0.9, 1.1)
-    ax.set_title(f"RQ3: Internal Validity — Correlations (M = {M} profiles)", fontsize=14)
+    ax.set_title(f"RQ3: Correlations (sanity checks; M = {M} profiles)", fontsize=14)
     for i, (m, ci) in enumerate(zip(means, cis)):
         y_pos = m + 0.06 if m >= 0 else m - 0.12
         va = 'bottom' if m >= 0 else 'top'
@@ -131,7 +131,7 @@ def fig_variance_distribution(results: dict) -> None:
 def fig_combined(results: dict) -> None:
     """Combined figure: (a) spread, (b) correlations — for paper layout."""
     spread = results['metrics']['spread']
-    corr = results['metrics']['correlations']
+    corr = results['metrics']['correlations_sanity_check']
     M = results['data_summary']['n_profiles']
 
     fig = plt.figure(figsize=(10, 8))
@@ -164,11 +164,14 @@ def fig_combined(results: dict) -> None:
     ax1b.set_title(f"(b) Range (M = {M})")
     ax1b.grid(axis='y', alpha=0.3)
 
-    # Bottom-left: correlations
+    # Bottom: correlations (Fisher-aggregated means)
     labels2 = [r'final vs cosine', r'final vs avoid', r'cosine vs fav']
-    keys2 = ['r_final_score_cosine_similarity', 'r_final_score_avoid_penalty',
-             'r_cosine_similarity_favorite_overlap']
-    means2 = [corr[k]['mean'] for k in keys2]
+    keys2 = [
+        'r_final_score_cosine_similarity',                 # Pearson
+        'r_final_score_avoid_penalty',                     # Pearson
+        'r_cosine_similarity_favorite_overlap_spearman',   # Spearman
+    ]
+    means2 = [corr[k]['mean_fisher'] for k in keys2]
     cis2 = [corr[k]['ci_95'] for k in keys2]
     x2 = np.arange(3)
     colors2 = ['#2e86ab', '#c0392b', '#2e86ab']
@@ -180,12 +183,12 @@ def fig_combined(results: dict) -> None:
     ax2.axhline(y=0, color='#333', linewidth=0.8)
     ax2.set_xticks(x2)
     ax2.set_xticklabels(labels2)
-    ax2.set_ylabel("Pearson r")
+    ax2.set_ylabel("Correlation (mean r, Fisher-aggregated)")
     ax2.set_ylim(-0.9, 1.1)
-    ax2.set_title(f"(c) Internal validity (M = {M})")
+    ax2.set_title(f"(c) Correlations (sanity checks; M = {M})")
     ax2.grid(axis='y', alpha=0.3)
 
-    fig.suptitle("RQ3: Score Spread and Internal Validity", fontsize=14, y=1.02)
+    fig.suptitle("RQ3: Score Spread and Formula Checks", fontsize=14, y=1.02)
     fig.tight_layout()
     fig.savefig(EXP_DIR / 'RQ3_visualizations.png', dpi=150, bbox_inches='tight')
     plt.close()

@@ -191,82 +191,103 @@ RESEARCH QUESTION 2: Ranking stability under small preference changes
    high average means the system is stable—small input changes do not
    cause big output changes.
 ================================================================================
-RESEARCH QUESTION 3: Score spread and internal validity
+RESEARCH QUESTION 3: Score spread and formula checks
 ================================================================================
 
 3.1 Research question (specific and measurable)
    (a) Do recommendation scores (final_score) spread out across songs, or do
-   many songs get almost the same score? (b) Do the parts of the score
-   (cosine similarity and avoid penalty) relate to final_score in the way
-   the formula says (higher similarity → higher score; higher avoid time →
-   lower score)?
+   many songs get almost the same score? (b) Does the scoring formula behave
+   as specified (final_score = cos_sim − α×avoid_penalty)? We separate
+   formula/identity checks from descriptive sanity-check correlations.
 
-   Do the numbers make sense? Do the scores spread out meaningfully, and do the
-   score parts (similarity vs. avoid penalty) relate to the final score the way
-   the formula says?
-   
 3.2 What is being measured
    (a) Spread: variance and range of final_score over the ranked list for
-       each run; we report the average variance and range across multiple
-       runs (multiple synthetic user profiles).
-   (b) Internal validity: correlation between final_score and cosine_similarity
-       (expect positive), and between final_score and avoid_penalty (expect
-       negative); and between cosine_similarity and favorite_overlap
-       (expect positive). We report mean correlation and 95% CI across runs.
+       each run (computed on unrounded scores); we report the average
+       variance and range across M runs.
+   (b) Formula checks (strong): (i) Identity residual: final − (cos − α×avoid)
+       per song; report mean and max absolute residual over runs. (ii) Optional
+       per-run regression final ~ cos + avoid; report mean coefficients (expect
+       ≈ 1, ≈ −α) and mean R² (expect ≈ 1).
+   (c) Sanity-check correlations (descriptive): Pearson r for final_score vs
+       cosine_similarity and final_score vs avoid_penalty; Spearman rho for
+       cosine_similarity vs favorite_overlap. Correlations are aggregated
+       via Fisher z (see below). Runs with undefined correlation (e.g. zero
+       variance in one variable) are excluded for that pair; n_excluded is
+       reported. Expected signs: final–cos positive; final–avoid negative;
+       cos–favorite_overlap positive.
 
 3.3 Why it is being measured
-   If scores barely differ (e.g. all between 0.48 and 0.52), the ranking is
-   not very meaningful. If the components do not align with the formula
-   (final_score = cos_sim − α×avoid_penalty), the scoring may not match its
-   intended meaning. Evaluation literature emphasises that metrics should
-   both discriminate between items and reflect the intended construct
-   (Herlocker et al., 2004; Urbano et al., 2013; Castells et al., 2018).
+   If scores barely differ, the ranking is not very discriminative. If the
+   formula does not hold numerically (identity residual or regression), the
+   implementation may not match the design. The sanity-check correlations
+   confirm that the pipeline and rounding have not introduced anomalies.
+   Evaluation literature emphasises discriminative power and construct
+   alignment (Herlocker et al., 2004; Urbano et al., 2013; Castells et al., 2018).
 
 3.4 How it will be measured
 
-   Model: Same as RQ1 and RQ2 (build_ideal_vector, score_songs; tie-break
-   by filename).
+   Model: Same scoring logic as the app (build_dense_vector, normalize_l1,
+   build_ideal_vector, cosine_similarity) but computed in the experiment
+   without rounding, so variance/range/correlations use raw values.
 
-   Data: data/tessituragrams.json (101 songs). Use M = 25 synthetic user
+   Data: data/tessituragrams.json (101 songs). M = 25 synthetic user
    profiles (N_PROFILES = 25), each derived from a different song with the
-   same rule as RQ1 (top-4 fav, bottom-2 avoid, disjoint). For each
-   profile, the filtered candidate set must have at least 10 songs
-   (MIN_CANDIDATES = 10).
+   same rule as RQ1 (top-4 fav, bottom-2 avoid, disjoint). Profiles are
+   sampled at random (fixed seed) from all songs whose filtered candidate
+   set has at least 10 songs (MIN_CANDIDATES = 10).
 
    Procedure:
-   1. For each of M profiles, run the recommender and get the full result
-      list (each row: final_score, cosine_similarity, avoid_penalty,
-      favorite_overlap).
-   2. Per run: (a) Compute variance and range of final_score over the list.
-      (b) Compute Pearson correlation (or Spearman if relationships look
-      non-linear): final_score vs cosine_similarity, final_score vs
-      avoid_penalty, cosine_similarity vs favorite_overlap.
-   3. Across M runs: report mean and std of variance and range; report mean
-      correlation and 95% CI (bootstrap over the M runs) for each pair.
-   4. State expected signs: final_score–cosine positive; final_score–avoid
-      negative; cosine–favorite_overlap positive.
+   1. Build all valid profiles; randomly sample M (with seed).
+   2. For each profile: compute scores (unrounded) for each song in the
+      candidate set: final_score, cosine_similarity, avoid_penalty,
+      favorite_overlap.
+   3. Per run: (a) Variance and range of final_score. (b) Identity residual
+      = |final − (cos − α×avoid)|; mean and max. (c) If n ≥ 3 and both cos
+      and avoid have positive variance: regression final ~ cos + avoid;
+      record intercept, coef_cos, coef_avoid, R². (d) Pearson r for
+      final_score vs cosine_similarity and final_score vs avoid_penalty;
+      Spearman rho for cosine_similarity vs favorite_overlap. Return NaN
+      when correlation is undefined (e.g. zero std).
+   4. Across runs: mean variance, mean range, mean identity residual, max
+      residual; mean regression coefficients and mean R² (over runs with
+      valid regression). For correlations: aggregate via Fisher z (r
+      clamped to (−1, 1) before atanh; average z, optionally weighted by
+      n_songs − 3; back-transform with tanh); 95% CI by bootstrap over
+      runs (resample runs, then Fisher-aggregate each bootstrap sample).
+   5. Report n_excluded per correlation (runs where that correlation was NaN).
 
-   Evaluation: Report mean variance, mean range, and mean correlations
-   with 95% CIs. A sanity check: avoid_penalty should equal (by design) the
-   proportion of singing time on avoid notes; you can report that
-   correlation (expected 1.0) to verify the pipeline.
+   Bootstrap: The unit of analysis is the run (profile). We bootstrap by
+   resampling the list of runs with replacement. A hierarchical bootstrap
+   (resample profiles then songs within profile) could be used in future
+   work to reflect song-level variability if reviewers request it.
+
+   Evaluation: Report spread (mean variance, mean range, 95% CI); identity
+   check (mean and max residual); regression summary (mean coefs, mean R²);
+   sanity-check correlations (Fisher-mean and 95% CI, n_excluded). Frame
+   final↔component correlations as pipeline sanity checks, not as strong
+   "internal validity" evidence; the identity and regression checks are the
+   primary formula checks.
 
    Formulas:
    - Variance = (1/(n−1)) × sum over songs of (score − mean_score)².
    - Range = max(score) − min(score) over the list.
-   - Pearson r = standard correlation between two variables (−1 to 1).
+   - Pearson r, Spearman ρ: standard definitions (−1 to 1).
+   - Fisher z: z = atanh(r) with r clamped to (−1, 1); mean z (optionally
+     weighted by n−3); aggregate r = tanh(mean z). See e.g. Fisher (1915),
+     or meta-analysis references in SOURCES below.
 
 3.5 Plain-language summary (limited math/CS background)
    We check two things. First: do the scores the system gives to different
-   songs actually differ? If every song got almost the same score, the
-   ranking would be arbitrary. We measure how spread out the scores are
+   songs actually differ? We measure how spread out the scores are
    (variance and range). Second: does the scoring formula behave as
-   intended? The system combines "how similar the song is to your ideal"
-   (cosine) and "how much the song uses notes you want to avoid" (penalty).
-   We check that higher similarity goes with higher scores and higher
-   avoid-note time goes with lower scores, using correlations. We do this
-   for many synthetic users and report averages and confidence intervals.
-   No human input is used—only the numbers the system already outputs.
+   intended? We verify that the final score really equals "similarity minus
+   penalty" (identity check) and optionally run a small regression to
+   confirm the weights. We also report correlations between the parts of
+   the score as a sanity check (e.g. higher similarity goes with higher
+   scores). We use many synthetic users (randomly chosen), aggregate
+   correlations in a statistically sound way (Fisher z), and report
+   confidence intervals. No human input is used—only the numbers the
+   system computes.
 
 --------------------------------------------------------------------------------
 NOTE ON BOOTSTRAPPING (applies to all three RQs)
@@ -321,10 +342,11 @@ RQ  | What is measured              | Primary metrics        | Data / procedure
     |                               |                         | (add/remove fav or avoid) on pitches
     |                               |                         | present in the candidate set; same C.
 ----+-------------------------------+------------------------+------------------------------------------
-3   | (a) Spread of final_score    | (a) Variance, range     | M = 25 synthetic profiles (same rule as
-    | (b) Alignment of score parts | (b) Pearson r for three | RQ1; ≥ 10 candidates each); one ranking
-    |     with formula             |     pairs + 95% CI      | per profile; aggregate variance, range,
-    |                               |                         | and correlations.
+3   | (a) Spread of final_score    | (a) Variance, range,    | M = 25 randomly sampled profiles (same
+    | (b) Formula: identity +       |     identity residual,  | rule as RQ1; ≥ 10 candidates); unrounded
+    |     regression; (c) Sanity    |     regression coefs/R²  | scores; Fisher z for correlations;
+    |     correlations             | (c) Pearson/Spearman   | bootstrap over runs; n_excluded reported.
+    |                               |     + 95% CI            |
 ================================================================================
 
 --------------------------------------------------------------------------------
@@ -333,7 +355,9 @@ SOURCES
 Cite in Method/Data: Gotham & Jonas (2022) — OpenScore Lieder Corpus (source
 of MusicXML files). Cite in methods/evaluation: Herlocker et al. (recommender
 evaluation); Urbano et al. (MIR evaluation, validity/reliability). Cite for
-RQ2: Kendall (τ). Cite for RQ3 if you mention discriminative power: Castells et al.
+RQ2: Kendall (τ). Cite for RQ3: Castells et al. (discriminative power);
+Fisher (or meta-analysis ref) for z-transform; Spearman or stats text for
+rank correlation; Efron & Tibshirani or similar for bootstrap if desired.
 
 [0] M. R. H. Gotham and P. Jonas. "The OpenScore Lieder Corpus." In Music
     Encoding Conference Proceedings 2021, S. M{\"u}nnich and D. Rizo (Eds.),
@@ -362,8 +386,27 @@ RQ2: Kendall (τ). Cite for RQ3 if you mention discriminative power: Castells et
     Discriminative Power of Information Retrieval Metrics for Top-N
     Recommendation." In Proc. 12th ACM Conference on Recommender Systems
     (RecSys), pp. 44–52, 2018. DOI: 10.1145/3240323.3240347.
-    Use for: Justification for reporting score spread and internal validity
+    Use for: Justification for reporting score spread and formula checks
     (RQ3). Optional if space is tight.
+
+[5] R. A. Fisher. "Frequency distribution of the values of the correlation
+    coefficient in samples from an indefinitely large population."
+    Biometrika, Vol. 10, No. 4, pp. 507–521, 1915.
+    Use for: Fisher z-transform (atanh r) for aggregating and comparing
+    correlations; RQ3 correlation aggregation.
+
+[6] C. Spearman. "The proof and measurement of association between two
+    things." American Journal of Psychology, Vol. 15, No. 1, pp. 72–101,
+    1904. (Or: any modern statistics or psychometrics textbook covering
+    Spearman's rank correlation.)
+    Use for: Spearman's ρ for cosine_similarity vs favorite_overlap in RQ3
+    (bounded, possibly non-linear relationship).
+
+[7] B. Efron and R. J. Tibshirani. An Introduction to the Bootstrap.
+    Chapman & Hall, 1993. (Or: a shorter methodological citation for
+    bootstrap confidence intervals.)
+    Use for: Bootstrap 95% CI over runs; optional if you cite bootstrap
+    generally in the methods.
 
 --------------------------------------------------------------------------------
 IMPLEMENTATION CHECKLIST
@@ -378,9 +421,12 @@ IMPLEMENTATION CHECKLIST
     set; Kendall's τ for each; overall mean/std and baseline-level mean with
     95% CI (bootstrap over baselines).
     → experiment/run_rq2_experiment_attempt3.py; output: experiment_results/RQ2_results.json
-[x] RQ3: M = 25 profiles (≥ 10 candidates each); per run: variance and range
-    of final_score, and Pearson r for the three pairs; aggregate with 95% CI.
-    → experiment/run_rq3_experiment.py; output: experiment/RQ3_results.json
+[x] RQ3: M = 25 randomly sampled profiles (≥ 10 candidates each);
+    unrounded scores; per run: variance, range, identity residual, regression
+    (final ~ cos + avoid), Pearson r (final–cos, final–avoid), Spearman rho
+    (cos–favorite_overlap); undefined correlations → NaN, n_excluded reported;
+    Fisher z aggregation (r clamped for atanh); 95% CI bootstrap over runs.
+    → experiment/run_rq3_experiment.py; output: experiment_results/RQ3_results.json
 [x] Visualization scripts for all three RQs.
     → experiment/visualize_rq1.py, visualize_rq2.py, visualize_rq3.py
 [ ] In the paper: state data path, library size (101 songs), α = 0.5, and
