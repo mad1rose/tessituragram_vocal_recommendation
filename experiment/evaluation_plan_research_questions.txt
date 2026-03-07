@@ -190,6 +190,10 @@ RESEARCH QUESTION 3: Score spread and internal validity
    the formula says (higher similarity → higher score; higher avoid time →
    lower score)?
 
+   Do the numbers make sense? Do the scores spread out meaningfully, and do the
+   score parts (similarity vs. avoid penalty) relate to the final score the way
+   the formula says?
+   
 3.2 What is being measured
    (a) Spread: variance and range of final_score over the ranked list for
        each run; we report the average variance and range across multiple

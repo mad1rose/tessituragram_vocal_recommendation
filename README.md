@@ -196,7 +196,7 @@ This generates `tessituragrams.ipynb` — histograms for every song in the libra
 
 ## Experiments
 
-The `experiment/` directory contains three offline evaluation experiments that assess the recommendation engine without requiring human judgments. The file `experiment/evaluation_plan_research_questions.txt` explains the motivation, design, metrics, and expected outcomes for each research question in detail — readers unfamiliar with the experiments should start there.
+The `experiment/` directory contains three evaluation experiments that assess the recommendation engine without requiring human judgments. The file `experiment/evaluation_plan_research_questions.txt` explains the motivation, design, metrics, and expected outcomes for each research question in detail — readers unfamiliar with the experiments should start there.
 
 | RQ | Question | Script | Metrics |
 | --- | --- | --- | --- |
