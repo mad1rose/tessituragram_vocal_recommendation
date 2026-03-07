@@ -1,5 +1,5 @@
 """
-Research Question 2 (attempt 2): Ranking stability under small preference changes.
+Research Question 2 (attempt 3): Ranking stability under small preference changes.
 
 This version:
 - enforces disjoint favourite/avoid sets for all perturbations,
@@ -132,7 +132,16 @@ def _run_one_baseline(
     )
 
     perturbations: list[tuple[str, int, list[int], list[int]]] = []
-    midi_in_range = set(range(user_min, user_max + 1))
+
+    # Collect all MIDI notes that actually occur in the candidate set C
+    used_midis_in_C: set[int] = set()
+    for song in filtered:
+        tess = song.get("tessituragram", {}) or {}
+        used_midis_in_C.update(int(m) for m in tess.keys())
+
+    # Restrict to notes that are both in the user's range and present in at least
+    # one candidate song. This focuses perturbations on musically relevant notes.
+    midi_in_range = {m for m in used_midis_in_C if user_min <= m <= user_max}
 
     # 1. Add one favourite: MIDI in range, not already favourite or avoid
     for m in midi_in_range:
@@ -229,7 +238,7 @@ def _bootstrap_mean_over_baselines(baseline_means: list[float]) -> tuple[float, 
     return lo, hi
 
 
-def run_rq2_experiment_attempt2(library_path: Path) -> dict:
+def run_rq2_experiment_attempt3(library_path: Path) -> dict:
     """
     Run the RQ2 ranking stability experiment (attempt 2).
 
@@ -243,7 +252,7 @@ def run_rq2_experiment_attempt2(library_path: Path) -> dict:
     baselines = _select_baselines(all_songs)
     if not baselines:
         return {
-            "experiment": "RQ2_ranking_stability_attempt2",
+            "experiment": "RQ2_ranking_stability_attempt3",
             "error": f"No song yielded ≥ {MIN_CANDIDATES} candidates. Library too small.",
             "data_summary": {"total_songs": len(all_songs)},
         }
@@ -299,11 +308,11 @@ def run_rq2_experiment_attempt2(library_path: Path) -> dict:
 
     return {
         "experiment": "RQ2_ranking_stability_attempt2",
-        "description": (
-            "When we change favourites or avoids by one note, how similar is the "
-            "new ranking to the original? (Kendall's τ; attempt 2, random "
-            "baselines, baseline-level bootstrap)"
-        ),
+            "description": (
+                "When we change favourites or avoids by one note, how similar is the "
+                "new ranking to the original? (Kendall's τ; attempt 3, random "
+                "baselines, baseline-level bootstrap, song-aware perturbations)"
+            ),
         "parameters": {
             "alpha": ALPHA,
             "top_n_favorite": TOP_N_FAV,
@@ -340,14 +349,14 @@ def run_rq2_experiment_attempt2(library_path: Path) -> dict:
 
 def main() -> None:
     library_path = ROOT / "data" / "tessituragrams.json"
-    out_dir = Path(__file__).resolve().parent
+    out_dir = ROOT / "experiment_results"
 
-    print("Running RQ2 Ranking Stability Experiment (attempt 2)...")
+    print("Running RQ2 Ranking Stability Experiment (attempt 3)...")
     print(f"Library: {library_path}")
 
-    results = run_rq2_experiment_attempt2(library_path)
+    results = run_rq2_experiment_attempt3(library_path)
 
-    out_json = out_dir / "RQ2_results_attempt2.json"
+    out_json = out_dir / "RQ2_results.json"
     with open(out_json, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
     print(f"Results saved to {out_json}")
@@ -358,7 +367,7 @@ def main() -> None:
 
     m = results["metrics"]
     ds = results["data_summary"]
-    print("\n--- Metrics (attempt 2) ---")
+    print("\n--- Metrics (attempt 3) ---")
     print(
         f"Mean tau (all perturbations): {m['mean_tau_overall']}  "
         f"(std: {m['std_tau_overall']})"

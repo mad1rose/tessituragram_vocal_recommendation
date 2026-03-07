@@ -1,62 +1,62 @@
 {
-  "experiment": "RQ2_ranking_stability",
-  "description": "When we change favourites or avoids by one note, how similar is the new ranking to the original? (Kendall's τ)",
+  "experiment": "RQ2_ranking_stability_attempt2",
+  "description": "When we change favourites or avoids by one note, how similar is the new ranking to the original? (Kendall's τ; attempt 3, random baselines, baseline-level bootstrap, song-aware perturbations)",
   "parameters": {
     "alpha": 0.5,
     "top_n_favorite": 4,
     "bottom_n_avoid": 2,
     "min_candidates": 10,
-    "n_baselines": 5,
+    "n_baselines_target": 5,
     "bootstrap_samples": 10000,
     "random_seed": 42,
     "library_path": "data\\tessituragrams.json"
   },
   "baseline_profiles": [
     {
-      "source_song": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl",
-      "composer": "Clara Schumann",
+      "source_song": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl",
+      "composer": "Claude Debussy",
       "n_perturbations": 28,
-      "mean_tau": 0.8776
-    },
-    {
-      "source_song": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl",
-      "composer": "Clara Schumann",
-      "n_perturbations": 30,
-      "mean_tau": 0.8875
-    },
-    {
-      "source_song": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl",
-      "composer": "Clara Schumann",
-      "n_perturbations": 30,
-      "mean_tau": 0.8542
+      "mean_tau": 0.8571
     },
     {
       "source_song": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl",
       "composer": "Clara Schumann",
-      "n_perturbations": 26,
-      "mean_tau": 0.8935
+      "n_perturbations": 24,
+      "mean_tau": 0.886
     },
     {
-      "source_song": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl",
-      "composer": "Clara Schumann",
-      "n_perturbations": 26,
-      "mean_tau": 0.8494
+      "source_song": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl",
+      "composer": "Franz Schubert",
+      "n_perturbations": 30,
+      "mean_tau": 0.8606
+    },
+    {
+      "source_song": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl",
+      "composer": "Franz Schubert",
+      "n_perturbations": 24,
+      "mean_tau": 0.8639
+    },
+    {
+      "source_song": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl",
+      "composer": "Franz Schubert",
+      "n_perturbations": 24,
+      "mean_tau": 0.7729
     }
   ],
   "data_summary": {
     "total_songs_in_library": 101,
     "n_baselines": 5,
-    "total_perturbations": 140
+    "total_perturbations": 130
   },
   "metrics": {
-    "mean_tau": 0.8724,
-    "std_tau": 0.0874,
-    "ci_95": [
-      0.8579,
-      0.8865
-    ],
-    "mean_tau_per_baseline": 0.8724,
-    "std_tau_across_baselines": 0.0177
+    "mean_tau_overall": 0.849,
+    "std_tau_overall": 0.1138,
+    "mean_tau_per_baseline": 0.8481,
+    "std_tau_across_baselines": 0.0435,
+    "ci_95_baseline_mean": [
+      0.808,
+      0.8751
+    ]
   },
   "interpretation": {
     "tau_gt_0.7": "strong agreement (rankings very similar)",
@@ -68,624 +68,197 @@
       "perturbation_type": "add_fav",
       "midi_changed": 64,
       "note_changed": "E4",
-      "tau": 0.836,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+      "tau": 0.7818,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_fav",
-      "midi_changed": 65,
-      "note_changed": "F4",
-      "tau": 0.8783,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+      "midi_changed": 67,
+      "note_changed": "G4",
+      "tau": 0.9273,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_fav",
-      "midi_changed": 66,
-      "note_changed": "F#4",
-      "tau": 0.9788,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 69,
-      "note_changed": "A4",
-      "tau": 0.7619,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+      "midi_changed": 70,
+      "note_changed": "Bb4",
+      "tau": 0.7091,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_fav",
       "midi_changed": 71,
       "note_changed": "B4",
-      "tau": 0.7196,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+      "tau": 0.7091,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 72,
+      "note_changed": "C5",
+      "tau": 0.8545,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_fav",
       "midi_changed": 73,
       "note_changed": "C#5",
-      "tau": 0.7196,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+      "tau": 0.6727,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_fav",
       "midi_changed": 74,
       "note_changed": "D5",
-      "tau": 0.7725,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+      "tau": 0.7818,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_fav",
       "midi_changed": 75,
       "note_changed": "Eb5",
-      "tau": 0.963,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+      "tau": 0.9273,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_fav",
-      "midi_changed": 76,
-      "note_changed": "E5",
-      "tau": 0.8836,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 77,
-      "note_changed": "F5",
-      "tau": 0.9153,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 62,
-      "note_changed": "D4",
+      "midi_changed": 59,
+      "note_changed": "B3",
       "tau": 1.0,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_fav",
-      "midi_changed": 63,
-      "note_changed": "Eb4",
-      "tau": 0.9735,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "remove_fav",
-      "midi_changed": 70,
-      "note_changed": "Bb4",
-      "tau": 0.7407,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "remove_fav",
-      "midi_changed": 67,
-      "note_changed": "G4",
-      "tau": 0.746,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "remove_fav",
-      "midi_changed": 72,
-      "note_changed": "C5",
-      "tau": 0.8254,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "remove_fav",
-      "midi_changed": 68,
-      "note_changed": "Ab4",
-      "tau": 0.7672,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 64,
-      "note_changed": "E4",
-      "tau": 0.9206,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 65,
-      "note_changed": "F4",
-      "tau": 0.9259,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 69,
-      "note_changed": "A4",
-      "tau": 0.8942,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 71,
-      "note_changed": "B4",
-      "tau": 0.9206,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 73,
-      "note_changed": "C#5",
-      "tau": 0.8677,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 74,
-      "note_changed": "D5",
-      "tau": 0.873,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 75,
-      "note_changed": "Eb5",
-      "tau": 0.9365,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 76,
-      "note_changed": "E5",
-      "tau": 0.9365,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 77,
-      "note_changed": "F5",
-      "tau": 0.9524,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 63,
-      "note_changed": "Eb4",
-      "tau": 0.9683,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "remove_avoid",
-      "midi_changed": 62,
-      "note_changed": "D4",
-      "tau": 0.9894,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "remove_avoid",
-      "midi_changed": 66,
-      "note_changed": "F#4",
-      "tau": 0.9048,
-      "baseline_source": "schumann-clara-6-lieder-op13-no1-ich-stand-in-dunklen-traumen.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 64,
-      "note_changed": "E4",
-      "tau": 0.889,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 65,
-      "note_changed": "F4",
-      "tau": 0.9403,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 66,
-      "note_changed": "F#4",
-      "tau": 0.8521,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 68,
-      "note_changed": "Ab4",
-      "tau": 0.8435,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 69,
-      "note_changed": "A4",
-      "tau": 0.9545,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 71,
-      "note_changed": "B4",
-      "tau": 0.7952,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 73,
-      "note_changed": "C#5",
-      "tau": 0.6871,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 74,
-      "note_changed": "D5",
-      "tau": 0.744,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 76,
-      "note_changed": "E5",
-      "tau": 0.8293,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 77,
-      "note_changed": "F5",
-      "tau": 0.9886,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 78,
-      "note_changed": "F#5",
-      "tau": 0.9289,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 79,
-      "note_changed": "G5",
-      "tau": 0.9801,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 63,
-      "note_changed": "Eb4",
-      "tau": 0.9744,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "remove_fav",
-      "midi_changed": 70,
-      "note_changed": "Bb4",
-      "tau": 0.8151,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "remove_fav",
-      "midi_changed": 67,
-      "note_changed": "G4",
-      "tau": 0.8208,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "remove_fav",
-      "midi_changed": 75,
-      "note_changed": "Eb5",
-      "tau": 0.9175,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "remove_fav",
-      "midi_changed": 72,
-      "note_changed": "C5",
-      "tau": 0.8037,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 64,
-      "note_changed": "E4",
-      "tau": 0.9516,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 65,
-      "note_changed": "F4",
-      "tau": 0.9545,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 66,
-      "note_changed": "F#4",
-      "tau": 0.872,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 68,
-      "note_changed": "Ab4",
-      "tau": 0.8777,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 71,
-      "note_changed": "B4",
-      "tau": 0.8834,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 73,
-      "note_changed": "C#5",
-      "tau": 0.8378,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 74,
-      "note_changed": "D5",
-      "tau": 0.8521,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 76,
-      "note_changed": "E5",
-      "tau": 0.9459,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 78,
-      "note_changed": "F#5",
-      "tau": 0.9516,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 79,
-      "note_changed": "G5",
-      "tau": 0.9886,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 63,
-      "note_changed": "Eb4",
-      "tau": 0.9772,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "remove_avoid",
-      "midi_changed": 69,
-      "note_changed": "A4",
-      "tau": 0.8208,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "remove_avoid",
-      "midi_changed": 77,
-      "note_changed": "F5",
-      "tau": 0.9488,
-      "baseline_source": "schumann-clara-6-lieder-op13-no3-liebeszauber.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 64,
-      "note_changed": "E4",
-      "tau": 0.7984,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 65,
-      "note_changed": "F4",
-      "tau": 0.8266,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 66,
-      "note_changed": "F#4",
-      "tau": 0.8427,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 67,
-      "note_changed": "G4",
-      "tau": 0.7379,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 69,
-      "note_changed": "A4",
-      "tau": 0.9597,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 70,
-      "note_changed": "Bb4",
-      "tau": 0.7782,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 71,
-      "note_changed": "B4",
-      "tau": 0.6976,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 74,
-      "note_changed": "D5",
-      "tau": 0.7621,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 76,
-      "note_changed": "E5",
-      "tau": 0.8347,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 77,
-      "note_changed": "F5",
-      "tau": 0.9234,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+      "midi_changed": 60,
+      "note_changed": "C4",
+      "tau": 0.8909,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_fav",
       "midi_changed": 61,
       "note_changed": "C#4",
-      "tau": 0.9637,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+      "tau": 0.9636,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
-      "perturbation_type": "add_fav",
-      "midi_changed": 62,
-      "note_changed": "D4",
-      "tau": 0.9839,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
+      "perturbation_type": "remove_fav",
       "midi_changed": 63,
       "note_changed": "Eb4",
-      "tau": 0.9435,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+      "tau": 0.7818,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 65,
+      "note_changed": "F4",
+      "tau": 0.7818,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 66,
+      "note_changed": "F#4",
+      "tau": 0.9273,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "remove_fav",
       "midi_changed": 68,
       "note_changed": "Ab4",
-      "tau": 0.7984,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "remove_fav",
-      "midi_changed": 73,
-      "note_changed": "C#5",
-      "tau": 0.6774,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "remove_fav",
-      "midi_changed": 72,
-      "note_changed": "C5",
-      "tau": 0.7621,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "remove_fav",
-      "midi_changed": 75,
-      "note_changed": "Eb5",
-      "tau": 0.871,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+      "tau": 0.8909,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_avoid",
       "midi_changed": 64,
       "note_changed": "E4",
-      "tau": 0.9153,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 65,
-      "note_changed": "F4",
-      "tau": 0.8911,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 66,
-      "note_changed": "F#4",
-      "tau": 0.8669,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+      "tau": 0.7818,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_avoid",
       "midi_changed": 67,
       "note_changed": "G4",
-      "tau": 0.8266,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+      "tau": 0.7818,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_avoid",
       "midi_changed": 70,
       "note_changed": "Bb4",
-      "tau": 0.7097,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+      "tau": 0.7455,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_avoid",
       "midi_changed": 71,
       "note_changed": "B4",
-      "tau": 0.8185,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+      "tau": 0.8909,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 72,
+      "note_changed": "C5",
+      "tau": 0.8545,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 73,
+      "note_changed": "C#5",
+      "tau": 0.9636,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_avoid",
       "midi_changed": 74,
       "note_changed": "D5",
-      "tau": 0.8992,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+      "tau": 0.8545,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_avoid",
-      "midi_changed": 76,
-      "note_changed": "E5",
-      "tau": 0.9032,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+      "midi_changed": 75,
+      "note_changed": "Eb5",
+      "tau": 0.8909,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_avoid",
-      "midi_changed": 77,
-      "note_changed": "F5",
-      "tau": 0.9395,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+      "midi_changed": 59,
+      "note_changed": "B3",
+      "tau": 1.0,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 60,
+      "note_changed": "C4",
+      "tau": 0.9273,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_avoid",
       "midi_changed": 61,
       "note_changed": "C#4",
-      "tau": 0.9839,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 63,
-      "note_changed": "Eb4",
-      "tau": 0.9315,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+      "tau": 0.8909,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "remove_avoid",
       "midi_changed": 69,
       "note_changed": "A4",
-      "tau": 0.8226,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
+      "tau": 0.8909,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "remove_avoid",
       "midi_changed": 62,
       "note_changed": "D4",
-      "tau": 0.9556,
-      "baseline_source": "schumann-clara-6-lieder-op13-no4-der-mond-kommt-still-gegangen.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 64,
-      "note_changed": "E4",
-      "tau": 1.0,
-      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
+      "tau": 0.9273,
+      "baseline_source": "debussy-claude-3-chansons-de-france-no2-la-grotte-aupres-de-cette-grotte-sombre.mxl"
     },
     {
       "perturbation_type": "add_fav",
@@ -713,13 +286,6 @@
       "midi_changed": 69,
       "note_changed": "A4",
       "tau": 0.8211,
-      "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 71,
-      "note_changed": "B4",
-      "tau": 0.9684,
       "baseline_source": "schumann-clara-6-lieder-op13-no5-ich-hab-in-deinem-auge.mxl"
     },
     {
@@ -866,183 +432,547 @@
       "perturbation_type": "add_fav",
       "midi_changed": 64,
       "note_changed": "E4",
-      "tau": 0.8421,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "tau": 0.8864,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_fav",
       "midi_changed": 65,
       "note_changed": "F4",
-      "tau": 0.9579,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "tau": 0.947,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_fav",
       "midi_changed": 66,
       "note_changed": "F#4",
-      "tau": 0.8316,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "tau": 0.803,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_fav",
       "midi_changed": 67,
       "note_changed": "G4",
-      "tau": 0.7789,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "tau": 0.75,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_fav",
-      "midi_changed": 69,
-      "note_changed": "A4",
-      "tau": 0.8,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "midi_changed": 68,
+      "note_changed": "Ab4",
+      "tau": 0.803,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_fav",
-      "midi_changed": 71,
-      "note_changed": "B4",
-      "tau": 0.7368,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
-    },
-    {
-      "perturbation_type": "add_fav",
-      "midi_changed": 74,
-      "note_changed": "D5",
-      "tau": 0.8842,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "midi_changed": 72,
+      "note_changed": "C5",
+      "tau": 0.6477,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_fav",
       "midi_changed": 75,
       "note_changed": "Eb5",
-      "tau": 0.9368,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "tau": 0.8939,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_fav",
       "midi_changed": 76,
       "note_changed": "E5",
-      "tau": 0.8105,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "tau": 0.8144,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_fav",
       "midi_changed": 77,
       "note_changed": "F5",
-      "tau": 0.9789,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "tau": 0.8902,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_fav",
-      "midi_changed": 63,
-      "note_changed": "Eb4",
-      "tau": 0.9684,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "midi_changed": 78,
+      "note_changed": "F#5",
+      "tau": 0.8902,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 80,
+      "note_changed": "Ab5",
+      "tau": 0.9848,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 81,
+      "note_changed": "A5",
+      "tau": 0.9773,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "remove_fav",
-      "midi_changed": 70,
-      "note_changed": "Bb4",
-      "tau": 0.6421,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
-    },
-    {
-      "perturbation_type": "remove_fav",
-      "midi_changed": 72,
-      "note_changed": "C5",
-      "tau": 0.7789,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
-    },
-    {
-      "perturbation_type": "remove_fav",
-      "midi_changed": 68,
-      "note_changed": "Ab4",
-      "tau": 0.6737,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "midi_changed": 71,
+      "note_changed": "B4",
+      "tau": 0.7045,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "remove_fav",
       "midi_changed": 73,
       "note_changed": "C#5",
-      "tau": 0.6211,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "tau": 0.5795,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 74,
+      "note_changed": "D5",
+      "tau": 0.7121,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 69,
+      "note_changed": "A4",
+      "tau": 0.6932,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_avoid",
       "midi_changed": 64,
       "note_changed": "E4",
-      "tau": 0.9053,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "tau": 0.9394,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 65,
+      "note_changed": "F4",
+      "tau": 0.9621,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_avoid",
       "midi_changed": 66,
       "note_changed": "F#4",
-      "tau": 0.8421,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "tau": 0.8864,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_avoid",
       "midi_changed": 67,
       "note_changed": "G4",
-      "tau": 0.8632,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "tau": 0.8409,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_avoid",
-      "midi_changed": 69,
-      "note_changed": "A4",
-      "tau": 0.8211,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "midi_changed": 68,
+      "note_changed": "Ab4",
+      "tau": 0.8788,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_avoid",
-      "midi_changed": 71,
-      "note_changed": "B4",
-      "tau": 0.8316,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
-    },
-    {
-      "perturbation_type": "add_avoid",
-      "midi_changed": 74,
-      "note_changed": "D5",
-      "tau": 0.9474,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "midi_changed": 72,
+      "note_changed": "C5",
+      "tau": 0.8674,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_avoid",
       "midi_changed": 75,
       "note_changed": "Eb5",
-      "tau": 0.9474,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "tau": 0.8939,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_avoid",
       "midi_changed": 76,
       "note_changed": "E5",
-      "tau": 0.9474,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "tau": 0.8598,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
     },
     {
       "perturbation_type": "add_avoid",
-      "midi_changed": 63,
-      "note_changed": "Eb4",
-      "tau": 0.9684,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "midi_changed": 77,
+      "note_changed": "F5",
+      "tau": 0.9242,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 78,
+      "note_changed": "F#5",
+      "tau": 0.9167,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 80,
+      "note_changed": "Ab5",
+      "tau": 0.9924,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 81,
+      "note_changed": "A5",
+      "tau": 0.9924,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
+    },
+    {
+      "perturbation_type": "remove_avoid",
+      "midi_changed": 79,
+      "note_changed": "G5",
+      "tau": 0.9811,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
+    },
+    {
+      "perturbation_type": "remove_avoid",
+      "midi_changed": 70,
+      "note_changed": "Bb4",
+      "tau": 0.9053,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no7-ungeduld.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 66,
+      "note_changed": "F#4",
+      "tau": 0.8333,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 68,
+      "note_changed": "Ab4",
+      "tau": 0.8833,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 69,
+      "note_changed": "A4",
+      "tau": 0.7667,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 70,
+      "note_changed": "Bb4",
+      "tau": 0.7333,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 73,
+      "note_changed": "C#5",
+      "tau": 0.65,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 75,
+      "note_changed": "Eb5",
+      "tau": 0.9167,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 76,
+      "note_changed": "E5",
+      "tau": 0.9333,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 77,
+      "note_changed": "F5",
+      "tau": 0.9667,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 78,
+      "note_changed": "F#5",
+      "tau": 0.9333,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 74,
+      "note_changed": "D5",
+      "tau": 0.7,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 72,
+      "note_changed": "C5",
+      "tau": 0.7333,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 71,
+      "note_changed": "B4",
+      "tau": 0.7333,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 67,
+      "note_changed": "G4",
+      "tau": 0.6833,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 66,
+      "note_changed": "F#4",
+      "tau": 0.95,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 68,
+      "note_changed": "Ab4",
+      "tau": 0.9667,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 69,
+      "note_changed": "A4",
+      "tau": 0.85,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 70,
+      "note_changed": "Bb4",
+      "tau": 0.85,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 73,
+      "note_changed": "C#5",
+      "tau": 0.9167,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 75,
+      "note_changed": "Eb5",
+      "tau": 0.9333,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 76,
+      "note_changed": "E5",
+      "tau": 0.9167,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 77,
+      "note_changed": "F5",
+      "tau": 0.9833,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 78,
+      "note_changed": "F#5",
+      "tau": 0.9667,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
     },
     {
       "perturbation_type": "remove_avoid",
       "midi_changed": 65,
       "note_changed": "F4",
-      "tau": 0.8632,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "tau": 0.9333,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
     },
     {
       "perturbation_type": "remove_avoid",
+      "midi_changed": 79,
+      "note_changed": "G5",
+      "tau": 1.0,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no3-halt.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 66,
+      "note_changed": "F#4",
+      "tau": 0.6923,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 67,
+      "note_changed": "G4",
+      "tau": 0.6044,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 69,
+      "note_changed": "A4",
+      "tau": 0.6923,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 70,
+      "note_changed": "Bb4",
+      "tau": 0.7143,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 74,
+      "note_changed": "D5",
+      "tau": 0.4945,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 75,
+      "note_changed": "Eb5",
+      "tau": 0.9341,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
       "midi_changed": 77,
       "note_changed": "F5",
-      "tau": 0.9053,
-      "baseline_source": "schumann-clara-6-lieder-op13-no6-die-stille-lotosblume.mxl"
+      "tau": 0.7802,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 78,
+      "note_changed": "F#5",
+      "tau": 0.8462,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_fav",
+      "midi_changed": 79,
+      "note_changed": "G5",
+      "tau": 0.978,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 71,
+      "note_changed": "B4",
+      "tau": 0.6923,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 76,
+      "note_changed": "E5",
+      "tau": 0.7143,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 73,
+      "note_changed": "C#5",
+      "tau": 0.3626,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "remove_fav",
+      "midi_changed": 72,
+      "note_changed": "C5",
+      "tau": 0.7363,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 66,
+      "note_changed": "F#4",
+      "tau": 0.7802,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 67,
+      "note_changed": "G4",
+      "tau": 0.7363,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 69,
+      "note_changed": "A4",
+      "tau": 0.7363,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 70,
+      "note_changed": "Bb4",
+      "tau": 1.0,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 74,
+      "note_changed": "D5",
+      "tau": 0.6923,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 75,
+      "note_changed": "Eb5",
+      "tau": 0.9121,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 77,
+      "note_changed": "F5",
+      "tau": 0.9121,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 78,
+      "note_changed": "F#5",
+      "tau": 0.8462,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "add_avoid",
+      "midi_changed": 79,
+      "note_changed": "G5",
+      "tau": 0.8901,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "remove_avoid",
+      "midi_changed": 80,
+      "note_changed": "Ab5",
+      "tau": 0.956,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
+    },
+    {
+      "perturbation_type": "remove_avoid",
+      "midi_changed": 68,
+      "note_changed": "Ab4",
+      "tau": 0.8462,
+      "baseline_source": "schubert-franz-die-schone-mullerin-d795-no18-trockne-blumen.mxl"
     }
   ]
 }

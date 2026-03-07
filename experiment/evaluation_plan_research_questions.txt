@@ -144,23 +144,34 @@ RESEARCH QUESTION 2: Ranking stability under small preference changes
    Model: Same as RQ1 (filter_by_range, build_ideal_vector, score_songs;
    α = 0.5; tie-break by filename).
 
-   Data: data/tessituragrams.json (101 songs). Use 5 baseline user profiles
-   (N_BASELINES = 5), each derived from a different song using the same
-   rule as RQ1 (top-4 fav, bottom-2 avoid, disjoint). Each baseline's
-   filtered candidate set must have at least 10 songs (MIN_CANDIDATES = 10).
-   Using multiple baselines reduces the risk that results depend on an
-   atypical baseline.
+   Data: data/tessituragrams.json (101 songs). Use up to 5 baseline user
+   profiles (N_BASELINES = 5), each derived from a different song using the
+   same rule as RQ1 (top-4 fav, bottom-2 avoid, disjoint). Baselines are
+   sampled at random (with a fixed seed) from all songs whose filtered
+   candidate set has at least 10 songs (MIN_CANDIDATES = 10). Using multiple
+   baselines reduces the risk that results depend on an atypical baseline.
 
    Procedure:
-   1. Compute the baseline ranking R0 for that profile over the candidate set C.
-   2. For each one-note perturbation: add one favourite (from range, not
-      already in favourites), or remove one favourite, or add one avoid, or
-      remove one avoid. Keep the same range so C does not change.
+   1. For each baseline, compute the baseline ranking R0 over the candidate
+      set C (all songs that pass filter_by_range for that profile).
+   2. For each one-note perturbation on that baseline:
+        - add one favourite (choose a MIDI note that lies within the user's
+          range, occurs in at least one song in C, and is not already in the
+          favourite or avoid lists),
+        - or remove one favourite,
+        - or add one avoid (same MIDI constraints as add-favourite),
+        - or remove one avoid.
+      Keep the same vocal range so C does not change; favourites and avoids
+      are enforced to remain disjoint in all perturbations.
    3. For each perturbation, compute the new ranking R_new over the same C.
    4. For each pair (R0, R_new), compute Kendall's τ (e.g. scipy.stats.kendalltau
       on the two rank vectors for the same set of songs).
-   5. Report mean τ, standard deviation, and 95% CI for the mean (bootstrap
-      over the perturbations).
+   5. Compute:
+        - the mean and standard deviation of τ across all perturbations
+          (descriptive), and
+        - the mean τ per baseline, plus a 95% confidence interval for the
+          baseline-level mean (bootstrap over baseline means, resampling
+          baselines with replacement).
 
    Evaluation: Report mean τ and 95% CI. Interpret: τ > 0.7 strong agreement;
    0.3–0.7 moderate; < 0.3 weak. You can state a hypothesis (e.g. mean τ ≥ 0.5)
@@ -304,9 +315,11 @@ RQ  | What is measured              | Primary metrics        | Data / procedure
     |                               | + 95% CI               | bottom-2 avoid from that song's
     |                               |                         | tessituragram.
 ----+-------------------------------+------------------------+------------------------------------------
-2   | Similarity of ranking before | Kendall's τ (mean,     | 5 baseline profiles (≥ 10 candidates
-    | vs after one-note change     | std, 95% CI)            | each); perturb by one note (add/remove
-    |                               |                         | fav or avoid); same candidate set.
+2   | Similarity of ranking before | Kendall's τ (mean,     | Up to 5 randomly sampled baseline
+    | vs after one-note change     | std, 95% CI)            | profiles (≥ 10 candidates each); for
+    |                               |                         | each baseline, perturb by one note
+    |                               |                         | (add/remove fav or avoid) on pitches
+    |                               |                         | present in the candidate set; same C.
 ----+-------------------------------+------------------------+------------------------------------------
 3   | (a) Spread of final_score    | (a) Variance, range     | M = 25 synthetic profiles (same rule as
     | (b) Alignment of score parts | (b) Pearson r for three | RQ1; ≥ 10 candidates each); one ranking
@@ -360,9 +373,11 @@ IMPLEMENTATION CHECKLIST
     disjoint. Loop over valid songs; compute HR@1, MRR, HR@3, HR@5;
     bootstrap 95% CI (10,000 samples, seed 42).
     → experiment/run_rq1_experiment.py; output: experiment/RQ1_results.json
-[x] RQ2: 5 baseline profiles (≥ 10 candidates each); all one-note add/remove
-    perturbations; Kendall's τ for each; mean, std, 95% CI.
-    → experiment/run_rq2_experiment.py; output: experiment/RQ2_results.json
+[x] RQ2: Up to 5 randomly sampled baseline profiles (≥ 10 candidates each);
+    all one-note add/remove perturbations on pitches present in the candidate
+    set; Kendall's τ for each; overall mean/std and baseline-level mean with
+    95% CI (bootstrap over baselines).
+    → experiment/run_rq2_experiment_attempt3.py; output: experiment_results/RQ2_results.json
 [x] RQ3: M = 25 profiles (≥ 10 candidates each); per run: variance and range
     of final_score, and Pearson r for the three pairs; aggregate with 95% CI.
     → experiment/run_rq3_experiment.py; output: experiment/RQ3_results.json
