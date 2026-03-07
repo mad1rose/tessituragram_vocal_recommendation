@@ -333,6 +333,91 @@ hit rates and rank-based scores that do not follow a bell curve.
 All three experiments in this repository use the same bootstrap procedure
 (10,000 resamples, random seed 42 for reproducibility).
 
+--------------------------------------------------------------------------------
+LIMITATIONS (state these in your paper)
+--------------------------------------------------------------------------------
+- **No human judgements.** Evaluation is fully offline. Synthetic user
+  profiles are derived from the song library; there is no ground-truth
+  relevance from real users. Results indicate internal consistency and
+  robustness of the scoring pipeline, not user satisfaction.
+
+- **Single library and corpus.** The experiment uses one dataset
+  (data/tessituragrams.json, 101 songs from the OpenScore Lieder Corpus).
+  Findings may not generalise to other repertoires, larger libraries, or
+  different musical styles.
+
+- **RQ1.** The valid query pool is all songs with at least 2 candidates
+  after range filtering. If this pool is small (e.g. fewer than 30 songs),
+  report it as a limitation: the bootstrap confidence intervals will be
+  wider and the estimates less precise. The experiment samples up to
+  N_QUERIES (e.g. 50) from this pool at random.
+
+- **RQ2.** Only a small number of baselines (e.g. 5) are used;
+  perturbations are restricted to one-note changes. The 95% CI is for the
+  baseline-level mean τ (bootstrap over baselines), not over individual
+  perturbations.
+
+- **RQ3.** The bootstrap is at the run (profile) level, not hierarchical
+  (e.g. resampling profiles then songs within profile). Correlations
+  between final_score and its components (cosine_similarity, avoid_penalty)
+  are by design sanity checks that the pipeline behaves as implemented,
+  not evidence of "internal validity" in the strong sense; the identity
+  check and regression (final ≈ cos − α×avoid) are the primary formula
+  checks. If any runs are excluded due to undefined correlations (e.g.
+  zero variance), n_excluded is reported.
+
+--------------------------------------------------------------------------------
+WHAT TO REPORT IN YOUR METHODOLOGY (checklist)
+--------------------------------------------------------------------------------
+In the methods section of your paper, include at least the following so
+readers can interpret and replicate the evaluation:
+
+**Data and system**
+- Data source and path (e.g. data/tessituragrams.json), library size
+  (e.g. 101 songs), and corpus credit (Gotham & Jonas, 2022; OpenScore
+  Lieder Corpus, CC0).
+- Scoring: α = 0.5; tie-break by filename (A–Z). Synthetic profile rule:
+  top 4 MIDI by duration as favourites, bottom 2 as avoids (disjoint);
+  profile derived from the same L1-normalised tessituragram used for
+  scoring (internal coherence).
+
+**RQ1**
+- Valid query pool: songs with ≥ 2 candidates after range filtering.
+  Report the pool size and the number of queries actually sampled (e.g. up
+  to N_QUERIES = 50). State that sampling is random with a fixed seed
+  (e.g. 42) for reproducibility.
+- Report HR@1, MRR, HR@3, HR@5, each with 95% bootstrap confidence
+  interval (e.g. 10,000 resamples). If the valid query pool is small
+  (< 30), state this as a limitation.
+
+**RQ2**
+- Up to N_BASELINES = 5 profiles, each with ≥ MIN_CANDIDATES = 10 songs.
+  Baselines and one-note perturbations (add/remove favourite or avoid) as
+  described in §2.4. Perturbation notes are restricted to the user range
+  and to pitches present in the candidate set; favourites and avoids
+  remain disjoint.
+- Report mean τ across perturbations, standard deviation, and 95% CI for the
+  baseline-level mean (bootstrap over baselines). Interpret τ (e.g. τ > 0.7
+  strong, 0.3–0.7 moderate, < 0.3 weak).
+
+**RQ3**
+- M = N_PROFILES = 25 profiles (≥ 10 candidates each), randomly sampled.
+  All statistics use unrounded scores.
+- Report: (a) mean variance and mean range of final_score, with 95% CI;
+  (b) identity check (mean and max |residual| for final − (cos − α×avoid));
+  (c) regression summary (mean coef_cos, coef_avoid, R² over runs with
+  valid regression); (d) sanity-check correlations (Pearson for
+  final–cos and final–avoid, Spearman for cos–favorite_overlap), aggregated
+  via Fisher z, with 95% CI; report n_excluded for each correlation if > 0.
+- Frame the final↔component correlations as pipeline sanity checks; the
+  identity and regression results are the primary evidence that the
+  formula is implemented as specified.
+
+**Reproducibility**
+- Random seed (e.g. 42) for profile/query sampling. Bootstrap: 10,000
+  resamples for all CIs. Cite bootstrap and correlation-aggregation
+  methods (e.g. Efron & Tibshirani; Fisher) if space allows.
+
 ================================================================================
 SUMMARY TABLE
 ================================================================================
@@ -436,8 +521,9 @@ IMPLEMENTATION CHECKLIST
     → experiment/run_rq3_experiment.py; output: experiment_results/RQ3_results.json
 [x] Visualization scripts for all three RQs.
     → experiment/visualize_rq1.py, visualize_rq2.py, visualize_rq3.py
-[ ] In the paper: state data path, library size (101 songs), α = 0.5, and
-    the exact profile rule. Report all confidence intervals.
+[ ] In the paper: use the "WHAT TO REPORT IN YOUR METHODOLOGY" and
+    "LIMITATIONS" sections above; state data path, library size, α = 0.5,
+    profile rule, all metrics with 95% CIs, and limitations.
 --------------------------------------------------------------------------------
 END OF EVALUATION PLAN
 ================================================================================

@@ -225,6 +225,11 @@ def _compute_run_stats(
         "identity_mean_abs_residual": mean_abs_residual,
         "identity_max_abs_residual": max_abs_residual,
         "regression": regress,
+        # Raw per-song data for assumption checks (unrounded)
+        "final_scores": final_scores.tolist(),
+        "cosine_similarities": cos_sims.tolist(),
+        "avoid_penalties": avoid_pens.tolist(),
+        "favorite_overlaps": fav_overlaps.tolist(),
     }
 
 
@@ -422,6 +427,11 @@ def run_rq3_experiment(library_path: Path) -> dict:
                 "identity_mean_abs_residual": r["identity_mean_abs_residual"],
                 "identity_max_abs_residual": r["identity_max_abs_residual"],
                 "regression": r.get("regression"),
+                # Raw per-song arrays for assumption checks
+                "final_scores": r["final_scores"],
+                "cosine_similarities": r["cosine_similarities"],
+                "avoid_penalties": r["avoid_penalties"],
+                "favorite_overlaps": r["favorite_overlaps"],
             }
             for r in per_run
         ],
